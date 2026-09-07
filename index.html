@@ -34,6 +34,10 @@
 
     html, body {
       height: 100%;
+      /* 手機瀏覽器捲動到底部的彈性回彈（overscroll bounce）會露出 <html>
+         本身的背景，若沒有設定會是瀏覽器預設的白色，造成「捲到底變白」
+         的違和感；讓 html 也套用同一組背景色即可與內容無縫銜接。 */
+      background-color: var(--bg-color);
     }
 
     body {
@@ -333,10 +337,15 @@
       align-items: center;
       justify-content: space-between;
       transition: background 0.6s ease, height 0.3s ease, padding 0.3s ease;
+      /* 電腦版章節列表較長時，.main-column 會用 overflow-y:auto 產生捲動，
+         但 header 本身若沒有明確 flex-shrink:0，仍會被瀏覽器的 flex
+         演算法依內容高度按比例壓縮，導致清單越長、header 越矮。
+         固定 flex-shrink:0 讓 header 高度永遠只吃 CSS 設定的高度。 */
+      flex-shrink: 0;
     }
 
     header h1 {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 700;
       position: absolute;
       left: 50%;
@@ -456,6 +465,8 @@
       transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       padding-top: 0;
       padding-bottom: 0;
+      /* 與 header 同理，避免和 header 一起被 flex 壓縮比例影響 */
+      flex-shrink: 0;
     }
 
     .search-container.active {
@@ -906,7 +917,9 @@
     .post-log-tag {
       font-size: 0.9rem;
       font-weight: 700;
-      color: #d97736;
+      /* 原本寫死橘色，換到別的主題色（如藍、綠、紫...）時會跟 header 對不上；
+         改用主題色變數，讓標籤色永遠跟目前套用的主題一致。 */
+      color: var(--primary-dark);
       margin-bottom: 4px;
     }
 
@@ -1374,6 +1387,22 @@
       margin-top: auto;
     }
 
+    /* 手機版：footer（版權文字）改為固定貼在底部導覽列正上方，
+       不隨內容捲動、也不會被半透明的導覽列擋住或糊掉；
+       footer 原本的 border-top 就是分隔線，分隔線以上（main 內容）
+       仍維持正常的頁面捲動。 */
+    body:not(.desktop-mode) footer#footerText {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: var(--bottom-nav-height, 56px);
+      width: 100%;
+      max-width: 480px;
+      z-index: 140;
+      background-color: var(--bg-color);
+      margin-top: 0;
+    }
+
     .bottom-nav {
       /* 改用 fixed 並固定貼齊「視覺」畫面底部，避免手機瀏覽器網址列收合/展開時，
          原本 sticky 定位受限於容器高度（由 JS 依 innerHeight 計算）產生落後的落差，
@@ -1400,7 +1429,8 @@
       max-width: 480px;
     }
 
-    /* 導覽列離開文件流後，補回原本它所佔的高度，避免內容（如 footer）被蓋住 */
+    /* 導覽列離開文件流後，補回原本它所佔的高度；現在還要再加上固定 footer
+       的高度，避免內容最後一段被「導覽列 + footer」兩者一起擋住 */
     body:not(.desktop-mode) .app-container {
       padding-bottom: var(--bottom-nav-space, 64px);
     }
@@ -1574,46 +1604,13 @@
     </div>
   </div>
 
-  <!-- 這兩個 template 區塊本身不會被瀏覽器執行（type="text/template"），
-       本機與 Apps Script 都會安靜地存在，只是內容來源不同：
-       本機打開時抓不到伺服器端樣板內容，下面的 script 會偵測不到 google.script，
-       改用 script src 直接抓實體檔案；部署到 Apps Script 時，doGet() 用
-       createTemplateFromFile 搭配 evaluate 渲染此頁，樣板標記會被伺服器端
-       換成 Data.html 與 Post.html 的真實內容。 -->
-  <script type="text/template" id="gasData">
-<?!= HtmlService.createHtmlOutputFromFile('Data').getContent(); ?>
-  </script>
-  <script type="text/template" id="gasPost">
-<?!= HtmlService.createHtmlOutputFromFile('Post').getContent(); ?>
-  </script>
-
-  <script>
-  (function loadAppData() {
-    // 自動偵測環境：google.script 是 Apps Script 服務網頁時瀏覽器才會自動注入的全域物件，
-    // 本機用 VS Code / Live Server 開啟同一份檔案時必定是 undefined。
-    // 不需要手動維護 true/false 開關，也就不會有「忘記切換」導致部署後失效的問題。
-    var isGasEnv = (typeof google !== 'undefined' && !!google.script);
-
-    function injectFromTemplate(id) {
-      var tpl = document.getElementById(id);
-      if (tpl && tpl.textContent.trim()) {
-        var s = document.createElement('script');
-        s.textContent = tpl.textContent;
-        document.head.appendChild(s);
-      }
-    }
-
-    if (isGasEnv) {
-      // 部署在 Apps Script：直接吃樣板引擎已經注入好的內容
-      injectFromTemplate('gasData');
-      injectFromTemplate('gasPost');
-    } else {
-      // 本機開發（VS Code / Live Server）：改抓同資料夾內的實體檔案
-      document.write('<script src="Data.html"><\/script>');
-      document.write('<script src="Post.html"><\/script>');
-    }
-  })();
-  </script>
+  <!-- 資料載入說明：
+       Data.js／Post.js 已改為一般 JavaScript 檔案，並在 <head> 最上方
+       以 <script src="./Data.js"> 與 <script src="./Post.js"> 直接載入
+       （見本檔案第 10～11 行），此寫法本機（VS Code / Live Server）與
+       GitHub（GitHub Pages）皆可直接運作，不需再判斷執行環境或另外抓取。
+       原本用來相容 Google Apps Script（HtmlService 樣板標記／google.script
+       偵測）的區塊已隨網站遷移至 GitHub 一併移除。 -->
 
   <script>
     const APP_VERSION = "2026";
@@ -1765,8 +1762,12 @@
 
       headerTitle.style.maxWidth = `${available}px`;
 
-      const maxFontRem = 1.1;
-      const minFontRem = 0.72;
+      // 手機版 header 高度固定 56px，空間相當足夠，原本 1.1rem 的上限
+      // 只依「寬度夠不夠」去縮，完全沒利用到多餘的高度，字看起來偏小；
+      // 這裡把可用的最大字級調高，讓大多數短標題能用更大字顯示，
+      // 真的放不下時才依現有邏輯逐步縮小到 minFontRem。
+      const maxFontRem = 1.3;
+      const minFontRem = 0.8;
       let fontSize = maxFontRem;
       headerTitle.style.fontSize = `${fontSize}rem`;
 
@@ -1803,8 +1804,15 @@
       const nav = document.getElementById('bottomNav');
       if (!nav) return;
       if (document.body.classList.contains('desktop-mode')) return;
-      const h = nav.offsetHeight;
-      if (h > 0) document.documentElement.style.setProperty('--bottom-nav-space', `${h}px`);
+      const navH = nav.offsetHeight;
+      if (navH <= 0) return;
+      // 導覽列自身高度：footer 固定在它正上方要用這個數字定位
+      document.documentElement.style.setProperty('--bottom-nav-height', `${navH}px`);
+      // 導覽列 + footer 的總高度：app-container 底部留白要用這個數字，
+      // 確保 main 內容捲到底時不會被「導覽列 + footer」兩者夾住
+      const footer = document.getElementById('footerText');
+      const footerH = footer ? footer.offsetHeight : 0;
+      document.documentElement.style.setProperty('--bottom-nav-space', `${navH + footerH}px`);
     }
     window.addEventListener('resize', setBottomNavSpace);
     window.addEventListener('orientationchange', setBottomNavSpace);
