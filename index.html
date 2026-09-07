@@ -1,0 +1,2929 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>加加研究室 (程式創造++)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="./Data.js"></script>
+    <script src="./Post.js"></script>
+
+  <style>
+    :root {
+      --primary-color: #007bc7;
+      --primary-dark: #005a93;
+      --accent-glow: rgba(0, 123, 199, 0.25);
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --text-main: #2c3e50;
+      --text-muted: #666666;
+      /* 需求 1: 電腦版的整體寬度稍寬，但固定寬度 */
+      --desktop-max-width: 1440px;
+      --app-height: 100vh;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      /* 手機版預設與 app 內容同色，避免長頁面底部露出背景造成「破圖變黑」的錯覺 */
+      background-color: var(--bg-color);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+
+    button, .card, .list-item, .section-card, .btn-icon,
+    .mode-choice-btn, .more-dropdown-item, .post-version-header {
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img { -webkit-touch-callout: none; }
+
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg-color);
+      min-height: var(--app-height, 100vh);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      position: relative;
+      transition: background-color 0.4s ease, max-width 0.3s ease;
+    }
+
+    .main-column {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .desktop-sidebar {
+      display: none;
+      flex-direction: column;
+      width: 264px;
+      flex-shrink: 0;
+      padding: 20px 14px;
+      gap: 3px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(14px);
+      border-right: 1px solid rgba(0, 0, 0, 0.06);
+      overflow-y: auto;
+      max-height: 100%;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px 18px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    .sidebar-brand i {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
+
+    .sidebar-brand span {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.06);
+      margin: 8px 4px 10px;
+    }
+
+    .sidebar-book-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-item:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .sidebar-item.active {
+      background: rgba(255, 255, 255, 0.85);
+      border-left-color: var(--primary-color);
+      color: var(--primary-dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .sidebar-item i {
+      width: 18px;
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 1rem;
+    }
+
+    .sidebar-item .sidebar-arrow {
+      margin-left: auto;
+      transition: transform 0.25s ease;
+      color: #777;
+    }
+
+    .sidebar-book-group.expanded .sidebar-arrow {
+      transform: rotate(180deg);
+    }
+
+    .sidebar-chapters-list {
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      padding: 2px 0 6px 12px;
+    }
+
+    .sidebar-book-group.expanded .sidebar-chapters-list {
+      display: flex;
+    }
+
+    .sidebar-subitem {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-subitem:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .sidebar-subitem.active {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .sidebar-item-icon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    body.desktop-mode {
+      background-color: #e7ebf0;
+    }
+
+    body.desktop-mode .app-container {
+      width: var(--desktop-max-width);
+      max-width: var(--desktop-max-width);
+      height: var(--app-height, 100vh);
+      max-height: var(--app-height, 100vh);
+      flex-direction: row;
+      align-items: stretch;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.18);
+    }
+
+    body.desktop-mode .desktop-sidebar {
+      display: flex;
+      height: 100%;
+    }
+
+    body.desktop-mode .main-column {
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    body.desktop-mode header {
+      height: 68px;
+      padding: 0 32px;
+    }
+
+    body.desktop-mode header h1 {
+      position: static;
+      transform: none;
+      max-width: none;
+      font-size: 1.3rem;
+      margin-right: auto;
+      margin-left: 18px;
+    }
+
+    body.desktop-mode main {
+      padding: 28px 36px;
+    }
+
+    /* 需求 3: 電腦版大廳與進入 Arduino 教學後高度同步（統一網格樣式與內距） */
+    body.desktop-mode .grid-hall {
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+      gap: 22px;
+    }
+
+    body.desktop-mode .card {
+      min-height: 190px;
+      padding: 26px 16px;
+      cursor: pointer;
+    }
+
+    body.desktop-mode .card-custom-img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 14px;
+    }
+
+    body.desktop-mode .card:hover {
+      transform: translateY(-3px);
+    }
+
+    body.desktop-mode .section-card:hover {
+      transform: translateY(-3px);
+    }
+
+    body.desktop-mode .section-card-cover {
+      height: 220px;
+    }
+
+    body.desktop-mode .section-card-body {
+      padding: 16px 18px;
+    }
+
+    body.desktop-mode .list-item {
+      padding: 26px 20px;
+      min-height: 80px;
+    }
+
+    body.desktop-mode .list-item:hover {
+      background-color: #f5faff;
+    }
+
+    body.desktop-mode .modal-card {
+      max-width: 560px;
+    }
+
+    body.desktop-mode .pdf-viewer-container {
+      height: 82vh;
+    }
+
+    body.desktop-mode { font-size: 17px; }
+    body.desktop-mode .card-title { font-size: 1.05rem; }
+    body.desktop-mode .section-card-title { font-size: 1.05rem; }
+    body.desktop-mode .section-card-tag { font-size: 0.85rem; }
+    body.desktop-mode .list-title { font-size: 1.1rem; }
+    body.desktop-mode .search-badge { font-size: 0.85rem; }
+    body.desktop-mode .empty-state p { font-size: 1.05rem; }
+    body.desktop-mode footer { font-size: 0.9rem; padding: 22px; }
+    body.desktop-mode .btn-icon { font-size: 0.95rem; padding: 8px 16px; }
+    body.desktop-mode .modal-header h3 { font-size: 1.15rem; }
+    body.desktop-mode .post-version-title { font-size: 1.3rem; }
+    body.desktop-mode .post-log-tag { font-size: 1rem; }
+    body.desktop-mode .post-log-text { font-size: 0.95rem; }
+    body.desktop-mode .mode-select-text { font-size: 0.95rem; }
+
+    .desktop-only { display: none !important; }
+    body.desktop-mode .desktop-only { display: flex !important; }
+    body.desktop-mode .mobile-only { display: none !important; }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+      color: white;
+      padding: 0 16px;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.6s ease, height 0.3s ease, padding 0.3s ease;
+    }
+
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      pointer-events: none;
+      max-width: 65%; /* JS 會依實際按鈕寬度動態覆蓋此值，這裡僅作為載入初期的保險預設值 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      transition: font-size 0.15s ease;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .btn-icon {
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      min-height: 36px;
+    }
+
+    .btn-icon:active {
+      transform: scale(0.92);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .back-btn {
+      display: none;
+    }
+
+    .notice-badge {
+      display: none;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 8px;
+      height: 8px;
+      background-color: #ff3b30;
+      border-radius: 50%;
+      border: 1.5px solid white;
+    }
+
+    .more-menu {
+      position: relative;
+    }
+
+    .more-dropdown {
+      position: absolute;
+      top: 46px;
+      right: 0;
+      background: var(--card-bg, #ffffff);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      min-width: 190px;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: all 0.2s ease;
+      z-index: 200;
+    }
+
+    .more-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .more-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 16px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .more-dropdown-item:active {
+      background-color: #f0f2f5;
+    }
+
+    .more-dropdown-item i {
+      width: 18px;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    .search-container {
+      background-color: var(--card-bg);
+      padding: 10px 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .search-container.active {
+      max-height: 70px;
+      opacity: 1;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: #f0f2f5;
+      border-radius: 20px;
+      padding: 8px 14px;
+      border: 1.5px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 8px var(--accent-glow);
+      background-color: #ffffff;
+    }
+
+    .search-box i {
+      color: #888;
+      margin-right: 8px;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .clear-search {
+      color: #aaa;
+      cursor: pointer;
+      display: none;
+    }
+
+    .search-container.desktop-inline {
+      position: static;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+      padding: 0 !important;
+      max-height: none !important;
+      opacity: 1 !important;
+      margin-right: 4px;
+    }
+
+    .search-container.desktop-inline .search-box {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      width: 40px;
+      padding: 8px;
+      overflow: hidden;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
+    }
+
+    .search-container.desktop-inline.active .search-box {
+      width: 260px;
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    .search-container.desktop-inline .search-box i.fa-magnifying-glass {
+      color: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .search-container.desktop-inline.active .search-box i.fa-magnifying-glass {
+      color: #888;
+    }
+
+    .search-container.desktop-inline .search-box input {
+      color: #fff;
+      min-width: 0;
+      font-size: 0.95rem;
+    }
+
+    .search-container.desktop-inline.active .search-box input {
+      color: var(--text-main);
+    }
+
+    .search-container.desktop-inline .search-box input::placeholder {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .search-container.desktop-inline.active .search-box input::placeholder {
+      color: #999;
+    }
+
+    main {
+      padding: 16px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .grid-hall {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 14px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      min-height: 115px;
+      will-change: transform;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 16px var(--accent-glow);
+    }
+
+    .card:active {
+      transform: scale(0.94);
+    }
+
+    .card-custom-img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+
+    .section-card {
+      background-color: var(--card-bg);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .section-card:active {
+      transform: scale(0.94);
+    }
+
+    .section-card-cover {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      background-color: #eef2f5;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .section-card-body {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .section-card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.3;
+      display: -webkit-box;
+      display: box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .section-card-tag {
+      font-size: 0.72rem;
+      color: #e74c3c;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+    }
+
+    .list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .list-item {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border-left: 4px solid var(--primary-color);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .list-item:active {
+      transform: scale(0.97);
+      background-color: #f0f7ff;
+    }
+
+    .list-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .search-badge {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+      display: block;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: #fdfbf7;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 420px;
+      max-height: 82vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      overflow: hidden;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+      color: white;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .modal-header h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #modeModal .modal-header h3 {
+      font-size: 1.2rem;
+    }
+
+    .modal-close-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    /* 關鍵修復 1: 滾動與觸控優化 */
+    .modal-body {
+      padding: 16px;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overscroll-behavior: contain;
+      touch-action: pan-y;
+    }
+
+    .mode-select-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 0 4px 4px;
+      line-height: 1.5;
+    }
+
+    .mode-choice-row {
+      display: flex;
+      gap: 14px;
+      padding: 10px 4px 4px;
+    }
+
+    .mode-choice-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 28px 10px;
+      border-radius: 16px;
+      border: 2px solid #eae5dc;
+      background: var(--card-bg, #ffffff);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .mode-choice-btn i {
+      font-size: 2.6rem;
+      color: var(--primary-color);
+    }
+
+    .mode-choice-btn span {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .mode-choice-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* 關鍵修復 2: 避免卡片互相重疊與擠壓 */
+    .post-version-group {
+      background: var(--card-bg, #ffffff);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eae5dc;
+      overflow: hidden;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .post-version-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      touch-action: pan-y;
+    }
+
+    .post-version-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #2b2b2b;
+      letter-spacing: 0.5px;
+    }
+
+    .post-version-arrow {
+      color: #666666;
+      font-size: 0.85rem;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .post-version-group.expanded .post-version-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* 關鍵修復 3: 平滑動畫過渡 */
+    .post-version-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.35s ease;
+      background-color: var(--card-bg, #ffffff);
+      padding: 0 14px;
+    }
+
+    .post-version-group.expanded .post-version-content {
+      max-height: 1000px;
+      opacity: 1;
+      padding: 0 14px 14px 14px;
+    }
+
+    .post-log-card {
+      background-color: #f7f4ee;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 10px;
+    }
+
+    .post-log-tag {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #d97736;
+      margin-bottom: 4px;
+    }
+
+    .post-log-text {
+      font-size: 0.88rem;
+      color: #4a4a4a;
+      line-height: 1.45;
+    }
+
+    .post-log-text a {
+      color: var(--primary-color);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.1);
+      transform: scale(0);
+      animation: rippleAnim 0.5s linear;
+      pointer-events: none;
+    }
+
+    @keyframes rippleAnim {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pdf-viewer-container {
+      width: 100%;
+      height: 78vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background-color: #fff;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .pdf-viewer-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* 講義最下方的附件按鈕區塊：有按鈕才出現分隔線與按鈕列，沒有則整段不渲染 */
+    .attachment-divider {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.1);
+      margin: 18px 2px 14px;
+    }
+
+    .attachment-section {
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .attachment-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .attachment-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .attachment-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: var(--card-bg);
+      color: var(--primary-dark);
+      border: 1.5px solid var(--primary-color);
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .attachment-btn:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    .attachment-btn:active {
+      transform: scale(0.96);
+    }
+
+    body.desktop-mode .attachment-btn { font-size: 0.92rem; padding: 10px 18px; }
+
+    /* ---------- 影片模式 ---------- */
+    .video-viewer-container {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background-color: #000;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .video-viewer-container .video-aspect {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+    }
+
+    .video-viewer-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-info-box {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .video-info-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .video-info-text {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .video-info-text a {
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* ---------- 教學模式（像部落格文章一樣，依序排列各種內容區塊） ---------- */
+    .article-container {
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .article-block {
+      margin-bottom: 20px;
+    }
+
+    .article-block-text {
+      font-size: 0.96rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: var(--card-bg);
+      padding: 14px 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .article-block-pdf {
+      width: 100%;
+      height: 70vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background-color: #fff;
+    }
+
+    .article-block-pdf iframe { width: 100%; height: 100%; border: none; }
+
+    .article-block-video {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background: #000;
+    }
+
+    .article-block-video iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+    }
+
+    /* 教學模式：直接瀏覽圖片框 */
+    .article-block-image {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background: var(--card-bg);
+      cursor: zoom-in;
+      display: block;
+    }
+
+    .article-block-image img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      display: block;
+      background: #eef1f5;
+    }
+
+    .article-block-image .article-image-hint {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* 圖片放大瀏覽燈箱 */
+    .image-lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .image-lightbox-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .image-lightbox-overlay img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      transform: scale(0.94);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .image-lightbox-overlay.active img {
+      transform: scale(1);
+    }
+
+    .image-lightbox-close {
+      position: fixed;
+      top: max(16px, env(safe-area-inset-top, 0px));
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* 程式碼框：允許選取與複製（覆蓋全站禁止選取的保護樣式） */
+    .code-copyable, .code-copyable * {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
+    }
+
+    .article-block-code {
+      position: relative;
+      background: #282c34;
+      color: #abb2bf;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 12px 10px 16px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .code-header-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #abb2bf;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .code-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .code-toggle-icon {
+      color: #abb2bf;
+      font-size: 0.8rem;
+      transition: transform 0.25s ease;
+    }
+
+    .article-block-code.collapsed .code-toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    .code-body {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.25s ease;
+    }
+
+    .article-block-code.collapsed .code-body {
+      grid-template-rows: 0fr;
+    }
+
+    .code-body > div {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .article-block-code pre {
+      margin: 0;
+      padding: 18px 16px;
+      overflow-x: auto;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    .article-code-copy-btn {
+      padding: 5px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #abb2bf;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .article-code-copy-btn:hover { background: rgba(255,255,255,0.18); }
+
+    .empty-state {
+      text-align: center;
+      padding: 50px 10px;
+      color: #888;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    /* ---------- 小章節密碼保護畫面 ---------- */
+    .password-gate-container {
+      max-width: 380px;
+      margin: 40px auto 0;
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      animation: fadeInUp 0.4s ease;
+    }
+    .password-gate-icon {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+    }
+    .password-gate-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .password-gate-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .password-gate-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #dde3ea;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.2s ease;
+      -webkit-user-select: text !important;
+      user-select: text !important;
+    }
+    .password-gate-input:focus { border-color: var(--primary-color); }
+    .password-gate-btn {
+      width: 100%;
+      padding: 12px 14px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .password-gate-btn:active { transform: scale(0.97); }
+    .password-gate-error {
+      color: #e53935;
+      font-size: 0.82rem;
+      margin-top: 10px;
+      min-height: 1.2em;
+    }
+    .password-gate-hint {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-top: -6px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .password-gate-hint i { color: #f0ad4e; }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid #e2e8f0;
+      margin-top: auto;
+    }
+
+    .bottom-nav {
+      /* 改用 fixed 並固定貼齊「視覺」畫面底部，避免手機瀏覽器網址列收合/展開時，
+         原本 sticky 定位受限於容器高度（由 JS 依 innerHeight 計算）產生落後的落差，
+         造成導覽列與畫面底部分離或抖動的問題 */
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 100%;
+      z-index: 150;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-around;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+      padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* 導覽列改為固定定位後，寬度需與置中的 app-container 對齊 */
+    body:not(.desktop-mode) .bottom-nav {
+      max-width: 480px;
+    }
+
+    /* 導覽列離開文件流後，補回原本它所佔的高度，避免內容（如 footer）被蓋住 */
+    body:not(.desktop-mode) .app-container {
+      padding-bottom: var(--bottom-nav-space, 64px);
+    }
+
+    .bottom-nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 2px;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .bottom-nav-item i {
+      font-size: 1.15rem;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .bottom-nav-item:active i {
+      transform: scale(0.85);
+    }
+
+    .bottom-nav-item.active {
+      color: var(--primary-color);
+    }
+
+    .bottom-nav-item .notice-badge {
+      top: -1px;
+      right: 22%;
+    }
+
+    .more-dropdown-up {
+      top: auto;
+      bottom: 52px;
+      right: 4px;
+      left: auto;
+    }
+
+    /* PDF 容器開啟相對定位 */
+    .pdf-viewer-container {
+      position: relative;
+    }
+
+    /* 在右上角放一個透明防點擊遮罩，擋住外跳按鈕 */
+    .pdf-viewer-container::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;  /* 覆蓋右上角的按鈕區域 */
+      height: 60px;
+      background: transparent;
+      z-index: 10;
+      pointer-events: auto; /* 攔截點擊事件 */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="modal-overlay active" id="modeModal">
+    <div class="modal-card" style="max-width:360px;">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-display"></i> 選擇瀏覽模式</h3>
+      </div>
+      <div class="modal-body">
+        <p class="mode-select-text">請選擇本次要使用的頁面樣式，隨時可在選單中切換</p>
+        <div class="mode-choice-row">
+          <div class="mode-choice-btn" id="modeChoiceMobile" onclick="chooseMode('mobile')">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span>手機版</span>
+          </div>
+          <div class="mode-choice-btn" id="modeChoiceDesktop" onclick="chooseMode('desktop')">
+            <i class="fa-solid fa-desktop"></i>
+            <span>電腦版</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container mobile-mode" id="appContainer">
+    <div class="desktop-sidebar desktop-only" id="desktopSidebar">
+      <div class="sidebar-brand">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>加加研究室<br>(程式創造++)</span>
+      </div>
+      <div id="sidebarNav"></div>
+    </div>
+
+    <div class="main-column">
+      <header>
+        <button class="btn-icon back-btn" id="backBtn" onclick="triggerHaptic(); goBack();">
+          <i class="fa-solid fa-chevron-left"></i> 返回
+        </button>
+        <h1 id="headerTitle">加加研究室</h1>
+
+        <div class="header-actions">
+          <button class="btn-icon desktop-only" id="desktopNoticeBtn" onclick="triggerHaptic(); openNoticeModal();" title="網頁公告">
+            <i class="fa-regular fa-bell"></i> 網頁公告
+            <span class="notice-badge" id="noticeBadgeDesktop"></span>
+          </button>
+          <button class="btn-icon desktop-only" onclick="triggerHaptic(); switchMode('mobile');" title="切換為手機版">
+            <i class="fa-solid fa-mobile-screen-button"></i> 手機版
+          </button>
+        </div>
+      </header>
+
+      <div class="search-container" id="searchContainer">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass" onclick="triggerHaptic(); toggleSearch();"></i>
+          <input type="text" id="searchInput" placeholder="搜尋標題、單元 (如 L2.1、安裝)..." oninput="handleSearch()">
+          <i class="fa-solid fa-circle-xmark clear-search" id="clearSearchBtn" onclick="clearSearch()"></i>
+        </div>
+      </div>
+
+      <main id="appContent">
+      </main>
+
+      <footer id="footerText">
+        © 加加研究室 - 創客教學網頁
+      </footer>
+    </div>
+
+    <nav class="bottom-nav mobile-only" id="bottomNav">
+      <div class="bottom-nav-item active" id="navHomeBtn" onclick="triggerHaptic(); goHomeFromNav();">
+        <i class="fa-solid fa-house"></i>
+        <span>首頁</span>
+      </div>
+      <div class="bottom-nav-item" id="navSearchBtn" onclick="triggerHaptic(); toggleSearch();">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>搜尋</span>
+      </div>
+      <div class="bottom-nav-item" id="navNoticeBtn" onclick="triggerHaptic(); openNoticeModal();">
+        <i class="fa-regular fa-bell"></i>
+        <span>公告</span>
+        <span class="notice-badge" id="noticeBadgeMobile"></span>
+      </div>
+      <div class="more-menu bottom-nav-item" id="navMoreBtn" onclick="triggerHaptic(); toggleMoreMenu(event);">
+        <i class="fa-solid fa-ellipsis"></i>
+        <span>更多</span>
+        <div class="more-dropdown more-dropdown-up" id="moreDropdown">
+          <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); switchMode('desktop');">
+            <i class="fa-solid fa-desktop"></i> 切換電腦版
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="image-lightbox-overlay" id="imageLightboxOverlay" onclick="closeImageLightbox()">
+    <div class="image-lightbox-close" onclick="closeImageLightbox()"><i class="fa-solid fa-xmark"></i></div>
+    <img id="imageLightboxImg" src="" alt="圖片放大瀏覽" onclick="event.stopPropagation()">
+  </div>
+
+  <div class="modal-overlay" id="noticeModal" onclick="closeNoticeModalOnOverlay(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-bullhorn"></i> 網頁公告</h3>
+        <button class="modal-close-btn" onclick="closeNoticeModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="noticeModalBody">
+      </div>
+    </div>
+  </div>
+
+  <!-- 這兩個 template 區塊本身不會被瀏覽器執行（type="text/template"），
+       本機與 Apps Script 都會安靜地存在，只是內容來源不同：
+       本機打開時抓不到伺服器端樣板內容，下面的 script 會偵測不到 google.script，
+       改用 script src 直接抓實體檔案；部署到 Apps Script 時，doGet() 用
+       createTemplateFromFile 搭配 evaluate 渲染此頁，樣板標記會被伺服器端
+       換成 Data.html 與 Post.html 的真實內容。 -->
+  <script type="text/template" id="gasData">
+<?!= HtmlService.createHtmlOutputFromFile('Data').getContent(); ?>
+  </script>
+  <script type="text/template" id="gasPost">
+<?!= HtmlService.createHtmlOutputFromFile('Post').getContent(); ?>
+  </script>
+
+  <script>
+  (function loadAppData() {
+    // 自動偵測環境：google.script 是 Apps Script 服務網頁時瀏覽器才會自動注入的全域物件，
+    // 本機用 VS Code / Live Server 開啟同一份檔案時必定是 undefined。
+    // 不需要手動維護 true/false 開關，也就不會有「忘記切換」導致部署後失效的問題。
+    var isGasEnv = (typeof google !== 'undefined' && !!google.script);
+
+    function injectFromTemplate(id) {
+      var tpl = document.getElementById(id);
+      if (tpl && tpl.textContent.trim()) {
+        var s = document.createElement('script');
+        s.textContent = tpl.textContent;
+        document.head.appendChild(s);
+      }
+    }
+
+    if (isGasEnv) {
+      // 部署在 Apps Script：直接吃樣板引擎已經注入好的內容
+      injectFromTemplate('gasData');
+      injectFromTemplate('gasPost');
+    } else {
+      // 本機開發（VS Code / Live Server）：改抓同資料夾內的實體檔案
+      document.write('<script src="Data.html"><\/script>');
+      document.write('<script src="Post.html"><\/script>');
+    }
+  })();
+  </script>
+
+  <script>
+    const APP_VERSION = "2026";
+
+    const THEME_PALETTES = [
+      { primary: "#1976d2", dark: "#0d47a1", glow: "rgba(25, 118, 210, 0.25)", bgFrom: "#e7f1fc", bgTo: "#eef1fb", card: "#f6faff" },
+      { primary: "#2e7d32", dark: "#1b5e20", glow: "rgba(46, 125, 50, 0.25)", bgFrom: "#e8f6ea", bgTo: "#eef7f1", card: "#f6fbf7" },
+      { primary: "#7b1fa2", dark: "#4a148c", glow: "rgba(123, 31, 162, 0.22)", bgFrom: "#f2e9fb", bgTo: "#eee7fa", card: "#faf6ff" },
+      { primary: "#00897b", dark: "#00695c", glow: "rgba(0, 137, 123, 0.22)", bgFrom: "#e4f5f2", bgTo: "#eaf4f6", card: "#f3fbfa" },
+      { primary: "#e64a19", dark: "#bf360c", glow: "rgba(230, 74, 25, 0.2)", bgFrom: "#fdece4", bgTo: "#fdefe9", card: "#fff8f4" },
+      { primary: "#ad1457", dark: "#880e4f", glow: "rgba(173, 20, 87, 0.2)", bgFrom: "#fbe8f0", bgTo: "#f7e9f3", card: "#fff5f9" },
+      { primary: "#3949ab", dark: "#283593", glow: "rgba(57, 73, 171, 0.22)", bgFrom: "#ebeefb", bgTo: "#ede8fa", card: "#f6f7ff" },
+      { primary: "#ef6c00", dark: "#e65100", glow: "rgba(239, 108, 0, 0.2)", bgFrom: "#fdf1e2", bgTo: "#fdeddf", card: "#fffaf3" },
+      { primary: "#00838f", dark: "#006064", glow: "rgba(0, 131, 143, 0.25)", bgFrom: "#e4f4f6", bgTo: "#e9f2f5", card: "#f2fafc" },
+      { primary: "#6d4c41", dark: "#4e342e", glow: "rgba(109, 76, 65, 0.2)", bgFrom: "#f2ece8", bgTo: "#f5efe9", card: "#faf6f2" },
+      { primary: "#455a64", dark: "#263238", glow: "rgba(69, 90, 100, 0.22)", bgFrom: "#eaeef0", bgTo: "#eef1f3", card: "#f5f8f9" },
+      { primary: "#5d4037", dark: "#3e2723", glow: "rgba(93, 64, 55, 0.2)", bgFrom: "#f1eae7", bgTo: "#f4eeeb", card: "#faf7f5" },
+      { primary: "#0277bd", dark: "#014a7f", glow: "rgba(2, 119, 189, 0.22)", bgFrom: "#e5f1f9", bgTo: "#ecf3fa", card: "#f4faff" },
+      { primary: "#558b2f", dark: "#33691e", glow: "rgba(85, 139, 47, 0.2)", bgFrom: "#eef5e7", bgTo: "#f1f6ec", card: "#f7fbf3" },
+      { primary: "#6a1b9a", dark: "#38006b", glow: "rgba(106, 27, 154, 0.2)", bgFrom: "#f0e8f8", bgTo: "#ede6f6", card: "#f9f5fc" },
+      { primary: "#00695c", dark: "#004d40", glow: "rgba(0, 105, 92, 0.22)", bgFrom: "#e3f2ef", bgTo: "#e9f3f1", card: "#f2faf8" },
+      { primary: "#8d6e63", dark: "#5d4037", glow: "rgba(141, 110, 99, 0.2)", bgFrom: "#f2ece9", bgTo: "#f5efec", card: "#faf7f5" },
+      { primary: "#5c6bc0", dark: "#3949ab", glow: "rgba(92, 107, 192, 0.2)", bgFrom: "#eceefb", bgTo: "#eeecfa", card: "#f6f7ff" },
+      { primary: "#c62828", dark: "#8e0000", glow: "rgba(198, 40, 40, 0.18)", bgFrom: "#fbeae9", bgTo: "#fbecec", card: "#fff6f5" },
+      { primary: "#37474f", dark: "#1c262b", glow: "rgba(55, 71, 79, 0.22)", bgFrom: "#e9edee", bgTo: "#ecf0f1", card: "#f4f7f8" }
+    ];
+
+    let navigationStack = [];
+    let currentMode = 'mobile';
+
+    const appContent = document.getElementById('appContent');
+    const headerTitle = document.getElementById('headerTitle');
+    const backBtn = document.getElementById('backBtn');
+    const searchContainer = document.getElementById('searchContainer');
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const noticeModal = document.getElementById('noticeModal');
+    const noticeModalBody = document.getElementById('noticeModalBody');
+    const appContainer = document.getElementById('appContainer');
+    const mainColumn = document.querySelector('.main-column');
+    const modeModal = document.getElementById('modeModal');
+    const moreDropdown = document.getElementById('moreDropdown');
+    const desktopNoticeBtn = document.getElementById('desktopNoticeBtn');
+    const headerActions = document.querySelector('.header-actions');
+    const sidebarNav = document.getElementById('sidebarNav');
+    const navHomeBtn = document.getElementById('navHomeBtn');
+    const navSearchBtn = document.getElementById('navSearchBtn');
+    const NOTICE_READ_KEY = 'jj_lab_last_read_version';
+
+    function applyRandomTheme() {
+      const randomPalette = THEME_PALETTES[Math.floor(Math.random() * THEME_PALETTES.length)];
+      document.documentElement.style.setProperty('--primary-color', randomPalette.primary);
+      document.documentElement.style.setProperty('--primary-dark', randomPalette.dark);
+      document.documentElement.style.setProperty('--accent-glow', randomPalette.glow);
+      document.documentElement.style.setProperty('--card-bg', randomPalette.card);
+      const gradient = `linear-gradient(165deg, ${randomPalette.bgFrom} 0%, ${randomPalette.bgTo} 100%)`;
+      document.documentElement.style.setProperty('--bg-color', gradient);
+      if (appContainer) appContainer.style.background = gradient;
+    }
+
+    function triggerHaptic() {
+      if (navigator.vibrate) navigator.vibrate(15);
+    }
+
+    function createRipple(event, element) {
+      const circle = document.createElement('span');
+      const diameter = Math.max(element.clientWidth, element.clientHeight);
+      const radius = diameter / 2;
+      const rect = element.getBoundingClientRect();
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - rect.left - radius}px`;
+      circle.style.top = `${event.clientY - rect.top - radius}px`;
+      circle.classList.add('ripple');
+      const ripple = element.getElementsByClassName('ripple')[0];
+      if (ripple) ripple.remove();
+      element.appendChild(circle);
+    }
+
+    function chooseMode(mode) {
+      switchMode(mode);
+      modeModal.classList.remove('active');
+    }
+
+    function switchMode(mode) {
+      currentMode = mode;
+      closeMoreMenu();
+
+      if (mode === 'desktop') {
+        document.body.classList.add('desktop-mode');
+        headerActions.insertBefore(searchContainer, desktopNoticeBtn);
+        searchContainer.classList.add('desktop-inline');
+        if (searchInput.value.trim() === '') {
+          searchContainer.classList.remove('active');
+        }
+      } else {
+        document.body.classList.remove('desktop-mode');
+        mainColumn.insertBefore(searchContainer, appContent);
+        searchContainer.classList.remove('desktop-inline');
+        if (searchInput.value.trim() === '') {
+          searchContainer.classList.remove('active');
+        }
+      }
+
+      // 切換模式後，底部導覽列顯示/隱藏狀態改變，重新量測留白高度
+      requestAnimationFrame(setBottomNavSpace);
+      fitHeaderTitle();
+    }
+
+    function toggleMoreMenu(event) {
+      if (event) event.stopPropagation();
+      moreDropdown.classList.toggle('active');
+    }
+
+    function closeMoreMenu() {
+      moreDropdown.classList.remove('active');
+    }
+
+    document.addEventListener('click', function (e) {
+      const menu = document.querySelector('.more-menu');
+      if (menu && !menu.contains(e.target)) closeMoreMenu();
+    });
+
+    // 手機版標題若文字過長，因為置中顯示，左右兩側容易被返回鈕/按鈕擋住而看不全；
+    // 這裡改為依實際可用寬度自動縮小字體，讓標題盡量完整顯示、且不擋到左右按鈕
+    function fitHeaderTitle() {
+      if (!headerTitle) return;
+      const headerEl = headerTitle.closest('header');
+      if (!headerEl) return;
+
+      if (document.body.classList.contains('desktop-mode')) {
+        // 電腦版標題不置中、版面較寬，交還給原本的 CSS 規則即可
+        headerTitle.style.maxWidth = '';
+        headerTitle.style.fontSize = '';
+        return;
+      }
+
+      const headerWidth = headerEl.clientWidth;
+      if (!headerWidth) return;
+
+      const backVisible = backBtn && getComputedStyle(backBtn).display !== 'none';
+      const leftReserve = (backVisible ? backBtn.offsetWidth : 0) + 14;
+
+      const actionsVisible = headerActions && headerActions.offsetWidth > 0 && getComputedStyle(headerActions).display !== 'none';
+      const rightReserve = (actionsVisible ? headerActions.offsetWidth : 0) + 14;
+
+      // 標題以整個 header 寬度置中，所以兩側都要留出「較寬那一邊」的安全距離，避免擋住任一顆按鈕
+      const sideReserve = Math.max(leftReserve, rightReserve, 14);
+      const available = Math.max(60, headerWidth - sideReserve * 2);
+
+      headerTitle.style.maxWidth = `${available}px`;
+
+      const maxFontRem = 1.1;
+      const minFontRem = 0.72;
+      let fontSize = maxFontRem;
+      headerTitle.style.fontSize = `${fontSize}rem`;
+
+      let guard = 0;
+      while (headerTitle.scrollWidth > headerTitle.clientWidth && fontSize > minFontRem && guard < 30) {
+        fontSize = Math.max(minFontRem, fontSize - 0.03);
+        headerTitle.style.fontSize = `${fontSize.toFixed(2)}rem`;
+        guard++;
+      }
+      // 若已縮到最小字體仍放不下，交由既有的 overflow:hidden + ellipsis 處理，避免無限縮小到無法閱讀
+    }
+
+    // 標題文字由多處直接以 innerText 賦值更新，統一用 MutationObserver 監聽變化並自動重新計算，
+    // 不必逐一修改每個設定標題的地方
+    if (typeof MutationObserver !== 'undefined' && document.getElementById('headerTitle')) {
+      const headerTitleObserver = new MutationObserver(() => {
+        requestAnimationFrame(fitHeaderTitle);
+      });
+      headerTitleObserver.observe(document.getElementById('headerTitle'), { childList: true, characterData: true, subtree: true });
+    }
+
+    window.addEventListener('resize', () => requestAnimationFrame(fitHeaderTitle));
+    window.addEventListener('orientationchange', () => requestAnimationFrame(fitHeaderTitle));
+
+    function setAppHeight() {
+      document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+    }
+    window.addEventListener('resize', setAppHeight);
+    window.addEventListener('orientationchange', setAppHeight);
+
+    // 手機版底部導覽列改為 fixed 後，量測其實際高度（含安全區）回填為內容底部留白，
+    // 避免最後內容（如 footer）被固定導覽列擋住
+    function setBottomNavSpace() {
+      const nav = document.getElementById('bottomNav');
+      if (!nav) return;
+      if (document.body.classList.contains('desktop-mode')) return;
+      const h = nav.offsetHeight;
+      if (h > 0) document.documentElement.style.setProperty('--bottom-nav-space', `${h}px`);
+    }
+    window.addEventListener('resize', setBottomNavSpace);
+    window.addEventListener('orientationchange', setBottomNavSpace);
+
+    function refreshNoticeBadge() {
+      let lastRead = null;
+      try { lastRead = localStorage.getItem(NOTICE_READ_KEY); } catch (e) {}
+      const isUnread = lastRead !== APP_VERSION;
+      const badges = [document.getElementById('noticeBadgeDesktop'), document.getElementById('noticeBadgeMobile')];
+      badges.forEach(b => { if (b) b.style.display = isUnread ? 'block' : 'none'; });
+    }
+
+    function markNoticeAsRead() {
+      try { localStorage.setItem(NOTICE_READ_KEY, APP_VERSION); } catch (e) {}
+      refreshNoticeBadge();
+    }
+
+    function openNoticeModal() {
+      markNoticeAsRead();
+      if (typeof postData === 'undefined' || postData.length === 0) {
+        noticeModalBody.innerHTML = `<div class="empty-state"><p>目前沒有公告！</p></div>`;
+      } else {
+        let html = "";
+        postData.forEach((item, index) => {
+          const isExpandedClass = item.isExpanded ? "expanded" : "";
+
+          html += `
+            <div class="post-version-group ${isExpandedClass}" id="postGroup-${index}">
+              <div class="post-version-header" onclick="togglePostAccordion(${index})">
+                <span class="post-version-title">${item.version}</span>
+                <i class="fa-solid fa-caret-down post-version-arrow"></i>
+              </div>
+              <div class="post-version-content">
+          `;
+
+          if (item.logs && item.logs.length > 0) {
+            item.logs.forEach(log => {
+              html += `
+                <div class="post-log-card">
+                  <div class="post-log-tag">${log.tag}：${log.title}</div>
+                  <div class="post-log-text">${log.content}</div>
+                </div>
+              `;
+            });
+          }
+
+          html += `
+              </div>
+            </div>
+          `;
+        });
+        noticeModalBody.innerHTML = html;
+      }
+
+      noticeModal.classList.add('active');
+    }
+
+    function togglePostAccordion(index) {
+      triggerHaptic();
+      const targetGroup = document.getElementById(`postGroup-${index}`);
+      if (targetGroup) {
+        targetGroup.classList.toggle('expanded');
+      }
+    }
+
+    function closeNoticeModal() {
+      noticeModal.classList.remove('active');
+    }
+
+    function closeNoticeModalOnOverlay(event) {
+      if (event.target === noticeModal) {
+        closeNoticeModal();
+      }
+    }
+
+    function toggleSearch() {
+      if (searchContainer.classList.contains('active')) {
+        searchContainer.classList.remove('active');
+        if (navSearchBtn) navSearchBtn.classList.remove('active');
+        clearSearch();
+      } else {
+        searchContainer.classList.add('active');
+        if (navSearchBtn) navSearchBtn.classList.add('active');
+        searchInput.focus();
+      }
+    }
+
+    function renderSidebarNav() {
+      if (!sidebarNav || typeof courseData === 'undefined') return;
+      let html = `<div class="sidebar-item active" data-nav-home="1" onclick="triggerHaptic(); sidebarGoHome();"><i class="fa-solid fa-house"></i><span>總覽首頁</span></div><div class="sidebar-divider"></div>`;
+      
+      courseData.forEach(book => {
+        html += `
+          <div class="sidebar-book-group" id="sidebarBookGroup-${book.id}">
+            <div class="sidebar-item" data-book-id="${book.id}" onclick="triggerHaptic(); toggleSidebarBook('${book.id}')">
+              <img src="${book.iconUrl}" class="sidebar-item-icon" onerror="this.style.display='none'">
+              <span style="flex: 1;">${book.title}</span>
+              <i class="fa-solid fa-chevron-down sidebar-arrow"></i>
+            </div>
+            <div class="sidebar-chapters-list">
+        `;
+
+        if (book.chapters && book.chapters.length > 0) {
+          book.chapters.forEach(chap => {
+            html += `
+              <div class="sidebar-subitem" data-chap-id="${chap.id}" onclick="triggerHaptic(); sidebarGoChapter('${book.id}', '${chap.id}')">
+                <i class="fa-solid fa-angle-right" style="font-size:0.75rem; color:var(--primary-color);"></i>
+                <span>${chap.title}</span>
+              </div>
+            `;
+          });
+        }
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+      sidebarNav.innerHTML = html;
+    }
+
+    /* 需求 2: 電腦版左邊功能，當某一個展開，又展開下一個時，自動將其他已展開的收合 */
+    function toggleSidebarBook(bookId) {
+      const group = document.getElementById(`sidebarBookGroup-${bookId}`);
+      if (!group) return;
+
+      const isExpanded = group.classList.contains('expanded');
+
+      // 先收合所有其他選單
+      document.querySelectorAll('.sidebar-book-group').forEach(g => {
+        if (g !== group) {
+          g.classList.remove('expanded');
+        }
+      });
+
+      if (isExpanded) {
+        group.classList.remove('expanded');
+      } else {
+        group.classList.add('expanded');
+        renderChapters(bookId);
+      }
+      updateSidebarActive(bookId);
+    }
+
+    function sidebarGoChapter(bookId, chapterId) {
+      updateSidebarActive(bookId, chapterId);
+      renderSections(bookId, chapterId);
+    }
+
+    function updateSidebarActive(bookId, chapterId) {
+      if (!sidebarNav) return;
+      sidebarNav.querySelectorAll('.sidebar-item, .sidebar-subitem').forEach(el => el.classList.remove('active'));
+      
+      if (!bookId) {
+        const home = sidebarNav.querySelector('[data-nav-home]');
+        if (home) home.classList.add('active');
+      } else {
+        const bookEl = sidebarNav.querySelector(`.sidebar-item[data-book-id="${bookId}"]`);
+        if (bookEl) bookEl.classList.add('active');
+
+        if (chapterId) {
+          const chapEl = sidebarNav.querySelector(`.sidebar-subitem[data-chap-id="${chapterId}"]`);
+          if (chapEl) chapEl.classList.add('active');
+        }
+      }
+    }
+
+    function sidebarGoHome() {
+      searchInput.value = '';
+      clearSearchBtn.style.display = 'none';
+      searchContainer.classList.remove('active');
+      if (navSearchBtn) navSearchBtn.classList.remove('active');
+      renderHall();
+    }
+
+    function updateBottomNavHome(isHome) {
+      if (navHomeBtn) navHomeBtn.classList.toggle('active', !!isHome);
+    }
+
+    function renderHall() {
+      navigationStack = [];
+      headerTitle.innerText = "加加研究室";
+      backBtn.style.display = "none";
+      updateSidebarActive(null);
+      updateBottomNavHome(true);
+
+      if (typeof courseData === 'undefined') {
+        appContent.innerHTML = `<div class="empty-state"><p style="color:#d32f2f;">未找到 courseData 資料！</p></div>`;
+        return;
+      }
+
+      let html = `<div class="grid-hall">`;
+      courseData.forEach((item, index) => {
+        html += `
+          <div class="card" style="animation-delay: ${index * 0.03}s" onclick="triggerHaptic(); createRipple(event, this); renderChapters('${item.id}')">
+            <img src="${item.iconUrl}" class="card-custom-img" alt="${item.title}" onerror="this.src='https://via.placeholder.com/44?text=Icon'">
+            <div class="card-title">${item.title}</div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+
+      appContent.innerHTML = html;
+    }
+
+    function renderChapters(bookId) {
+      const book = courseData.find(b => b.id === bookId);
+      if (!book) return;
+
+      const group = document.getElementById(`sidebarBookGroup-${bookId}`);
+      if (group && !group.classList.contains('expanded')) {
+        // 確保展開當前分類時收合其他分類
+        document.querySelectorAll('.sidebar-book-group').forEach(g => {
+          if (g !== group) g.classList.remove('expanded');
+        });
+        group.classList.add('expanded');
+      }
+
+      // 壓入退回大廳的紀錄
+      navigationStack.push({ type: 'hall' });
+      headerTitle.innerText = book.title;
+      backBtn.style.display = "flex";
+      updateSidebarActive(bookId);
+      updateBottomNavHome(false);
+
+      if (!book.chapters || book.chapters.length === 0) {
+        renderEmptyState();
+        return;
+      }
+
+      let html = `<div class="list-container">`;
+      book.chapters.forEach((chap, index) => {
+        html += `
+          <div class="list-item" style="animation-delay: ${index * 0.04}s" onclick="triggerHaptic(); createRipple(event, this); renderSections('${book.id}', '${chap.id}')">
+            <span class="list-title">${chap.title}</span>
+            <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i>
+          </div>
+        `;
+      });
+      html += `</div>`;
+
+      appContent.innerHTML = html;
+    }
+
+    function renderSections(bookId, chapterId, parentSubIds = []) {
+      const book = courseData.find(b => b.id === bookId);
+      if (!book) return;
+
+      let currentTarget = book.chapters.find(c => c.id === chapterId);
+      for (const subId of parentSubIds) {
+        if (currentTarget && currentTarget.subchapters) {
+          currentTarget = currentTarget.subchapters.find(s => s.id === subId);
+        }
+      }
+
+      if (!currentTarget) return;
+
+      // 正確寫入返回歷史
+      if (parentSubIds.length === 0) {
+        navigationStack.push({ 
+          type: 'chapters', 
+          bookId: bookId 
+        });
+      } else {
+        navigationStack.push({ 
+          type: 'sections', 
+          bookId: bookId, 
+          chapterId: chapterId, 
+          parentSubIds: parentSubIds.slice(0, -1) 
+        });
+      }
+
+      headerTitle.innerText = currentTarget.title;
+      backBtn.style.display = "flex";
+      updateSidebarActive(bookId, chapterId);
+      updateBottomNavHome(false);
+
+      // 需求 4: 第3層 L1.3 - Esp32 進入後為圖卡應用不是清單樣式，包含圖片功能
+      const isEsp32CardView = (chapterId === 'l1-3');
+
+      // 情況 A：若底下還有子分類 (subchapters)
+      if (currentTarget.subchapters && currentTarget.subchapters.length > 0) {
+        if (isEsp32CardView) {
+          let html = `<div class="grid-hall">`;
+          currentTarget.subchapters.forEach((sub, index) => {
+            const defaultCover = sub.iconUrl || sub.coverUrl || "https://via.placeholder.com/300x200/007bc7/ffffff?text=" + encodeURIComponent(sub.title);
+            const nextSubIds = JSON.stringify([...parentSubIds, sub.id]).replace(/"/g, '&quot;');
+            html += `
+              <div class="section-card" style="animation-delay: ${index * 0.04}s" onclick="triggerHaptic(); createRipple(event, this); renderSections('${bookId}', '${chapterId}', ${nextSubIds})">
+                <img src="${defaultCover}" class="section-card-cover" alt="${sub.title}" onerror="this.src='https://via.placeholder.com/300x200/007bc7/ffffff?text=ESP32'">
+                <div class="section-card-body">
+                  <div class="section-card-title">${sub.title}</div>
+                  <div class="section-card-tag"><i class="fa-solid fa-folder-open"></i> 進入主題內容</div>
+                </div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+          appContent.innerHTML = html;
+          return;
+        } else {
+          let html = `<div class="list-container">`;
+          currentTarget.subchapters.forEach((sub, index) => {
+            const nextSubIds = JSON.stringify([...parentSubIds, sub.id]).replace(/"/g, '&quot;');
+            html += `
+              <div class="list-item" style="animation-delay: ${index * 0.04}s" onclick="triggerHaptic(); createRipple(event, this); renderSections('${bookId}', '${chapterId}', ${nextSubIds})">
+                <span class="list-title">${sub.title}</span>
+                <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i>
+              </div>
+            `;
+          });
+          html += `</div>`;
+          appContent.innerHTML = html;
+          return;
+        }
+      }
+
+      // 情況 B：若底下是小章節 (sections)，依各自的建立方式（講義/影片/教學）顯示不同卡片樣式
+      if (currentTarget.sections && currentTarget.sections.length > 0) {
+        let html = `<div class="grid-hall">`;
+        currentTarget.sections.forEach((sec, index) => {
+          const mode = sec.mode || 'pdf';
+          const meta = SECTION_MODE_META[mode] || SECTION_MODE_META.pdf;
+
+          let coverImg = (sec.coverUrl && sec.coverUrl !== "") ? sec.coverUrl : '';
+          if (!coverImg && mode === 'video') {
+            const vid = getYoutubeVideoId(sec.videoUrl || '');
+            if (vid) coverImg = `https://img.youtube.com/vi/${vid}/hqdefault.jpg`;
+          }
+          if (!coverImg) coverImg = meta.defaultCover;
+
+          const secPayload = JSON.stringify({
+            id: sec.id || '',
+            mode: mode,
+            title: sec.title,
+            pdfUrl: sec.pdfUrl || '',
+            videoUrl: sec.videoUrl || '',
+            videoNote: sec.videoNote || '',
+            blocks: sec.blocks || [],
+            buttons: sec.buttons || [],
+            access: sec.access || 'public',
+            accessPassword: sec.accessPassword || '',
+            accessHint: sec.accessHint || ''
+          }).replace(/"/g, '&quot;');
+
+          const isLocked = (sec.access === 'password' && sec.accessPassword);
+
+          html += `
+            <div class="section-card" style="animation-delay: ${index * 0.04}s" onclick="triggerHaptic(); createRipple(event, this); openSection('${bookId}', '${chapterId}', ${secPayload})">
+              <img src="${coverImg}" class="section-card-cover" alt="${sec.title}" onerror="this.src='${meta.defaultCover}'">
+              <div class="section-card-body">
+                <div class="section-card-title">${sec.title}</div>
+                <div class="section-card-tag"><i class="${isLocked ? 'fa-solid fa-lock' : meta.icon}"></i> ${isLocked ? '需要密碼才能瀏覽' : meta.label}</div>
+              </div>
+            </div>
+          `;
+        });
+        html += `</div>`;
+        appContent.innerHTML = html;
+        return;
+      }
+
+      renderEmptyState();
+    }
+
+    // 小章節三種建立方式對應的卡片顯示樣式
+    const SECTION_MODE_META = {
+      pdf: { icon: 'fa-regular fa-file-pdf', label: '點擊閱讀講義', defaultCover: 'https://via.placeholder.com/300x200/007bc7/ffffff?text=PDF+Preview' },
+      video: { icon: 'fa-solid fa-circle-play', label: '點擊觀看影片', defaultCover: 'https://via.placeholder.com/300x200/007bc7/ffffff?text=Video' },
+      article: { icon: 'fa-solid fa-book-open', label: '點擊閱讀教學', defaultCover: 'https://via.placeholder.com/300x200/007bc7/ffffff?text=Article' }
+    };
+
+    // 依小章節的 mode 分派到對應的瀏覽器（講義 / 影片 / 教學），
+    // 若該小章節設有密碼保護，先顯示密碼輸入畫面，驗證通過後才真正開啟內容。
+    // 注意：不記住解鎖狀態——只要按「返回」離開，下次要再看同一節就要重新輸入密碼。
+    function openSection(bookId, chapterId, sec) {
+      if (sec.access === 'password' && sec.accessPassword) {
+        renderPasswordGate(bookId, chapterId, sec);
+      } else {
+        dispatchOpenSection(bookId, chapterId, sec);
+      }
+    }
+
+    function dispatchOpenSection(bookId, chapterId, sec) {
+      const mode = sec.mode || 'pdf';
+      if (mode === 'video') {
+        openVideoViewer(bookId, chapterId, sec.title, sec.videoUrl, sec.videoNote, sec.buttons || []);
+      } else if (mode === 'article') {
+        openArticleViewer(bookId, chapterId, sec.title, sec.blocks || [], sec.buttons || []);
+      } else {
+        openPdfViewer(bookId, chapterId, sec.title, sec.pdfUrl, sec.buttons || []);
+      }
+    }
+
+    // 記住目前等待輸入密碼的小章節內容，供密碼畫面的送出按鈕使用
+    window.__pendingPasswordSection = null;
+
+    function renderPasswordGate(bookId, chapterId, sec) {
+      if (searchInput.value.trim() !== '') {
+        navigationStack.push({ type: 'search' });
+      } else {
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
+      }
+
+      headerTitle.innerText = sec.title;
+      backBtn.style.display = "flex";
+      updateSidebarActive(bookId, chapterId);
+      updateBottomNavHome(false);
+
+      window.__pendingPasswordSection = { bookId, chapterId, sec };
+
+      appContent.innerHTML = `
+        <div class="password-gate-container">
+          <div class="password-gate-icon"><i class="fa-solid fa-lock"></i></div>
+          <div class="password-gate-title">此內容需要密碼才能瀏覽</div>
+          <div class="password-gate-sub">請輸入密碼以查看「${escapeHtmlText(sec.title)}」</div>
+          <input type="password" id="sectionPasswordInput" class="password-gate-input" placeholder="請輸入密碼" autocomplete="off">
+          ${sec.accessHint ? `<div class="password-gate-hint"><i class="fa-solid fa-lightbulb"></i> 提示：${escapeHtmlText(sec.accessHint)}</div>` : ''}
+          <button type="button" class="password-gate-btn" onclick="submitSectionPassword()">確認送出</button>
+          <div class="password-gate-error" id="sectionPasswordError"></div>
+        </div>
+      `;
+
+      const pwdInput = document.getElementById('sectionPasswordInput');
+      if (pwdInput) {
+        pwdInput.focus();
+        pwdInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') submitSectionPassword();
+        });
+      }
+    }
+
+    function submitSectionPassword() {
+      const pending = window.__pendingPasswordSection;
+      if (!pending) return;
+
+      const input = document.getElementById('sectionPasswordInput');
+      const errorEl = document.getElementById('sectionPasswordError');
+      const value = input ? input.value : '';
+
+      if (value === pending.sec.accessPassword) {
+        window.__pendingPasswordSection = null;
+        navigationStack.pop(); // 密碼畫面自己 push 的那筆歷史紀錄不需要重複保留，交由實際內容頁重新 push 一次
+        dispatchOpenSection(pending.bookId, pending.chapterId, pending.sec);
+      } else {
+        if (errorEl) errorEl.textContent = '密碼不正確，請再試一次';
+        if (input) {
+          input.value = '';
+          input.focus();
+        }
+      }
+    }
+
+    // 從各種可能的 YouTube 網址格式中取出影片 ID
+    function getYoutubeVideoId(url) {
+      if (!url) return '';
+      const patterns = [
+        /youtube\.com\/watch\?v=([\w-]{6,})/,
+        /youtu\.be\/([\w-]{6,})/,
+        /youtube\.com\/embed\/([\w-]{6,})/,
+        /youtube\.com\/shorts\/([\w-]{6,})/
+      ];
+      for (const re of patterns) {
+        const m = url.match(re);
+        if (m) return m[1];
+      }
+      return '';
+    }
+
+    function getYoutubeEmbedUrl(url) {
+      const id = getYoutubeVideoId(url);
+      return id ? `https://www.youtube.com/embed/${id}` : (url || '');
+    }
+
+    function escapeHtmlText(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    // 用於 HTML 屬性（如 src="..."）的跳脫，額外處理雙引號與單引號，避免破壞屬性或注入
+    function escapeHtmlAttr(str) {
+      return escapeHtmlText(str)
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // 教學模式：程式碼框收合／展開（點擊標題列切換，預設展開）
+    function toggleCodeBlock(headerEl) {
+      const block = headerEl.closest('.article-block-code');
+      if (block) block.classList.toggle('collapsed');
+    }
+
+    // 教學模式：圖片直接瀏覽燈箱
+    function openImageLightbox(url) {
+      if (!url) return;
+      const overlay = document.getElementById('imageLightboxOverlay');
+      const img = document.getElementById('imageLightboxImg');
+      if (!overlay || !img) return;
+      img.src = url;
+      overlay.classList.add('active');
+    }
+
+    function closeImageLightbox() {
+      const overlay = document.getElementById('imageLightboxOverlay');
+      if (overlay) overlay.classList.remove('active');
+    }
+
+    // 將純文字中的網址自動轉為可點擊連結，其餘文字保持跳脫，避免注入
+    function linkifyText(text) {
+      if (!text) return '';
+      const escaped = escapeHtmlText(text);
+      const urlRegex = /(https?:\/\/[^\s<]+)/g;
+      return escaped.replace(urlRegex, (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`);
+    }
+
+    // 依附件按鈕清單組出「分隔線 + 附件：按鈕...」區塊；沒有按鈕時回傳空字串（等同隱藏）
+    function renderAttachmentButtons(buttons) {
+      if (!Array.isArray(buttons) || buttons.length === 0) return '';
+
+      const btnsHtml = buttons
+        .filter(b => b && b.title && b.url)
+        .map(b => `<a class="attachment-btn" href="${b.url}" target="_blank" rel="noopener noreferrer">${b.title}</a>`)
+        .join('');
+
+      if (btnsHtml === '') return '';
+
+      return `
+        <div class="attachment-divider"></div>
+        <div class="attachment-section">
+          <div class="attachment-label"><i class="fa-solid fa-paperclip"></i> 附件區：</div>
+          <div class="attachment-buttons">${btnsHtml}</div>
+        </div>
+      `;
+    }
+
+    function openPdfViewer(bookId, chapterId, title, pdfUrl, buttons = []) {
+      if (!pdfUrl || pdfUrl === "") {
+        alert("該章節講義 PDF 準備中！");
+        return;
+      }
+
+      if (searchInput.value.trim() !== '') {
+        navigationStack.push({ type: 'search' });
+      } else {
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
+      }
+
+      headerTitle.innerText = title;
+      backBtn.style.display = "flex";
+      updateSidebarActive(bookId, chapterId);
+      updateBottomNavHome(false);
+
+      appContent.innerHTML = `
+        <div class="pdf-viewer-container">
+          <iframe src="${pdfUrl}" allow="autoplay"></iframe>
+        </div>
+        ${renderAttachmentButtons(buttons)}
+      `;
+    }
+
+    // 影片模式：播放 YouTube 影片 + 下方資訊欄（補充文字可點連結、禁止複製）
+    function openVideoViewer(bookId, chapterId, title, videoUrl, videoNote, buttons = []) {
+      if (!videoUrl || videoUrl === "") {
+        alert("該章節影片準備中！");
+        return;
+      }
+
+      if (searchInput.value.trim() !== '') {
+        navigationStack.push({ type: 'search' });
+      } else {
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
+      }
+
+      headerTitle.innerText = title;
+      backBtn.style.display = "flex";
+      updateSidebarActive(bookId, chapterId);
+      updateBottomNavHome(false);
+
+      const embedUrl = getYoutubeEmbedUrl(videoUrl);
+      const noteHtml = linkifyText(videoNote || '');
+
+      appContent.innerHTML = `
+        <div class="video-viewer-container">
+          <div class="video-aspect">
+            <iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        ${noteHtml ? `
+          <div class="video-info-box">
+            <div class="video-info-label"><i class="fa-solid fa-circle-info"></i> 補充說明</div>
+            <div class="video-info-text">${noteHtml}</div>
+          </div>
+        ` : ''}
+        ${renderAttachmentButtons(buttons)}
+      `;
+    }
+
+    // 教學模式：依序渲染文字 / PDF / 影片 / 程式碼區塊，像部落格文章一樣
+    function renderArticleBlockHtml(block, idx) {
+      const type = block.type;
+      const content = block.content || '';
+
+      if (type === 'text') {
+        return `<div class="article-block"><div class="article-block-text">${linkifyText(content)}</div></div>`;
+      }
+      if (type === 'pdf') {
+        return `<div class="article-block"><div class="article-block-pdf"><iframe src="${content}" allow="autoplay"></iframe></div></div>`;
+      }
+      if (type === 'video') {
+        const embedUrl = getYoutubeEmbedUrl(content);
+        return `<div class="article-block"><div class="article-block-video"><iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>`;
+      }
+      if (type === 'image') {
+        const safeUrl = escapeHtmlAttr(content);
+        return `
+          <div class="article-block">
+            <div class="article-block-image" onclick="openImageLightbox('${safeUrl}')">
+              <img src="${safeUrl}" alt="圖片" loading="lazy">
+              <span class="article-image-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大瀏覽</span>
+            </div>
+          </div>
+        `;
+      }
+      if (type === 'code') {
+        const codeId = `articleCode_${idx}_${Math.random().toString(36).slice(2)}`;
+        return `
+          <div class="article-block">
+            <div class="article-block-code code-copyable">
+              <div class="code-header" onclick="toggleCodeBlock(this)">
+                <span class="code-header-label"><i class="fa-solid fa-code"></i> 程式碼</span>
+                <div class="code-header-actions">
+                  <button type="button" class="article-code-copy-btn" onclick="event.stopPropagation(); copyArticleCode('${codeId}', this)">複製程式碼</button>
+                  <i class="fa-solid fa-chevron-down code-toggle-icon"></i>
+                </div>
+              </div>
+              <div class="code-body"><div><pre><code id="${codeId}">${escapeHtmlText(content)}</code></pre></div></div>
+            </div>
+          </div>
+        `;
+      }
+      return '';
+    }
+
+    // 程式碼框允許複製：點擊按鈕直接複製到剪貼簿
+    function copyArticleCode(codeId, btn) {
+      const el = document.getElementById(codeId);
+      if (!el) return;
+      const text = el.innerText;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.textContent = '已複製！';
+          setTimeout(() => { btn.textContent = original; }, 1500);
+        }).catch(() => {});
+      }
+    }
+
+    function openArticleViewer(bookId, chapterId, title, blocks = [], buttons = []) {
+      if (!Array.isArray(blocks) || blocks.length === 0) {
+        alert("該章節教學內容準備中！");
+        return;
+      }
+
+      if (searchInput.value.trim() !== '') {
+        navigationStack.push({ type: 'search' });
+      } else {
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
+      }
+
+      headerTitle.innerText = title;
+      backBtn.style.display = "flex";
+      updateSidebarActive(bookId, chapterId);
+      updateBottomNavHome(false);
+
+      const blocksHtml = blocks.map((b, idx) => renderArticleBlockHtml(b, idx)).join('');
+
+      appContent.innerHTML = `
+        <div class="article-container">${blocksHtml}</div>
+        ${renderAttachmentButtons(buttons)}
+      `;
+    }
+
+    function handleSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+
+      if (query === '') {
+        clearSearchBtn.style.display = 'none';
+        goBackToCurrentStack();
+        return;
+      }
+
+      clearSearchBtn.style.display = 'block';
+      backBtn.style.display = "flex";
+      headerTitle.innerText = "搜尋結果";
+      updateSidebarActive(null);
+      updateBottomNavHome(false);
+      if (sidebarNav) {
+        const home = sidebarNav.querySelector('[data-nav-home]');
+        if (home) home.classList.remove('active');
+      }
+
+      let results = [];
+
+      courseData.forEach(book => {
+        if (book.title.toLowerCase().includes(query)) {
+          results.push({
+            type: 'book',
+            title: book.title,
+            badge: '課程主分類',
+            action: () => renderChapters(book.id)
+          });
+        }
+
+        function searchSubchapters(list, parentTitle) {
+          list.forEach(item => {
+            if (item.title.toLowerCase().includes(query)) {
+              results.push({
+                type: 'chapter',
+                title: item.title,
+                badge: parentTitle,
+                action: () => renderSections(book.id, item.id)
+              });
+            }
+            if (item.subchapters) searchSubchapters(item.subchapters, `${parentTitle} > ${item.title}`);
+            if (item.sections) {
+              item.sections.forEach(sec => {
+                if (sec.title.toLowerCase().includes(query)) {
+                  results.push({
+                    type: 'section',
+                    title: sec.title,
+                    badge: `${parentTitle} > ${item.title}`,
+                    action: () => openSection(book.id, item.id, sec)
+                  });
+                }
+              });
+            }
+          });
+        }
+
+        if (book.chapters) {
+          searchSubchapters(book.chapters, book.title);
+        }
+      });
+
+      if (results.length === 0) {
+        appContent.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-magnifying-glass" style="font-size:2.5rem; margin-bottom:12px; color:#aaa;"></i>
+            <p>找不到與「${query}」相關的內容</p>
+          </div>
+        `;
+        return;
+      }
+
+      let html = `<div class="list-container">`;
+      results.forEach((res, index) => {
+        let iconClass = "fa-book";
+        if (res.type === 'chapter') iconClass = "fa-folder-open";
+        if (res.type === 'section') iconClass = "fa-file-pdf";
+
+        html += `
+          <div class="list-item" style="animation-delay: ${index * 0.03}s" onclick="triggerHaptic(); createRipple(event, this); executeSearchResult(this)" data-func-id="${results.indexOf(res)}">
+            <div>
+              <div class="list-title">
+                <i class="fa-solid ${iconClass}" style="color:var(--primary-color); margin-right:8px;"></i>
+                ${res.title}
+              </div>
+              <span class="search-badge">${res.badge}</span>
+            </div>
+            <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i>
+          </div>
+        `;
+      });
+      html += `</div>`;
+
+      appContent.innerHTML = html;
+      window.currentSearchResults = results;
+    }
+
+    function executeSearchResult(element) {
+      const index = element.getAttribute('data-func-id');
+      if (window.currentSearchResults && window.currentSearchResults[index]) {
+        navigationStack.push({ type: 'search' });
+        window.currentSearchResults[index].action();
+        searchInput.value = '';
+        clearSearchBtn.style.display = 'none';
+        searchContainer.classList.remove('active');
+        if (navSearchBtn) navSearchBtn.classList.remove('active');
+      }
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      clearSearchBtn.style.display = 'none';
+      goBackToCurrentStack();
+    }
+
+    function goBackToCurrentStack() {
+      if (navigationStack.length === 0) {
+        renderHall();
+      } else {
+        goBack();
+      }
+    }
+
+    function renderEmptyState() {
+      appContent.innerHTML = `
+        <div class="empty-state">
+          <i class="fa-solid fa-pen-ruler" style="font-size:2.5rem; margin-bottom:12px; color:#aaa;"></i>
+          <p>單元講義建置中，敬請期待！</p>
+        </div>
+      `;
+    }
+
+    function goBack() {
+      if (searchInput.value.trim() !== '' && navigationStack.length === 0) {
+        clearSearch();
+        return;
+      }
+
+      if (navigationStack.length === 0) {
+        renderHall();
+        return;
+      }
+
+      const lastState = navigationStack.pop();
+
+      if (lastState.type === 'search') {
+        handleSearch();
+      } else if (lastState.type === 'hall') {
+        searchInput.value = '';
+        renderHall();
+      } else if (lastState.type === 'chapters') {
+        renderChapters(lastState.bookId);
+      } else if (lastState.type === 'sections') {
+        renderSections(lastState.bookId, lastState.chapterId, lastState.parentSubIds || []);
+      }
+    }
+
+    function goHomeFromNav() {
+      searchInput.value = '';
+      clearSearchBtn.style.display = 'none';
+      searchContainer.classList.remove('active');
+      if (navSearchBtn) navSearchBtn.classList.remove('active');
+      renderHall();
+    }
+
+    window.onload = function() {
+      setAppHeight();
+      setBottomNavSpace();
+      applyRandomTheme();
+      document.getElementById('footerText').innerText = `© 加加研究室 - 創客教學網頁`;
+      renderSidebarNav();
+      refreshNoticeBadge();
+      renderHall();
+      fitHeaderTitle();
+    };
+  </script>
+
+  <!-- =========================================================
+       內容保護模組（本區塊為新增，未修改上方任何原有程式碼與架構）
+       1. 嚴格禁用開發者工具 (F12 / Console 防禦)
+       2. 快捷鍵與滑鼠/觸控事件全面封鎖
+       3. 動態網址保護與 Blob 加密載入（PDF 講義）
+       4. 防止右鍵選單、拖曳，並強化手機端防惡意下載
+       ========================================================= -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ---------- 0. 動態注入保護樣式與警告遮罩（不更動原始 <head>/<body>） ---------- */
+    var protectStyle = document.createElement('style');
+    protectStyle.id = 'security-protection-style';
+    protectStyle.textContent =
+      'html, body, * {' +
+      '  -webkit-user-select: none !important;' +
+      '  -moz-user-select: none !important;' +
+      '  -ms-user-select: none !important;' +
+      '  user-select: none !important;' +
+      '}' +
+      'input, textarea, [contenteditable="true"] {' +
+      '  -webkit-user-select: text !important;' +
+      '  -moz-user-select: text !important;' +
+      '  -ms-user-select: text !important;' +
+      '  user-select: text !important;' +
+      '}' +
+      'img, iframe, video, canvas {' +
+      '  -webkit-user-drag: none !important;' +
+      '  -khtml-user-drag: none !important;' +
+      '  -moz-user-drag: none !important;' +
+      '  user-drag: none !important;' +
+      '  -webkit-touch-callout: none !important;' +
+      '}' +
+      '#devtoolsWarningOverlay {' +
+      '  display: none;' +
+      '  position: fixed;' +
+      '  inset: 0;' +
+      '  background: #0b0b0f;' +
+      '  color: #fff;' +
+      '  z-index: 2147483647;' +
+      '  flex-direction: column;' +
+      '  align-items: center;' +
+      '  justify-content: center;' +
+      '  text-align: center;' +
+      '  padding: 24px;' +
+      '  font-size: 1.05rem;' +
+      '  line-height: 1.8;' +
+      '}' +
+      '#devtoolsWarningOverlay.active { display: flex; }' +
+      '#pdfLoadingMask {' +
+      '  position: absolute;' +
+      '  inset: 0;' +
+      '  display: flex;' +
+      '  align-items: center;' +
+      '  justify-content: center;' +
+      '  background: #fff;' +
+      '  color: #666;' +
+      '  font-size: 0.95rem;' +
+      '  z-index: 3;' +
+      '}' +
+      '@media print { body * { display: none !important; } }';
+    document.head.appendChild(protectStyle);
+
+    var overlay = document.createElement('div');
+    overlay.id = 'devtoolsWarningOverlay';
+    overlay.innerHTML =
+      '<i class="fa-solid fa-triangle-exclamation" style="font-size:2.4rem;margin-bottom:14px;color:#f1c40f;"></i>' +
+      '<div>偵測到開發者工具已開啟<br>為保護課程講義內容，請先關閉開發者工具再繼續瀏覽</div>';
+
+    function mountOverlay() {
+      if (document.body && !document.body.contains(overlay)) {
+        document.body.appendChild(overlay);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', mountOverlay);
+    } else {
+      mountOverlay();
+    }
+
+    /* ---------- 1. 防止右鍵選單 / 拖曳 / 選取（保留輸入框可正常輸入與貼上） ---------- */
+    function isEditable(target) {
+      if (!target || !target.tagName) return false;
+      var tag = target.tagName;
+      // 教學模式的程式碼框 (.code-copyable) 明確允許選取、右鍵與複製
+      if (typeof target.closest === 'function' && target.closest('.code-copyable')) return true;
+      return tag === 'INPUT' || tag === 'TEXTAREA' || target.isContentEditable;
+    }
+
+    document.addEventListener('contextmenu', function (e) {
+      if (!isEditable(e.target)) e.preventDefault();
+    }, true);
+
+    document.addEventListener('dragstart', function (e) {
+      if (!isEditable(e.target)) e.preventDefault();
+    }, true);
+
+    document.addEventListener('selectstart', function (e) {
+      if (!isEditable(e.target)) e.preventDefault();
+    }, true);
+
+    // 行動裝置：攔截長按觸發的系統選單（另存圖片 / 分享等）
+    var touchTimer = null;
+    document.addEventListener('touchstart', function (e) {
+      if (isEditable(e.target)) return;
+      touchTimer = setTimeout(function () {
+        if (e.cancelable) e.preventDefault();
+      }, 500);
+    }, { passive: false });
+    document.addEventListener('touchend', function () { clearTimeout(touchTimer); }, { passive: true });
+    document.addEventListener('touchmove', function () { clearTimeout(touchTimer); }, { passive: true });
+
+    /* ---------- 2. 快捷鍵全面封鎖 ---------- */
+    document.addEventListener('keydown', function (e) {
+      var key = (e.key || '').toUpperCase();
+      var blocked = false;
+
+      if (key === 'F12') blocked = true;
+      if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'K', 'E'].indexOf(key) !== -1) blocked = true; // 開發者工具/主控台/網路
+      if (e.metaKey && e.altKey && ['I', 'J', 'C'].indexOf(key) !== -1) blocked = true; // macOS Safari
+      if (e.ctrlKey && ['U', 'S', 'P'].indexOf(key) !== -1) blocked = true; // 檢視原始碼 / 儲存 / 列印
+      if (e.ctrlKey && key === 'C' && !isEditable(e.target)) blocked = true; // 一般複製（輸入框仍可複製/貼上）
+
+      if (blocked) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    }, true);
+
+    /* ---------- 3. 開發者工具偵測（視窗尺寸差 + debugger 中斷計時法） ---------- */
+    var THRESHOLD = 170;
+    var sizeSuspect = false;
+    var timingSuspect = false;
+
+    function updateOverlay() {
+      overlay.classList.toggle('active', sizeSuspect || timingSuspect);
+    }
+
+    function checkBySize() {
+      sizeSuspect =
+        (window.outerWidth - window.innerWidth > THRESHOLD) ||
+        (window.outerHeight - window.innerHeight > THRESHOLD);
+      updateOverlay();
+    }
+
+    function checkByTiming() {
+      var start = performance.now();
+      // eslint-disable-next-line no-debugger
+      debugger;
+      timingSuspect = (performance.now() - start) > 100;
+      updateOverlay();
+    }
+
+    // 桌機環境進行較嚴格偵測；行動裝置螢幕比例差異大，避免誤判改用其他防護手段
+    if (!('ontouchstart' in window)) {
+      setInterval(checkBySize, 800);
+      setInterval(checkByTiming, 1200);
+      window.addEventListener('resize', checkBySize);
+    }
+
+    /* ---------- 4. PDF 講義 Blob 動態載入（覆寫 openPdfViewer，行為與原本完全相容） ---------- */
+    var activeBlobUrl = null;
+
+    function releaseActiveBlobUrl() {
+      if (activeBlobUrl) {
+        URL.revokeObjectURL(activeBlobUrl);
+        activeBlobUrl = null;
+      }
+    }
+
+    // Google Drive / Docs 的 /preview 網址回傳的是設計給 iframe 嵌入的「檢視器網頁(HTML)」，
+    // 不是原始 PDF 位元組，絕對不能拿去 fetch() 再包成 blob——那樣做只會把 HTML 內容
+    // 誤標成 application/pdf，導致瀏覽器判定檔案無法辨識而顯示封鎖/錯誤畫面。
+    function isDirectPdfFileUrl(url) {
+      return !/drive\.google\.com|docs\.google\.com/i.test(url);
+    }
+
+    window.openPdfViewer = function (bookId, chapterId, title, pdfUrl, buttons) {
+      if (!pdfUrl || pdfUrl === '') {
+        alert('該章節講義 PDF 準備中！');
+        return;
+      }
+
+      if (searchInput.value.trim() !== '') {
+        navigationStack.push({ type: 'search' });
+      } else {
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
+      }
+
+      headerTitle.innerText = title;
+      backBtn.style.display = 'flex';
+      updateSidebarActive(bookId, chapterId);
+      updateBottomNavHome(false);
+
+      releaseActiveBlobUrl();
+
+      var attachmentsHtml = (typeof renderAttachmentButtons === 'function')
+        ? renderAttachmentButtons(buttons || [])
+        : '';
+
+      appContent.innerHTML =
+        '<div class="pdf-viewer-container" style="position:relative;">' +
+        '<div id="pdfLoadingMask"><i class="fa-solid fa-spinner fa-spin" style="margin-right:8px;"></i>講義載入中...</div>' +
+        '</div>' +
+        attachmentsHtml;
+
+      var container = appContent.querySelector('.pdf-viewer-container');
+
+      if (!isDirectPdfFileUrl(pdfUrl)) {
+        // Drive/Docs 檢視器頁面：直接嵌入，讓 Google 自己的頁面渲染 PDF 內容
+        container.innerHTML =
+          '<iframe src="' + pdfUrl + '" allow="autoplay" ' +
+          'style="width:100%;height:100%;border:none;"></iframe>';
+        return;
+      }
+
+      // 動態網址：附加一次性亂數參數，避免快取與直接分享同一組固定連結
+      var dynamicUrl = pdfUrl + (pdfUrl.indexOf('?') === -1 ? '?' : '&') +
+        '_t=' + Date.now() + Math.random().toString(36).slice(2);
+
+      fetch(dynamicUrl, { cache: 'no-store' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('讀取失敗');
+          return res.blob();
+        })
+        .then(function (blob) {
+          var pdfBlob = blob.slice(0, blob.size, 'application/pdf');
+          activeBlobUrl = URL.createObjectURL(pdfBlob);
+          var iframe = document.createElement('iframe');
+          iframe.src = activeBlobUrl + '#toolbar=0&navpanes=0&statusbar=0';
+          iframe.setAttribute('allow', 'autoplay');
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.border = 'none';
+          container.innerHTML = '';
+          container.appendChild(iframe);
+        })
+        .catch(function () {
+          // 若來源不支援跨網域 Blob 讀取，自動退回原始直接載入方式，確保功能不中斷
+          container.innerHTML =
+            '<iframe src="' + pdfUrl + '#toolbar=0&navpanes=0" allow="autoplay" ' +
+            'style="width:100%;height:100%;border:none;"></iframe>';
+        });
+    };
+
+    // 返回上一頁時釋放 Blob，避免產生的暫存連結被重複取用
+    var originalGoBack = window.goBack;
+    if (typeof originalGoBack === 'function') {
+      window.goBack = function () {
+        releaseActiveBlobUrl();
+        return originalGoBack.apply(this, arguments);
+      };
+    }
+    window.addEventListener('beforeunload', releaseActiveBlobUrl);
+
+  })();
+  </script>
+
+</body>
+</html>
