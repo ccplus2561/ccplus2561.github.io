@@ -343,7 +343,61 @@ var courseData = [
     "title": "[03] MIT App Inventor 教學",
     "id": "course03",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczOEV6RroafXZucHFfSC-90Nlv7FpRcfpcLn3TUtaaXdmtxZbqxAJP8kO0OXuuAyHQndsXFyZWUC0tYSXWkDVgpngBoki8IvCzpD6KQ9Sc2_i3pd2yfojX1kNa4yB43lLRHQCVI03xvYSCKF3rFE_Hz7=w290-h300-s-no-gm?authuser=0",
-    "chapters": []
+    "chapters": [
+      {
+        "title": "Ch01 - 發開環境",
+        "id": "Ch01",
+        "sections": [
+          {
+            "title": "ex01 - 設計中",
+            "id": "ex01",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM148SQABNnoUBD6w50oU4g_tZc4-D1VeATtM8DfVL0y0D-kkChC-8JN6qn2Xb6rAax4olx5nMnt9mcvbeyDPTTn4EEisd8rzirqLxIiepLil1VLCbEVugjRzWt9Mb4mwFXPJHnuADgAJmdnSNQOnve=w958-h539-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1XGJADB87M-HcloKuUEyYqIGJ2ecl6JWS/preview"
+          },
+          {
+            "title": "ex02 - 設計中",
+            "id": "ex02",
+            "mode": "video",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM148SQABNnoUBD6w50oU4g_tZc4-D1VeATtM8DfVL0y0D-kkChC-8JN6qn2Xb6rAax4olx5nMnt9mcvbeyDPTTn4EEisd8rzirqLxIiepLil1VLCbEVugjRzWt9Mb4mwFXPJHnuADgAJmdnSNQOnve=w958-h539-s-no-gm?authuser=0",
+            "videoUrl": "https://youtu.be/fp6XE4I9NGM?si=cXVSzvStNJbHQ1dP",
+            "videoNote": "💽影片名稱：[花田少年史] 第01集 - 古早古早以前\n🎬集數：01集\n📁播放清單：   • 花田少年史  \n\n🧩 00:00 - 主題曲\n🧩 01:20 - 古早古早以前\n🧩 22:13 - 片尾曲"
+          },
+          {
+            "title": "ex03 - 設計中",
+            "id": "ex03",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM148SQABNnoUBD6w50oU4g_tZc4-D1VeATtM8DfVL0y0D-kkChC-8JN6qn2Xb6rAax4olx5nMnt9mcvbeyDPTTn4EEisd8rzirqLxIiepLil1VLCbEVugjRzWt9Mb4mwFXPJHnuADgAJmdnSNQOnve=w958-h539-s-no-gm?authuser=0",
+            "blocks": [
+              {
+                "type": "text",
+                "content": "測試段落"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1XGJADB87M-HcloKuUEyYqIGJ2ecl6JWS/preview"
+              },
+              {
+                "type": "text",
+                "content": "影片下方"
+              },
+              {
+                "type": "video",
+                "content": "https://youtu.be/fp6XE4I9NGM?si=cXVSzvStNJbHQ1dP"
+              },
+              {
+                "type": "image",
+                "content": "https://lh3.googleusercontent.com/pw/AP1GczM148SQABNnoUBD6w50oU4g_tZc4-D1VeATtM8DfVL0y0D-kkChC-8JN6qn2Xb6rAax4olx5nMnt9mcvbeyDPTTn4EEisd8rzirqLxIiepLil1VLCbEVugjRzWt9Mb4mwFXPJHnuADgAJmdnSNQOnve=w958-h539-s-no-gm?authuser=0"
+              },
+              {
+                "type": "code",
+                "content": "12345789"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "title": "[11] ASRPRO 語音模組",
