@@ -34,15 +34,26 @@
 
     html, body {
       height: 100%;
+      /* 關閉整頁的彈性回彈(overscroll bounce)。回彈瞬間畫面會短暫超出實際內容邊界，
+         此時疊在畫面上的固定導覽列(.bottom-nav，具備 backdrop-filter + box-shadow)
+         在部分手機瀏覽器(尤其 iOS Safari / App 內建瀏覽器)上會出現合成層瞬間閃黑
+         的已知渲染問題，即使前面已經把 html/body 背景色補上仍會發生，因為問題不在
+         背景色而在回彈本身。直接關閉回彈就從根本上避免了這個時機點。 */
+      overscroll-behavior-y: none;
       /* 手機瀏覽器捲動到底部的彈性回彈（overscroll bounce）會露出 <html>
          本身的背景，若沒有設定會是瀏覽器預設的白色，造成「捲到底變白」
-         的違和感；讓 html 也套用同一組背景色即可與內容無縫銜接。 */
-      background-color: var(--bg-color);
+         的違和感；讓 html 也套用同一組背景色即可與內容無縫銜接。
+         注意：--bg-color 實際上會被 JS 換成漸層（linear-gradient），而漸層
+         不是合法的 background-color 值，用 background-color 等於整條屬性
+         失效、還原成瀏覽器預設透明／白色，這正是「捲到最底主題色跟著往上
+         跑掉、露出另一種顏色」的成因。改用 background（簡寫屬性）才能同時
+         接受純色與漸層兩種值。 */
+      background: var(--bg-color);
     }
 
     body {
       /* 手機版預設與 app 內容同色，避免長頁面底部露出背景造成「破圖變黑」的錯覺 */
-      background-color: var(--bg-color);
+      background: var(--bg-color);
       display: flex;
       justify-content: center;
       min-height: 100vh;
@@ -1387,21 +1398,12 @@
       margin-top: auto;
     }
 
-    /* 手機版：footer（版權文字）改為固定貼在底部導覽列正上方，
-       不隨內容捲動、也不會被半透明的導覽列擋住或糊掉；
-       footer 原本的 border-top 就是分隔線，分隔線以上（main 內容）
-       仍維持正常的頁面捲動。 */
-    body:not(.desktop-mode) footer#footerText {
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: var(--bottom-nav-height, 56px);
-      width: 100%;
-      max-width: 480px;
-      z-index: 140;
-      background-color: var(--bg-color);
-      margin-top: 0;
-    }
+    /* 手機版：footer（版權文字）先前曾改為固定貼在導覽列正上方，
+       但這會讓它與導覽列一起「浮」在內容上方，蓋住捲到最後的卡片／附件
+       按鈕（使用者實測仍會被擋住）。改回讓 footer 留在原本的文件流中，
+       跟電腦版一樣是頁面最後一段內容，捲到底才會看到；只有底下的導覽列
+       維持固定，所以 .app-container 只需要留出導覽列的高度即可（見下方
+       .app-container 規則），不用再扣掉 footer 高度。 */
 
     .bottom-nav {
       /* 改用 fixed 並固定貼齊「視覺」畫面底部，避免手機瀏覽器網址列收合/展開時，
@@ -1409,7 +1411,10 @@
          造成導覽列與畫面底部分離或抖動的問題 */
       position: fixed;
       left: 50%;
-      transform: translateX(-50%);
+      /* 用 translate3d 取代 translateX，強制建立獨立且穩定的 GPU 合成層，
+         避免捲動到底部、回彈結束瞬間，這層跟下方內容重新合成時
+         因為次像素(sub-pixel)對不齊而出現一條黑色接縫線 */
+      transform: translate3d(-50%, 0, 0);
       bottom: 0;
       width: 100%;
       z-index: 150;
@@ -1420,7 +1425,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-top: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 -6px 10px -8px rgba(0, 0, 0, 0.15);
       padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
     }
 
@@ -1429,10 +1434,10 @@
       max-width: 480px;
     }
 
-    /* 導覽列離開文件流後，補回原本它所佔的高度；現在還要再加上固定 footer
-       的高度，避免內容最後一段被「導覽列 + footer」兩者一起擋住 */
+    /* 導覽列離開文件流後，補回原本它所佔的高度，避免內容（含最後的
+       footer 版權文字）捲到底時被固定導覽列擋住 */
     body:not(.desktop-mode) .app-container {
-      padding-bottom: var(--bottom-nav-space, 64px);
+      padding-bottom: var(--bottom-nav-height, 56px);
     }
 
     .bottom-nav-item {
@@ -1717,6 +1722,17 @@
       // 切換模式後，底部導覽列顯示/隱藏狀態改變，重新量測留白高度
       requestAnimationFrame(setBottomNavSpace);
       fitHeaderTitle();
+
+      // 切回電腦版時，交還給 CSS 內建的 82vh 高度；切回手機版則重新計算，
+      // 避免殘留另一種模式算出來的高度
+      const pdfContainer = appContent.querySelector('.pdf-viewer-container');
+      if (pdfContainer) {
+        if (mode === 'desktop') {
+          pdfContainer.style.height = '';
+        } else {
+          fitPdfViewerHeight();
+        }
+      }
     }
 
     function toggleMoreMenu(event) {
@@ -1799,23 +1815,46 @@
     window.addEventListener('orientationchange', setAppHeight);
 
     // 手機版底部導覽列改為 fixed 後，量測其實際高度（含安全區）回填為內容底部留白，
-    // 避免最後內容（如 footer）被固定導覽列擋住
+    // 避免內容（包含最後正常文件流中的 footer 版權文字）被固定導覽列擋住
     function setBottomNavSpace() {
       const nav = document.getElementById('bottomNav');
       if (!nav) return;
       if (document.body.classList.contains('desktop-mode')) return;
       const navH = nav.offsetHeight;
       if (navH <= 0) return;
-      // 導覽列自身高度：footer 固定在它正上方要用這個數字定位
-      document.documentElement.style.setProperty('--bottom-nav-height', `${navH}px`);
-      // 導覽列 + footer 的總高度：app-container 底部留白要用這個數字，
-      // 確保 main 內容捲到底時不會被「導覽列 + footer」兩者夾住
-      const footer = document.getElementById('footerText');
-      const footerH = footer ? footer.offsetHeight : 0;
-      document.documentElement.style.setProperty('--bottom-nav-space', `${navH + footerH}px`);
+      // 多留 2px 緩衝：量測當下如果圖示字型還沒套用完成，量到的高度會比
+      // 字型換上後稍微小一點，footer 文字就可能被半透明模糊的導覽列蓋到
+      // 邊緣一點點而變得模糊、幾乎看不見，留一點緩衝可以避免這種邊界誤差
+      document.documentElement.style.setProperty('--bottom-nav-height', `${navH + 2}px`);
     }
     window.addEventListener('resize', setBottomNavSpace);
     window.addEventListener('orientationchange', setBottomNavSpace);
+    window.addEventListener('resize', fitPdfViewerHeight);
+    window.addEventListener('orientationchange', fitPdfViewerHeight);
+
+    // Font Awesome 圖示字型是外部載入的，若導覽列量測當下字型還沒真正套用
+    // 完成，量到的高度會比字型換上後的實際高度小；字型就緒後再重新量一次，
+    // 確保底部留白最終是正確的高度，footer 才不會被導覽列蓋到
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        setBottomNavSpace();
+        fitPdfViewerHeight();
+      }).catch(() => {});
+    }
+
+    // 導覽列本身的尺寸如果因任何原因（字型、安全區、瀏覽器網址列收合等）
+    // 產生變化，用 ResizeObserver 即時同步，比只靠 resize/orientationchange
+    // 事件更可靠，避免留白高度跟導覽列實際高度對不上
+    if (typeof ResizeObserver !== 'undefined') {
+      const bottomNavEl = document.getElementById('bottomNav');
+      if (bottomNavEl) {
+        const navResizeObserver = new ResizeObserver(() => {
+          setBottomNavSpace();
+          fitPdfViewerHeight();
+        });
+        navResizeObserver.observe(bottomNavEl);
+      }
+    }
 
     function refreshNoticeBadge() {
       let lastRead = null;
@@ -1985,6 +2024,10 @@
       clearSearchBtn.style.display = 'none';
       searchContainer.classList.remove('active');
       if (navSearchBtn) navSearchBtn.classList.remove('active');
+      // 點擊「總覽首頁」時，左側收合所有展開中的分類，回到最初的清單狀態
+      document.querySelectorAll('.sidebar-book-group.expanded').forEach(g => {
+        g.classList.remove('expanded');
+      });
       renderHall();
     }
 
@@ -2350,6 +2393,44 @@
       `;
     }
 
+    // 手機版的 PDF 講義 iframe 本身可上下捲動（Google 文件檢視器內建分頁/捲動），
+    // 手指只要按在 iframe 範圍內滑動，觸控事件會被 iframe 整個吃掉、不會往外
+    // 傳給外層頁面，導致外層頁面「滑不動」，永遠碰不到 iframe 下方固定不動的
+    // 附件按鈕。與其要求使用者精準地在 iframe 以外的窄邊緣滑動，不如直接把
+    // iframe 高度動態算到「剛好扣掉標題列、附件區、底部導覽列與版權列後」的
+    // 剩餘高度，讓整頁一次就完整顯示在畫面內、完全不必捲動，附件按鈕自然隨
+    // 時都點得到。
+    function fitPdfViewerHeight() {
+      if (document.body.classList.contains('desktop-mode')) return;
+      const container = appContent.querySelector('.pdf-viewer-container');
+      if (!container) return;
+
+      requestAnimationFrame(() => {
+        const headerEl = document.querySelector('.main-column > header');
+        const footerEl = document.getElementById('footerText');
+        const navEl = document.getElementById('bottomNav');
+        const mainEl = appContent;
+        const divider = appContent.querySelector('.attachment-divider');
+        const attachSection = appContent.querySelector('.attachment-section');
+
+        const mainStyles = window.getComputedStyle(mainEl);
+        const mainPadding = (parseFloat(mainStyles.paddingTop) || 0) + (parseFloat(mainStyles.paddingBottom) || 0);
+
+        const reserved =
+          (headerEl ? headerEl.offsetHeight : 0) +
+          mainPadding +
+          (divider ? divider.offsetHeight + 32 : 0) +
+          (attachSection ? attachSection.offsetHeight : 0) +
+          (navEl ? navEl.offsetHeight : 0) +
+          (footerEl ? footerEl.offsetHeight : 0);
+
+        const appHeight = window.innerHeight;
+        const minHeight = 320; // 講義內容過小時仍保留最低可讀高度，不足時允許頁面正常捲動
+        const available = appHeight - reserved;
+        container.style.height = Math.max(available, minHeight) + 'px';
+      });
+    }
+
     function openPdfViewer(bookId, chapterId, title, pdfUrl, buttons = []) {
       if (!pdfUrl || pdfUrl === "") {
         alert("該章節講義 PDF 準備中！");
@@ -2373,6 +2454,8 @@
         </div>
         ${renderAttachmentButtons(buttons)}
       `;
+
+      fitPdfViewerHeight();
     }
 
     // 影片模式：播放 YouTube 影片 + 下方資訊欄（補充文字可點連結、禁止複製）
