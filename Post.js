@@ -1,5 +1,16 @@
 // 在 Google Apps Script 編輯器裡建立一個名為 "Post" 的 HTML 檔案
 var postData = [
+  {
+    version: "【講義】v26.0909",
+    isExpanded: true,
+    logs: [
+      {
+        tag: "上架",
+        title: "[11] ASRPRO 語音模組",
+        content: "發布 ex01~ex10 篇教學。"
+      }
+    ]
+  },
 {
     version: "【更新】v26.0908",
     isExpanded: false,
