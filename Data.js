@@ -340,6 +340,831 @@ var courseData = [
     ]
   },
   {
+    "title": "[03] MIT App Inventor 教學",
+    "id": "course03",
+    "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczOEV6RroafXZucHFfSC-90Nlv7FpRcfpcLn3TUtaaXdmtxZbqxAJP8kO0OXuuAyHQndsXFyZWUC0tYSXWkDVgpngBoki8IvCzpD6KQ9Sc2_i3pd2yfojX1kNa4yB43lLRHQCVI03xvYSCKF3rFE_Hz7=w290-h300-s-no-gm?authuser=0",
+    "chapters": [
+      {
+        "title": "Ch01 - 開發環境",
+        "id": "Ch01",
+        "sections": [
+          {
+            "title": "ex01 - Appinventor註冊教學",
+            "id": "ex01",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMPowFR-eNzxqcHTVKHNJpkBYII__45UP5LHh4RreINiaGPORz7RciguUc7Ea3AbEFvbRtX7fAnDCPEBviPFOfN7YwJUuD5PUwAy06Wg2pKoKoWUTmWosO2z8PjkTBvf7XU3UXusPPqAtzQ-kIzOecd=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/15XAlG4tPKaPGYVG13w3R5cIcZ-qwIdlm/preview",
+            "buttons": [
+              {
+                "title": "官網連結",
+                "url": "https://appinventor.mit.edu/"
+              }
+            ]
+          },
+          {
+            "title": "ex02 - 安裝 aiStarter 2.3.0 模擬器",
+            "id": "ex02",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMKE_rYVABFUi2UPGCYTs1Bxti1APrMCJ-NDBkK96WubXtxZYB1DLkta36p5_omLuZfwPKZGm7iYVYRA23Q_qWz7GSCVPgUh3wNLES9fjRmT0pE3PWRvZPkwL0VaaN8AhreQ3BZtg5NCseuV5pSlLII=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1xn-THxpdh6AyB9SL99k81xlfgD66TqsI/preview",
+            "buttons": [
+              {
+                "title": "下載網址",
+                "url": "https://files.appinventor.mit.edu/share/Gu5MEEPz"
+              }
+            ]
+          },
+          {
+            "title": "ex03 - 安裝 aiStarter 30.265.0 版本模擬器",
+            "id": "ex03",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMNHdGDO340bG2Gk6E2aaN7TjIrggKQ7DTN3lhAdHx8WsKBRn2_spMBfXBSKCrKCvXIPL9ZBuXdZFhsRPj8GUoBzkNlIFV76nx1AhybnWDsTEOMhAMu3IgeZcvtfnUnW3o_-7Nlv1_LY7IjhRMnbR-L=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1c0yGqoQkK6tCpo7Y9UP-ekt0C2Y1K13f/preview",
+            "buttons": [
+              {
+                "title": "下載連結",
+                "url": "https://appinventor.mit.edu/explore/ai2/windows"
+              }
+            ]
+          },
+          {
+            "title": "ex04 - 設定 aiStarter 30.265.0 中文化",
+            "id": "ex04",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPnDQ74Lc-z2vzTF_CimbgppjJ0cDanxSQwvN_HZdoX2pcNDSaau8hPV2qOwTo_eFMaV23RJseCRoMbfXLe5bEiGp8Ju8UdHw65Tq8D8E1rHI0tY53ESMaQqAT3fQSL-dq430QLmZyjg03QbJJ1O_KM=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1sjtD2ic6ZusbMrfZyjA8uyaVkkc8qQ6F/preview"
+          },
+          {
+            "title": "ex05 - 使用 AI Companion 連接",
+            "id": "ex05",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPfdHif7Z1_lEZcOBOqbZJtwp6LqBdR2F6bnfn6Yw6LoZgSDzI5scAKP_9ZwY-Is2DonKai_q-3Mng9nU7G6R0cPXs-vectQtk58eaVuiVk8JDk6XTUuZTb1mLQGdbiw5x7eeM2UbuBgZS3HLHz6TQa=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1SW-pG2vDS5ZkWeaoockPFIADBOYyLeFX/preview",
+            "buttons": [
+              {
+                "title": "NOX夜神模擬器",
+                "url": "https://tw.bignox.com/"
+              },
+              {
+                "title": "BlueStacks藍疊",
+                "url": "https://www.bluestacks.com/tw/index.html"
+              },
+              {
+                "title": "雷電模擬器",
+                "url": "https://www.ldplayer.tw/"
+              },
+              {
+                "title": "Google Play商店",
+                "url": "https://play.google.com/store/apps/details?id=edu.mit.appinventor.aicompanion3&hl=zh_TW&gl=US&pli=1"
+              }
+            ]
+          },
+          {
+            "title": "ex06 - 裝 Android App 電腦模擬器版",
+            "id": "ex06",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMj_iNoNTcq3JXVY7JH9uOALwnjuKBC0m8ZpaVzr_l_Sq3T0mFytYSL1HheL-skanp5NXtz4LxRJnJOLUQXtuPxPNgJaNdByCfvAsnJ37UJY8uz1_8QxzaiLyoot7RIVa-mh2Ktoe5mumRKTQn1PIaT=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1bX6u6P4OqwQlPqrkQrO2p2fmMgdRGz6I/preview"
+          },
+          {
+            "title": "ex07 - 裝 Android App 手機版",
+            "id": "ex07",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOKEwY8myzY5REMXhbvdBQB_eGlcnrnASbTwgBPL5trx84Y80Lw_1WpuLE3yfbBMPsY9Sd4V97yJ2fd9cr2Mn_NT-_QPnvjmWNEW5F7k2rz-uZkg53hrR2iKNTyk_gDqgXFWzSWYlDn3duTwXWV5sky=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1wuInI0tpI0KA0IcQX6zc5I0Ib9B_3o6D/preview"
+          },
+          {
+            "title": "ex08 - 匯出AIA (下載專案)",
+            "id": "ex08",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQOWgqt117zLg93Y4iY5H0Yse8jkRAi_swOjtOzy4BR1P2GDiZ43xnpeYiZ6Nf-yww0lQy3WFSMOC4IZSQv_agdmTRvNtsSgha7Bvaer3Uogl5sedE5gjhRgeNFq61Tenx5FIrEXK-PU-NZk9Umq18=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1ecPDrO0vqEW6sVft9VI5d65mb5ekxFzy/preview"
+          },
+          {
+            "title": "ex09 - 匯入AIA (加入專案)",
+            "id": "ex09",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNsaq5rf11m8rjXx8IQiP9kD538VWKmOcSn3SFBHjPmEScAUIY5mzZ5aG4cOEV5iLONgTPVnr10rjZEvhgcKvQ6bMEtJLisBpMM0GTf6-UmJEZsTxKy9B4tsPh_vFuwilumkXWZU8pw8rpQsQXEGRAr=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/13t-cK9ZjQn7SRcYIWH7kFNAI3a5X3T9S/preview"
+          }
+        ]
+      },
+      {
+        "title": "Ch02 - 使用者介面",
+        "id": "Ch02",
+        "sections": [
+          {
+            "title": "ex10 - 註冊資料 (輸入盒應用)",
+            "id": "ex10",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczO5H_kJ0RuVqv3Z6Uo4sCNWjCH5NeInbJGzYh_OyX8frPoq8uTharKwdn5GoEaaDPQrrDkbqdKT1OO7MiDp3-K-Gb8uaHsQuuvFWw9wmllYl1l8CE1iJvQC-52UZ-1MqZyOeIFVxKTus9qhNmAIQcn3=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/CxZgyJhA#gwVpc7tDaXMLqnQpSjnUnwjeyLno-Tb7ccwqD_GxLgY"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/744SxCgb#7aLzIDpNpgYXzh8-XQCurVfLGE3rvolTXF1ZsRtJRmg"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "元件說明：\n[ 標籤 ] = 用來顯示文字的元件。其文字屬性就是要顯示的文字。其他屬性用來控制元件的外觀及位置，均可以在設計及程式設計視窗中進行設定。\n[文字輸入盒] = 本元件可讓使用者輸入文字數字等內容。\n[密碼輸入盒] = 密碼輸入器供使用者輸入密碼，所輸入的文字內容將以圓點隱藏起來。\n\n[按鈕] = 使用者透過點選、按壓、鬆開…按鈕來執行應用中的某些動作。按鈕可以偵測使用者的動作；也可以改變按鈕的某些外觀特性。如啟用屬性可以決定按鈕是否可操作。"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1ksDJLD5sE5RdFbtxQGrudMSEOMcEZW74/preview"
+              }
+            ]
+          },
+          {
+            "title": "ex11 - 縮放圖形 (滑桿應用)",
+            "id": "ex11",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNteBuk84fcHZdvGAOBF_6PgTKmXttJ8oU3zJyHz7FSjhDeo1JjYqq3ek1cwqthZESrScNIJQv0swiT8KDgSEJaaDVf9uMJI1r4uDLVGPM_0boJ77AkgJibxyndVHIc53TYEXx8c4rp4f_ztEr_-sdo=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/a4oRVCTB#2gg7VjZPFt_PYMMCasnnAeSbRMKKX0DvRttDBBWkzpM"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/6gIWDSAA#6NG5ZhGWvvwgXxGdvNXv1rrwI7qwgr6GrB19HwTxVM4"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "元件說明：\n[滑桿] = 滑桿是一個可以左右移動的控制軸。可以左右拖動指針來設定滑桿位置，拖動指針將觸發“位置變化”事件，並回傳指針位置。其他元件的屬性可以透過指針位置來改變，例如文字的大小或球的半徑等。"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1hkNyT_ApK6VOzumVYLCmEa-_4MQWxIQ_/preview"
+              },
+              {
+                "type": "text",
+                "content": "1.當 Screen(螢幕) 初始化\n執行1 =  圖像 圖片 為 appinventor_logo.png\n執行2 =  圖像 寬度 為 320\n\n 2.當 滑桿 位置變化.\n執行1 = 滑桿值_標籤.文字 為 指針位置\n執行2 = 圖像 寬度 為 指針位置"
+              }
+            ]
+          },
+          {
+            "title": "ex12 - 練習題 (輸入盒+滑桿應用)",
+            "id": "ex12",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP_RPQQaFiHvtemSmMI2JSHfsrudbzSUovg-gLCDwoOgYuV82HlYUcbL6l_tPopLlpsPJYpvKx_0Cna7D-taYh-9ACyCsCUfyKM50NJV3dh1nw8SIFp_DV2JHhiVMMvhSF4uPadMoQwdUKW-PvH53Uy=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/GoQkxYbb#kmZHsyRbP4DNQuqK2q4uYMD91S_s08vLCgjC2eHBWoI"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/PohhSYCY#pKDdLnjH9iYYgKExwV76E82dfvRTHVAGcgyk6141iiA"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "[規則] 滑桿的最大值為100，最小值0，\n[初始] 程式一開始時，指針位置在50正中間，\n[條件] 滑動滑桿，文字輸入盒數值跟著變動，\n[條件] 輸入文字輸入，按下按鈕，指針移動到指定位置"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1EJo5qlwy9SOO0WK9usWfBjy-25g4hPQ7/preview"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ch03 - 基礎運算",
+        "id": "Ch03",
+        "sections": [
+          {
+            "title": "ex13 - 對話框應用 (對話框+變數)",
+            "id": "ex13",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNV5K4MONMvBZJ-AYKLc2f0P-jRf04_Wwe1qj7c2e_PSHGpBzWkyR82K12huu79u_JC2ozmfi30T5fu3-onjBBFGEusaUlUk3iyIBhXr26TLvpJrwGJgQkWQVcW-KDkFQWHFOq8GtCPWaQaYvL6Iu0I=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/H8BniDbD#CUPj_ppv2QulZuC2fMgvwuJbXETVU0w3idvckRqxXTE"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/utZRSaxK#9vrqbwHvKakV4BSgfD5a5lQ_fyHw5ew441zX3UElIp4"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "元件說明：\n[對話框] = 對話框元件用於顯示警告、訊息以及臨時性的通知，並通過下述方法來與使用者互動：\n1.顯示訊息對話框：顯示一條訊息及一個按鈕，使用者需要點選按鈕才能關閉。\n2.顯示選擇對話框：顯示一條訊息及兩個按鈕，如“是”和“否”，使用者可以選擇點選其中一個作為對系統的回應。點選按鈕之後將觸發“完成選擇”事件。\n3.顯示文字輸入對話框: 使用者可以輸入文字來回應系統的提示，輸入之後將觸發“輸入完成”事件。\n4.顯示警告：顯示一段訊息，稍候將自動關閉。\n5.記錄錯誤：向Android日誌中記錄一條錯誤訊息。\n6.記錄訊息：向Android日誌中記錄一條訊息。\n7.記錄警告：向Android日誌中記錄一條警告訊息。\n\n     對話框中的訊息(但不是警告)可使用HTML格式 也可以用字體標籤來設定文字顏色"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1bDDoh3jq3Fa7_bcB0W5ordd3XJ8ODsMN/preview"
+              },
+              {
+                "type": "text",
+                "content": "1.初始化全域變數 變數名 為 文字空格\n2.當 短訊息_按鈕 被點選.\n              執行1 = 設置全域變數 變數名 為 密碼_密碼輸入盒.文字\n              執行2 = 呼叫 對話框 顯示警告訊息 通知 全域變數(變數名/密碼_密碼輸入盒.文字)\n\n  3.當 對話框_按鈕 被點選.\n              執行1 = 設置全域變數 變數名 為 密碼_密碼輸入盒.文字\n              執行2 = 呼叫 對話框 顯示訊息對話框 .訊息 為(變數名/密碼_密碼輸入盒.文字) / 標籤 為 密碼 /按鈕文字 為 確認"
+              }
+            ]
+          },
+          {
+            "title": "ex14 - 加法計算機 (合併文字+數學運算)",
+            "id": "ex14",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP5dPEmDJRRkMNz-id6MXzyyNnlgTUhrvSeqL-ZB6fNyG5AjujZXG2WUQLPsZ7-f-4ge5XCH3ZpIj3bC1ukg_fKjidi4MW-cMRsqP3VwAHU8EphDrWXNWemMhNqHRhHJjP-yuNnWSMxNgMYKXDcLphL=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/jx5R2KYY#1IjPITftzwLQclCW_K8v-mJvj6PR5G_rXfmxEZYwq6g"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/TpA1HTzJ#s5_26TRmgkHQnleZAsgxF3wMAyjuPPFbX2Re3D1KvXo"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1BJNFn8IJHPJNc4PzhCf2X8e2DjmaEC9K/preview"
+              },
+              {
+                "type": "text",
+                "content": "1.初始化全域變數 相加 為 0\n2.當 相加_按鈕 被點選\n            執行1(做加法運算) = 設置 全域 相加 為 = 第一數值_文字輸入盒.文字 + 第二數值_文字輸入盒.文字.\n            執行2(做顯示視窗) = 呼叫 對話框 顯示訊息對話. 訊息為 第一數值_文字輸入盒.文字 + 第二數值_文字輸入盒.文字=全域 相加"
+              },
+              {
+                "type": "text",
+                "content": "1. 建立 相加 變數儲存兩數相加的總和.\n2. 計算兩數總和.再將和儲存在 相加 變數中.\n3. 在 對話框 顯示相加結果."
+              }
+            ]
+          },
+          {
+            "title": "ex15 - 梯形計算機 (數學運算)",
+            "id": "ex15",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNIpOvY-NW5xPo0HeaOPpiN6vPLsTx-ELtzqQUWnq35lPQvJRLeKEh5Ql_vHUYS-see6E7Ygvh92wuEigbqGGXMKx514tUGhyL3r7aZA9puJVaioCImSsadSrOj16WweY0SL148PYdVDxFzyNIAB8J5=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/a4oxRIgQ#Y41XjoddKZId14HEpldB3ebcEVOJWMntbpAmV3Tw8Bs"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/GopmxRxD#FuokgSNT5zi1SGryzY3lC2J2he6CWbUhnOjdidKC4h8"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "1. 建立 上下底 變數並儲存總和.\n2. 建立 面積 變數並儲存.\n3. 計算 上下底總和.儲存在上下底變數中.\n4. 計算 面積後儲存變數.\n5. 已對話框方式顯示出來."
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1dCQfaPf2yKEmniTnuHaAteKWjQFCCNeP/preview"
+              },
+              {
+                "type": "text",
+                "content": "1.初始化全域變數 上下底 為 0\n  2.初始化全域變數 面積 為 0\n  3.當 計算_按鈕 被點選\n               執行1(做上+下底運算) = 設置 全域 上下底 為 上底_文字輸入盒.文字 + 下底_文字輸入盒.文字\n               執行2(做底 x 高 / 2運算) = 設置 全域 上下底 為 (全域 上下底 x  高_文字輸入盒.文字) / 2\n               執行3(做顯示視窗訊息) = 呼叫 對話框 顯示訊息對話框\n                              訊息 為 (上底_文字輸入盒.文字 + 下底_文字輸入盒.文字)x高_文字輸入盒.文字/2 <br>計算結果: 全域 面積\n\n補充：在對話框輸入 \"<br>\" 為換行字符.\n\n          標籤輸入 \"\\n\" 為換行字符"
+              }
+            ]
+          },
+          {
+            "title": "ex16 - 練習題 (轉換成公分)",
+            "id": "ex16",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOlS9HNJO5AH5qTh5Agu-frX6mH2HLwviqg7O5IG4CVAhBDcutZJrC7H00MJlHN_sQNCvM4Xbytvx1bY7aoNk2KP03yJAFelNtgiZs_mwNsIbOX92NZM53-ybMN7AaN82-mWUcOJw3SUZIyLefJPIyF=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/T44BiRbZ#EiGny9j3iEitTspZ9wE8YErXYluQ4AjqCU9ZQAPrQSk"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/bkxmzKII#p2Feq7C6lLptS_RJF40TEiqkrp_ZYIEZK4EPE3CIVko"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1f3I_BAdQiz_QTW86HR94y7sa7DqdK7bD/preview"
+              },
+              {
+                "type": "text",
+                "content": "1.初始化全域變數 呎 為 0\n  2.初始化全域變數 吋 為 0\n  3.初始化全域變數 公分 為 0\n  4.當 轉公分_按鈕 被點選\n               執行1(呎參數) = 設置 全域 呎 為 呎_文字輸入盒.文字\n               執行2(吋參數) = 設置 全域 吋 為 吋_文字輸入盒.文字\n               執行3(公分運算) = 設置 全域 公分 為 (全域 呎 x 30.48) + (全域 吋 x 2.54)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ch04 - 控制流程",
+        "id": "Ch04",
+        "sections": [
+          {
+            "title": "ex17 - 單向判斷 (單向判斷)",
+            "id": "ex17",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNfnIXjgI8dEdhBiMbzt-3ydiin4evvFH0cpe8jBUBLQrxeGu4YBfLjlFapzich6JVrDxQPPusjMKg8oE94fvivrUmiK7UbqZtpetag5GS2ol0OY4vj3h5W6GpJuXcqy9qYQZJ4MYpOYUYpSee0s1iC=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/3hAQACjT#yP1wvvAiKSzjrj9HxdL6axf0vvOvao5M6Os_DY_zSL0"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/qhYnSByR#_YLuj4GVTlkRaAzpHVK50NcSiH24GCohJ7N3E01n3Aw"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1KTZGwDDEArpm9GgPCJM635TX-D95rpyL/preview"
+              },
+              {
+                "type": "text",
+                "content": "當 及格判斷_按鈕.被點選\n如果(輸入盒>=60)時，顯示 你及格了"
+              }
+            ]
+          },
+          {
+            "title": "ex18 - 雙向判斷 (雙向判斷)",
+            "id": "ex18",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOyZJ9L2fFr5sRm_iQ_kLNwhx17sM8nmXStal9nR5jeW36IZLvPFt5JDM5tTWciKKYSKSLx3iEdoK5GUbbdZj7h9zgZ2Tg0IWYTzc8CnzzIqce1TdsmC95slZtud5YYGDwiNLhbFaAoLJxcXVftaUbd=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1qBi-YrsI-hy8HnTuLOawKDOMNdAwVLBl/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/LkZlGD5A#X2x5-enE0f8hGvV_BvmJxcVnQprvra13I6ZrGnWSDCg"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/3kRiAB7K#hZYh3iPD8xfQz2sHEN-z_ePLzaV5aAQ6Q5FwZ7kJTAE"
+              }
+            ]
+          },
+          {
+            "title": "ex19 - 等第判斷 (多項判斷)",
+            "id": "ex19",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNazqJOtD_R7-SPURcm5ToVLrJ6XHjuowx_SyqxdIQFg980sHLd-LClowzHV6yCLrmBd1AZKIGX9saBfJt7yQIoj58xosfj4xmV97HbInaaQ7FkUUkORuVbb1QfHOdvC-4hWbmKf58PTZ3UcrSx_NDU=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/SlgkyRaL#eNMSsDQpSg6TegaUFLMpaOjed3Tv399Gt6OqppH7iEo"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/f5oDUISR#wq8hewVV15YEEEkdH9sAgTNeyv9wyd9exSUy0M_JelM"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/19lmQ75M4W7DyxPz8lq9D6obD8LGH0Iyr/preview"
+              },
+              {
+                "type": "text",
+                "content": "當 及格判斷_按鈕 被點選\n              如果 (你的分數_文字輸入盒.文字 >= 90). 就顯示 優.\n              否則如果 (你的分數_文字輸入盒.文字 >= 80). 就顯示 甲.\n              否則如果 (你的分數_文字輸入盒.文字 >= 70). 就顯示 乙.\n              否則如果 (你的分數_文字輸入盒.文字 >= 60). 就顯示 丙.\n              否則 就顯示 丁.\n\n提示：要由大寫到小. 因為是從第一層.一層一層檢查判斷的"
+              },
+              {
+                "type": "text",
+                "content": "1. 如果 成績>=90. 顯示優.\n2. 否則如果 成績89~80. 顯示甲.\n3. 否則如果 成績79~70. 顯示乙.\n4. 否則如果 成績69~60. 顯示丙.\n5. 否則 59~0 都顯示 丁"
+              }
+            ]
+          },
+          {
+            "title": "ex20 - 複選盒應用 (複選盒)",
+            "id": "ex20",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOjWmnpCk9WEkhcJEF2UcTmqKB8gJWsj30M0VMCY7QrWuHpLu01ZlooECqyZN3pNZzpo-K0WYKAeAIiPVL79izG0k2X1_cJLL15ILiBFWdjnwYOQmHY6gyof8OE0kBARzs_QaMILduWlLNj2EUD2pXj=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/GoZ3gYxY#RTmn5lucbBvaEwX8XO3SnYhB9i1ivnGzSgR3wz1glWg"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/3hISwbza#6TRQBXCTIt3RlHrzWkZRp6m872_Gq6LVOPPMh4djemw"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1dPjr_K1yBhYLuebiNM7DTChqWurkm0Tm/preview"
+              },
+              {
+                "type": "text",
+                "content": "1. 設定 預設顯示文字 你喜歡:\n2. 如果 ASUS被點選. 將文字合併顯示，\n3. 如果 Apple被點選. 將文字合併顯示，\n4. 如果 SAMSUNG被點選. 將文字合併顯示"
+              }
+            ]
+          },
+          {
+            "title": "ex21 - 迴圈應用 (基礎迴圈)",
+            "id": "ex21",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOWaAXw4ruXJUX6kBx5o_S72sbkXLpsoj77G28GEQoFPMAu64WtId0BQz-JMdLMquuINN3LF6MG_wtHpsTo4hHfQ9aVqyud1Q7zRiTx2tPhvvDjJi7z_fHlsmcYwmZXUXYSkuyDiq1DAOfT6p3JcXr4=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/ikoxTLzT#6QiwgrV5phy9ijp5eHtZI34gM90yeL2VLrB_7-MnfkI"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/PxJiGAZY#HunF9N7UjIWwX59g_GMmWwj9CUGE3MZVxqI-PST2ECs"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/14Uhv5YfzJ_RCRzKXug85gVDucmfbn0tC/preview"
+              },
+              {
+                "type": "text",
+                "content": "1. 宣告 次數 紀錄執行幾次，\n2. 按下按鈕 次數歸0並清除文字，\n3. 分別顯示 執行後成果，\n4. 顯示 執行次數"
+              }
+            ]
+          },
+          {
+            "title": "ex22 - 迴圈應用 (鳥巢迴圈)",
+            "id": "ex22",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPNpWnXgtHhN39Ro7RLjbkJ2vRy2D7uz0-zrEf33Qsu_38DTNFwUNcb8oyn6TfuRXDS7t_3Ysw1MFrEXT57jBbgSzuUp9fP6ZkPh_7lqWuoffH8MNeAMbofXPKxU6pzVIxfUlZBr8DJsUHLI8YiNK8B=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/T4piACSb#0i_tVreqyWNpT6bmtmEHxnQ28l2OhyJR6SySHc_1JE4"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/OgxFkRhQ#cDcR08C1FFhwA4fvoT13iuEUbxjBuHRRNt2KedvKsEU"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1050WjshX5hU0BbjnWdrmm57pa6jKDHE2/preview"
+              },
+              {
+                "type": "text",
+                "content": "1. 先 清除訊息\n2. 外層: 輸入盒為初始值.增量-1. 每一層少各少一個\n3. 內層: 外層執行一次就給內層.直到外層變成1時停止.\n4. \\n為換行"
+              }
+            ]
+          },
+          {
+            "title": "ex23 - 累加總和 (條件判斷)",
+            "id": "ex23",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFT9ZRHWl5i6KtnDjv4C65Obb6PHnJa8cIVh7gJ-jDBt_Q-VBpGblrbRpUYrqbJ27vm5eih6Le0gf21vIC_OIfVJSDgNa1d0x_kJ2RWAr1kMt2CoAmWaJn2BvhJ9q_ors1BOBGd3iz9olRLELzfJXA=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/n9hkhKzS#1lPX3jqZcoH3DwU3YQnnZ8OONq53f9LUUJfNZqQyxac"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/zho0yJID#AViNEWwPulNDnUHJm20sAl86SM7IBMDeva1Mr3UqyV0"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/18RDJYKppBi--KLqyCWcWaYD3Y3rUTUub/preview"
+              },
+              {
+                "type": "text",
+                "content": "1. 宣告變數 總和/數字. 總和做儲存用.數字當計數器\n2. 設定 總和/數字 初始值\n3. 如果大於1. 執行 當 滿足條件\n4. 如果大於1. 由1總和累加上去\n5. 顯示結果\n6. 否則小於1. 顯示不是大於1整數"
+              }
+            ]
+          },
+          {
+            "title": "ex24 - BMI值計算 (綜合運用)",
+            "id": "ex24",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPNE23rj1M47qelaIr-q_-DwMP74gcRcEr0kIjn3yLzgab6eG7C6A0Z0OrT6-_uHqZ5DWLNb0ZWjAATh_mmMCcYrV0LeZqJFBgklgFLvYUeLf_eT6sH_MrOlVVrwyBSdg0qNIvy0k3eWYtaABu5rFvO=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/3hAjXYbb#JWrfCjzybMCGWc09GVMNuofrgpD6L8zlOSJywJcSRxk"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/bsQEDZiC#5uHce-VysrthnLU2vKijBf8ORHTCpp2ZjymHh7EKcAE"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "實驗成果：按下按鈕，顯示BMI值，若勾選複選盒，顯示範圍\n \nBMI公式：體重(公斤) / 身 高2 (公尺2 )"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1EHa4U7CjAowBkTACScFP5W8Z9GOpzLep/preview"
+              },
+              {
+                "type": "text",
+                "content": "宣告變數\n1. 身高公尺 作為公分轉換公尺儲存用\n2. BMI 作為結果儲存\n3. 身體狀況 根據體用上下值\n4. 體用範圍 計算標準值範圍值多少\n5. 對話框 顯示訊息"
+              },
+              {
+                "type": "text",
+                "content": "1. 設置 身高公尺 計算(轉公尺)\n2. 設置 BMI值(使用公式)\n3. 如果 BMI>=24 就是過重.\n4. 否則如果 BMI<18.5 就是過輕\n5. 否則 就是標準值\n6. 如果勾選複選盒.\n\n7. 計算最大體重(使用公式)\n8. 計算最小體重(使用公式)\n9. 將最大/最小體重合併\n10.最後將BMI值與狀況/範圍 合併\n11. 以對話框方式顯示"
+              }
+            ]
+          },
+          {
+            "title": "ex25 - 練習題1 (繪製正三角形)",
+            "id": "ex25",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP45ScU4pzkz1ysgPYD_Gbxy_1GAQOixX1PpAtdkGnQCNAv1aVZjcKsxCwVSVOjeEWcgr6gHt5yAgMdH_kX5PaFxs7ziBnL-d3Dpd4Bhdvp_XyTlYW1ihXG5ZcNJ7v_BbyZYi-_Co0z8O6K_i01idtA=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/D4RW3bwD#53MKcE1_dmFqRpAWHccj-KXJlMF-v8m_UVGh_Qp_8ZQ"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/X5oBzTRS#CQneDBisIgFg_6_GPPDa57U3FwGXaw_NLRJ0LMx8-ok"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "實驗成果：輸入數值後，按下生成按鈕，繪製出 正三角形圖案"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1ku3z0fuvc1fXP9YYNorvi-DgmJ_PDAEo/preview"
+              }
+            ]
+          },
+          {
+            "title": "ex26 - 練習題2 (打折)",
+            "id": "ex26",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMoWBvYKax2Cg7G7HPSWuUr33EnPcdhDFigrSuGmFh1KoslcS-lExO45iFCxhSHM6RGGNxhLDJIWg3hjpDmJIi0aaZyuToq2LDcm6NhrnxcKt2CWs2BlTfzztmrTA5vOUDFxYfo6mcQDuXAM1qxcaWd=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/vkgyQQhZ#3I-lFwNzQi-Tp_3mv2RlZD4ZN9hmIbCW1yI_UyvtIF8"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/SlBCSDJZ#BvK-5jU1d1uKHSxg3w9HV9_W54-KmU9Pj5xCwUcmHi4"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "實驗成果：消費金額10萬以上打八折，3萬以上不足10萬打九折，輸入金額按下確認按鈕，顯示實際應付金額值。"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1u4VEx8WWdLZHawTtAtCFxOtzit8nS4zt/preview"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ch05 - 程序應用",
+        "id": "Ch05",
+        "sections": [
+          {
+            "title": "ex27 - 溫度轉換器 (回傳程式)",
+            "id": "ex27",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczN5Bl-4oyGFWpcmCUHkmBv20bC4wQSRWNwwEEKgbTxP6A7BfdXRA5wRnrEtkvaydkeJ998tB-P-v_F5ibtxMqMooSPI9awqFQINMNLk0t5aYTHynYErMbkwWbsgR_GKcFDwUsOb2n3eHG25mr0-FOds=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/2kJhhbaD#8aq7aV6SD-BmlV009VQiJZaepw2n2r_FPLCEoq9RA3M"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/Gx42XYDQ#URrNt8EhR_72Vh1l0TmEDaWq_2-IDQpaQs2yRwPCl6M"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "實驗成果：按下按鈕求出 華氏/攝氏 溫度值\n求攝氏公式: ( 溫度 – 32 ) x 5 / 9\n求華氏公式: ( 溫度 x ( 9 / 5 ) ) + 32"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1DAvReX8sje6CcMaxUyXzdfpqmpxPtsSz/preview"
+              }
+            ]
+          },
+          {
+            "title": "ex28 - 抽數字 (隨機整數)",
+            "id": "ex28",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNpuDMAsEE5VzTGxS1-BU4NlkTEglSpqtSXh6HbO2woZazizIpJeADB3d2MLyJuoP2S6bcFBrEfZfxLlcnsjq0-cc1xbeYOw8tmD50bHnZkg1siQ4SJpUm4UHlVHsQLNU0fjS04gr4PTrSOBBdNlk2_=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1qyqbHTDSDuoxuQim6jhRb8RJcUnLWv-W/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/7hw3AAxY#Bu86eo7P63ClNUyRBAasSkDDM2YBTyqR9C9V1xYM0Fo"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/alI3HabD#CyHlTnZVtO-dXo8iylP2se9n96BBNcVHUssgp1uNtDw"
+              },
+              {
+                "title": "素材圖片",
+                "url": "https://mega.nz/folder/75AkmYLL#JIWcZoHNHBtxDzdfaEx46g"
+              }
+            ]
+          },
+          {
+            "title": "ex29 - 公因數 (最小值)",
+            "id": "ex29",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNOB1-W_JxlMLmL7sQStD3PD-z8fI5LhY-Yjx8IHgOSKdCzz_-SP0hhqqdz3M0R1SnyJEgSxX_c78kR_-mak3byABxnVkXeLVVZVDp-4CYuI70QmWn21TZB29-gwZ8Bdw4gXed4u8or8HgCW0SAy4xB=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/jhwFRIIL#ZeCXahoYSg7YX8mk19cafu_LT7GXvL0gHmMNWW5e8Oo"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/KopThYqQ#JAJqae-XBVduHahS6osvQme1TPJd-Yqc9D4no1EXmj4"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "實驗成果：分別輸入大於1的整數，按下按鈕取出兩數所有公因數"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1ZkStTBj6OX9StzHI2DEXld_20ulMW0Pg/preview"
+              }
+            ]
+          },
+          {
+            "title": "ex30 - 字串相反 (字串應用)",
+            "id": "ex30",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczONatUKiZZN1BPWLEoGVB_-NfC27rJilOFTBstmXf0zjwWIk5_guSqqwLmpIaQZ99CpQgwSG1z7_ZnAHOUNYnjHCt4SYzR7_7WFi45OqGGB4GhkcL2I9loZheKeqGTd8nBwcxqHxUGYP4_nlIWt3xFh=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1BJVJtybUCUnWc2v_8uia1O-dzjcV4BBH/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/qkBEhYRJ#_XP-n_8P-Te-xWwBm06BN18hXI3CS5Pi7Iv9ZFuj6dY"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/asZXGaDY#bSx5N7O0c5fdZhfJQV9aab7uay15FZwhdkwtpej6hhQ"
+              }
+            ]
+          },
+          {
+            "title": "ex31 - 練習題1 (字母大小寫轉換)",
+            "id": "ex31",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMLSv1Ua4RV3PyBZQ_lHJkxHsEvfiAigAjqKqa_TNYSKn4hRHYih6VeB6hBroJO76V0Uoae0aN9O6xvm1-3uVbrHUYMmjcZgBTFUSBazCp6N89heM6Q3jrejW7pzZyBRBqb5bHftro2cHbu_igpBIEW=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1ieJd66FpeolJKqrpXN3rT5yAtWgXI0P7/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/q0oQCKaY#0058AgBGEqE-f1PI9OqyXNN6qcknNVAbRr6krU7nCWg"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/rgICVDIA#bHGjfd_0P7ui9_n7oX2cEr10df-MJacyG_QRps5h0A0"
+              }
+            ]
+          },
+          {
+            "title": "ex32 - 練習題2 (求三角形斜邊長)",
+            "id": "ex32",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczO91mTM5zPzRZ8oB9iBtwzNbOC50ox2a15qVl1JE62m_q_ftwLlTF4hff7vVPpVbYL8rVcpzjYkNvUeTYQeUEmalUWdShrkhv75ggXL41-f4cH8eAkUy256GVXUL37Lh_g_v1rC1IJL6JZkm0KnJzIX=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/fsQTHaQY#pXShRDJCumpDnZg4cKIlOuyRMMT9xMppJfsoSbVqIB8"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/LhBTGJgA#9L6EJq6pPnfat0OrvIetGfcoC3MJ-eyHIMNBnoE44_4"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "text",
+                "content": "實驗成果：輸入三角形的底與高， 按下按鈕 顯示結果答案\n \n公式： 斜邊2 = 底2 + 高2\n運算式：斜邊 = 平方 底2 + 高2"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1u4lg9suiJ1UIHV73s3HaW7By9oFCaowR/preview"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ch06 - 多媒體",
+        "id": "Ch06",
+        "sections": [
+          {
+            "title": "ex33 - 照相機",
+            "id": "ex33",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNZWqbvvw6QmDr-dIZM1hEBY4dozyu4AYyOfef8QJzzKoOvGDFBLBcU1SOBNXsblK5yrsMuhetG-f3zu9EKG1CTkUTw9d_-X2HfGdfhaVuh5pFOosLlQ72R5aSoxiEqdd06PL0qCIq-nTvFIeIDonoy=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1z-tm4Ad6D9XiqpFc9Bzne0OzteO0Uvm9/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/68ZRiYbK#wBXnE7GDDmWQZ8hKYgoQlwmm2_hfAWvS3fKtgUMtPD4"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/LpwzkCBI#vz7YRieuabObVzMDj4dUZ2F1Nh1Qu3IiZfqqWhpKbYU"
+              }
+            ]
+          },
+          {
+            "title": "ex34 - 錄影機",
+            "id": "ex34",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczO9yFLtluQnFZYxl1_LMZ6c0QAMUvBVLfJGL3kX8gBckAxF6ASLTFr5kwZI-PFShU2PjlAskLJ4CN8CQPTNxyicPOSecrgiCmrPdsPdPyneya6xY6AB58ws-TkisVOJbCTRKfKbX-anCONOSoQOwLPT=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Z4h7VYnMDDNq0hr9UkIEfLXH15A084l0/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/TgBHzLaD#1kqasitZQMfUcP5dh7sTeWpPZOZEei0I55NWkTeYkos"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/CkYBiSaS#9M7AGDpQojZl3ggxPrsWVoE6zTLbGoWMHaOTbjthQns"
+              }
+            ]
+          },
+          {
+            "title": "ex35 - 錄音機",
+            "id": "ex35",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMFMsUPUYLEAtPvwCIiJH24Qzm5xp4mzz_aV-3zAxwuPz18q4xnObCPC2_HNmoMI8Jgv69PK5jBpTGemCDAehb0KKf0bRl2SerdwfFCDob2eh3A9_qs9uW4NaHgCMSx8OAOzwXArDOTI19Bu65OW4Rw=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1X5uBWdwQYNFKV57QZg4Ou65weFOQP3j3/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/as5xhaCZ#20P2Z-HOH5rIwclq-OGUNEKPWSkyuobR9MEFkdJBEi4"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/m8JXxTRZ#3Ve6pzXDSh8G6K2z5ZJFBM1zleVtyveeibav6lzZBxM"
+              }
+            ]
+          },
+          {
+            "title": "ex36 - 音樂播放器",
+            "id": "ex36",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNNv750xb2hUuIZVaXWqmkJWlfB9vXqoykzTniyPOTlRmJ6d1V70ClDvQoAwX-6obgu4ftXYsAGI4KBBxn1Sq6pzqzX-Zf0tBuRgxqs4YUcNjSq0g8eCcXYAlOlemuI3HR6EBbrS9u5wgRBNo3xOhfR=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1ioftLufVnFL3QY3A1ONrLmUhX7-7KG5P/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/e0gU0LoL#5nfrohWjkBD2zdtDczTVRcSfqs6rAXTK2a3O3MRK2q0"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/zwoQSSgQ#k5ZXbu4p1AwFS69r0pNGbsnwnznok-syBwemvYeVr_Y"
+              },
+              {
+                "title": "素材音檔",
+                "url": "https://mega.nz/folder/S4gWWB7A#Lt20oBAKnwFhKDpuvxcy6A"
+              }
+            ]
+          },
+          {
+            "title": "ex37 - 小鋼琴",
+            "id": "ex37",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMiLBtlHgknod8dJ_R0YyGNl1CDTrVDIPErj2U51PtLbBBTBf4IL0oN0PsE_NSynbkfarh3KaCo__0a7VuDiXcCcLYuix-K058SqFLqKtZWDdO4mJaIPATT5cLUkcN41SRcaFd6VWHLrM__w_c83eaJ=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1-n__FkScWS521W6A7nLpaVQCD1nf_V9H/preview",
+            "buttons": [
+              {
+                "title": "本教學檔案(apk)",
+                "url": "https://mega.nz/file/nk5ETQja#vEKsipMLwPSWtehhpDZhBrUGyvRNYoWODHnhWe_LoS4"
+              },
+              {
+                "title": "本教學檔案(aia)",
+                "url": "https://mega.nz/file/H0xBlZoL#Q_Aq19j7-Ru_6D-1gNAun2sZGwDFfjXx175xUql-VCA"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "[11] ASRPRO 語音模組",
     "id": "course11",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMpoxSmbu3O9z6I8EjYSEMf32COh9wUHQkoaMO383040YARr2g_f-xF4LtDx3WMTF3_n26XWug34gdFsMuqmy6JSmB4N4PqgvGPfHd_3Q5Rflj2-VhCuNIxeV-jmaoCPLO1HViLGXhaHlHK5C263_gn=w574-h434-s-no-gm?authuser=0",
