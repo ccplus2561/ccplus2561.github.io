@@ -1,8 +1,19 @@
 // 在 Google Apps Script 編輯器裡建立一個名為 "Post" 的 HTML 檔案
 var postData = [
   {
-    version: "【講義】v26.0909",
+    version: "【講義】v26.0914",
     isExpanded: true,
+    logs: [
+      {
+        tag: "上架",
+        title: "[03] MIT App Inventor 教學",
+        content: "6 大單元全面上架，含 37 個實務範例。"
+      }
+    ]
+  },
+  {
+    version: "【講義】v26.0909",
+    isExpanded: false,
     logs: [
       {
         tag: "上架",
