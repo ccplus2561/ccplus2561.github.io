@@ -1165,6 +1165,212 @@ var courseData = [
     ]
   },
   {
+    "title": "[07] USART HMI 教學",
+    "id": "course07",
+    "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMjEKmBAI5GWmOHxmOrCHpviXu4gp8UvIGbFEYK7qSQQev-rbwfbmt6U02m1GJ6O0MaQTxuegfAybQYgO3BWqn3OR4kG_HF7qWYksgXk8Gw4JS3N4gibOe5D6QKFp4ZRmrHVOf6XMZeQw6g6-zqgjxy=w600-h416-s-no-gm?authuser=0",
+    "chapters": [
+      {
+        "title": "Ch01 - 開發環境",
+        "id": "Ch01",
+        "sections": [
+          {
+            "title": "ex01 - 開啟 Windows 功能",
+            "id": "ex01",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMFTrHM9kiliNbkBSntXSTnuPmvdYI2WbNYaMzt88AhOHtXepDDGNOLC6yC1E-X5WOZtvGrzfr9dcQbclu1SuLRpVIIxznGEDtP-5CVz-BqBCki83Ij_vfEHtLN2cimZtHiARgqv-GBJ9tby-nTiIK8=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1l7k7h3XLH28BFvRUChm1LTBe7ANLBSg_/preview"
+          },
+          {
+            "title": "ex02 - USART HMI 安裝",
+            "id": "ex02",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM_S5zeS0ppNwbTy0vQw5-HE80LVq3xFX_gerhmoGk_3NLYFjmHZhgv-Yoc21Tk-2njtw0pyy3CYWgXK-XZScH8mJLcN38oryhESZxD3ylZlO5rYscFnRKeCWGhq8nmBdTN6DGL2DMuwYzvVcQ4bs82=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/18kJ1nvB40Pj0JHQRqDrGxJCGUBLPil75/preview",
+            "buttons": [
+              {
+                "title": "下載連結",
+                "url": "http://wiki.tjc1688.com/"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ch02 - 基礎應用",
+        "id": "Ch02",
+        "sections": [
+          {
+            "title": "ex03 - 創建專案",
+            "id": "ex03",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPam51s6vy0LPQH8zhgWe0XFFqH7qPv71bdYW9aUCHEJW58gX17zsvhkDzMdZmuO0XK69xFBC9uktl6gqo_MBmtSMSasyEdJo-0kIF3MQMC33uDD5wsJipPbiknkO9Xygr02tk-iOD18FjEq9f8pIm-=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1gmCgdxF6QKK15kqWzOLE0f8suesGkP_t/preview"
+          },
+          {
+            "title": "ex04 - 創建字庫",
+            "id": "ex04",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPUp498ro4pE0B1EuDyMPDBFljINDOn9BJ25G0p53JYhfoUsBYbHLh1D2kj-OSqT8DI5ja7qEDj9Ln1ph82JDQTXuNJuhRPz8Xndi_A_aATXaiu1prr4e01WFpZAa5cP2lSfpkgqK97GsaP6x9iV2KS=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1ItWDtqettF4M_WygNx2H7nD0_9eHgK9O/preview"
+          },
+          {
+            "title": "ex05 - 匯入圖片",
+            "id": "ex05",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMEKKdsyTlPh3R333dqNlDqGaFYJcKK0MsICJ--dAXQCUz1mawC28FnrteLLrY6b5Yi3vIMp5CqSM_FwQOy8Ibtw8r2FvnHAIPCmqyxKhFkcwyjJFUkLdsQdDKwdEDGFuBri7StpM9gK7QBpmb9peqy=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/13CP5ZHqQnv5P4_8qRtcAJ4giGd_YqOqJ/preview",
+            "buttons": [
+              {
+                "title": "圖片素材",
+                "url": "https://mega.nz/folder/yxhFTZDb#e_Z0u51SwwTWwbIn36L2MQ"
+              }
+            ]
+          },
+          {
+            "title": "ex06 - 排版功能",
+            "id": "ex06",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNfcFN7_Nq2qcvv3BDoLSrTs0y56rGodZ0tDXsnaGWHOvKj5CxOSCru0r8LRTs8Dc7XLp-Zz1LEo-qoWSXcI0kC8XjiWTadr42ppDa2vziQCI7si3RcfpnpMHT8cUOqxmXSMuaqdQsBkO13tO6xWraE=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1mVDR0yOPV_I33q6m60tpFoyA87mEdwb3/preview"
+          },
+          {
+            "title": "ex07 - 編譯燒入",
+            "id": "ex07",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMll-f5l2X_kNANPGoWNRcBbTw1SsTCwTF2sBosAygsJYbu7svreNC_zJ77ZAmJv8-GzJk6qZRYx7Yup4DdPKXYsarwXsgaAIKayjmfhJbG_siLMlOGMXx33zzKcvQd3YQULhQNNNeyFF6R0qd0ExnW=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1mqPSaam5W6pUv5wdM2uOZa0lVyXKkL-v/preview",
+            "buttons": [
+              {
+                "title": "驅動程式下載",
+                "url": "https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=overview"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Ch03 - 簡單小應用",
+        "id": "Ch03",
+        "sections": [
+          {
+            "title": "ex08 - 簡單小專案",
+            "id": "ex08",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMRLUYWT2LOcU1FHZglMe-l9Ll6P1KsY7kg-fF5z048gP9llvdKgd2xBfCSobcTCvHlCy1IJ7GEFZrJb6_8as11YcblI_auf1SvurQDVbmTZtlUGSv9CkeTF-lgZji757SzvARTppzouhiNeE0DCo-B=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學教材",
+                "url": "https://mega.nz/file/y5IQWLLZ#BZP5n56rOYzUPW5k2GmHpBgoKIoz81Ozpg4tLm1Exbg"
+              },
+              {
+                "title": "圖片素材1",
+                "url": "https://mega.nz/folder/yxhFTZDb#e_Z0u51SwwTWwbIn36L2MQ"
+              },
+              {
+                "title": "圖片素材2",
+                "url": "https://mega.nz/folder/ugIHkLiA#oZ_DM_78BMLwlcGPcN4FtQ"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1AIBNlql8NAJ59w9MezRktJYR--ObZPnt/preview"
+              },
+              {
+                "type": "video",
+                "content": "https://youtu.be/UXTg0L27FY4"
+              }
+            ]
+          },
+          {
+            "title": "ex09 - 序列阜傳輸 (2560控制USART)",
+            "id": "ex09",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNcbrqRZJih51WK9SjzQH60UmUBc6WnaL3Ckt8TeLpR7WP0licYEEOUKPgmE9e7pkbyWEBRVFlkpGte98Odg9q8eUgvCI4MgLxDFNoG88xdQs98QTQlfjuHiFw3TSS-47cCluvg7XbnmJjiXfwXoRS0=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學教材(HMI)",
+                "url": "https://mega.nz/file/TpZ2AK7A#UTQwJlhhW352XgwGgOcQW-BIYydzIhSwTuRA3xBPsR0"
+              },
+              {
+                "title": "本教學教材(zi)",
+                "url": "https://mega.nz/file/S5IREaYD#M-U0G-RpmabrxVJxf-reDoCt7F_bXMmoFPMW2WQmPac"
+              },
+              {
+                "title": "本教學教材(ino)",
+                "url": "https://mega.nz/folder/ChphkSAb#BzElVIMG3QMT-xDt62sMQA"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1s_fnH6QohClm7P2ivmEwZT57J6IYa_q_/preview"
+              },
+              {
+                "type": "text",
+                "content": "成果影片1"
+              },
+              {
+                "type": "video",
+                "content": "https://youtu.be/JefC2wWKf-A"
+              },
+              {
+                "type": "text",
+                "content": "成果影片2"
+              },
+              {
+                "type": "video",
+                "content": "https://youtu.be/fKBwJB5hu_w"
+              },
+              {
+                "type": "text",
+                "content": "成果影片3"
+              },
+              {
+                "type": "video",
+                "content": "https://youtu.be/lAj7RpeUjXw"
+              }
+            ]
+          },
+          {
+            "title": "ex10 - 控制Uno LED燈(USART控制2560)",
+            "id": "ex10",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMNwIDlCiXH15r0GGa5q9obmRrQbNmyx8oliBnxNCeDzfl7KlvKiL5aw1JdZey_PR7lU1LgesSuNsaQUh2-04X3BROEwS5cnmB3n1X36pq5inLNPFNuafvZvwbLkEcuSyLC3EOyvhUMj-PnM-4_6nYu=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學教材(HMI)",
+                "url": "https://mega.nz/file/XwYFyKQR#G3EvUn30U-G180zbfhQLMOqjowjxumBLB8hpIG_kF_0"
+              },
+              {
+                "title": "本教學教材(zi)",
+                "url": "https://mega.nz/file/X1wwxRSS#JIZ586I7K1BWSpgpHgLbXwVAaKhfq-0IgvlwDSnYV-M"
+              },
+              {
+                "title": "本教學教材(fzz)",
+                "url": "https://mega.nz/file/S5ZwWIZQ#aQxJtqZ5SGFAFYNVyRME-mH7M-ffdhlovrJGOMFZykA"
+              },
+              {
+                "title": "本教學教材(ino)",
+                "url": "https://mega.nz/folder/y8JS3AoJ#ZefqEupYCNXM-4uDdp6poQ"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1W4umrRLsxTrlsxo8kiFWNX5xSMxy21wO/preview"
+              },
+              {
+                "type": "video",
+                "content": "https://youtu.be/JLeV8I1Qi7w"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "[11] ASRPRO 語音模組",
     "id": "course11",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMpoxSmbu3O9z6I8EjYSEMf32COh9wUHQkoaMO383040YARr2g_f-xF4LtDx3WMTF3_n26XWug34gdFsMuqmy6JSmB4N4PqgvGPfHd_3Q5Rflj2-VhCuNIxeV-jmaoCPLO1HViLGXhaHlHK5C263_gn=w574-h434-s-no-gm?authuser=0",
