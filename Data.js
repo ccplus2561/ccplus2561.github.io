@@ -1165,6 +1165,199 @@ var courseData = [
     ]
   },
   {
+    "title": "[04] Google 教學",
+    "id": "course04",
+    "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczOdMDK9S-GeefcKEV6YeHdC09_5zoFD6blhKooNSY1BjfY_Y30_TKQNiC8T1MSDtgGpWBRfFkkXTsRuVkLAfO9-5i5m-GI9y-IlEb17zBRUm8C-p_dCE6Awj-uE-7O3QV0sVspA-g0DC1w1gLh97ZF0=w200-h204-s-no-gm?authuser=0",
+    "chapters": [
+      {
+        "title": "Ch01 - Google帳戶",
+        "id": "Ch01",
+        "sections": [
+          {
+            "title": "ex01 - 創建Google帳戶",
+            "id": "ex01",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMFzhs0eiqMR2y6axLXY63uYoLOykeysx23HG3pIJEnfIVDdmjOQMqL_gi6vaX4d1hBma4GDWcGJNWZL7tnT6sMnJFUC4iBZ3ieEwDZySRU5iS1PYWolDBCADR-P9SS-Ap8qi5Icva8nkFzUvTU8wJE=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1DDPsvme-1dCvBYWBzYyXaPQgR409KrrD/preview"
+          },
+          {
+            "title": "ex02 - 刪除Google帳戶",
+            "id": "ex02",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOiKHlxAmtpo5_g_doY3QT04c_U2WPV3a6ty1LCbGmIT8QcKe2VIPSkxqP1n7ywKtnOc734TX4jyrIuhY4BRMb5ouglwMolZu90xOHRjxYyDl5DJ61-QeZ-KSxjqajujVRTaeQ2B2D0vsEheSMMOhOT=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1f8YLuB-9YxlLTGG__FzZKomBqMqtVI0D/preview"
+          },
+          {
+            "title": "ex03 - 變更Google頭貼",
+            "id": "ex03",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMT1nQ4CjBT6waS6WihrnnBnVQS86OhGOibj08YGvBb0dmeocGxxuCw4SZum3SykPaOyT17LHuNNeHuvu6fHyMgWf4u0auNzZy2QVGjXoJPBbxtnqTGr1Xe2qAAVvzx-bQHS5OAl_ybXYb9F14_SUM0=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1uN6ASZ8GReCLeDWZxMZLasWIpZBNCahd/preview"
+          },
+          {
+            "title": "ex04 - 兩步驗證",
+            "id": "ex04",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMj_o-v856bzP0P540M0roJS__GRktQruMrlktGwDTwYmkPHe2oXaUHmE4E8IwvlxlQjfRKfCH02Q7Y_8YJ5r2F5vcXNWYyClZndFuPkBqcPLx33mWsF9VtW4Yg0NFDYK-VuXYRnM4wT7v1tMaLcLDd=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1MjElWf74IjszkU5wI6UQ_moncnUXZOiy/preview"
+          }
+        ]
+      },
+      {
+        "title": "Ch02 - Chrome 瀏覽器",
+        "id": "Ch02",
+        "sections": [
+          {
+            "title": "ex01 - Chrome功能 書籤",
+            "id": "ex01",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM3wGnt1aKGMTHRlKIAOvbYcImNMwmA0V30v5TZ6KgkQg-uGM2gAdUyX1PTP-HJyib70j5l3DUqWnA5d_4_bpnOFYXVNF0G7SJt1KnABA8alPIIC7dnYIbqpe3AFzRpUgYvV75X_GCJJopNXXFjGTuM=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/15iTBrheXL5DewQIOcVABh1kAlh0Y3CES/preview"
+          },
+          {
+            "title": "ex02 - Chrome擴充功能 擋廣告(uBlok Origin)",
+            "id": "ex02",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP3bXlLnYrc4ZvoQGLdeqz87nJykcHcQ3C7irdN5g6nm3JqMfuZhhNciMHNSeRNuiLDF0dG0502Cfu4epQE1oubWYuU3cxqgbCLG7i8NzZhvuhfBYv0ai8Tx7sAxmwiPKxjGVwUx4Zw_KfV-JfDP4Ql=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1CiJd4bGuPWSDYKqC70rZqMDi6E8bcgaX/preview"
+          },
+          {
+            "title": "ex03 - Chrome擴充功能 擋廣告(AdGuard)",
+            "id": "ex03",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNjArlXkKjzwWxE6AhdsN3yhydcAb_jF368D0PVx87VOGL7MBEoHqhdpyREUNifwOSUK10DFS2fuM_EbmAJ1UCgzHYyEwX02-hJCLOg2v7tYHSZtOLrbUj8toqMRuQqLeFRkXJ63E64s0J4yssPelq5=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Ad2iCzIq3RuVZQHZHE8hCYxJGbeeAMXa/preview"
+          },
+          {
+            "title": "ex04 - Chrome擴充功能 辨識音樂",
+            "id": "ex04",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczN2j_gCdNCE6Yf--IeRdfRMh939_RGxnG4t5fRusp2ZcOOMs6yJ1-tydqJyhTHse83cVk7tQun0TPXmgZUaq41O9b4_dPWvUilwsmpdPpecYKRHLuzBnFY6aDdXVwTQU_XGNlVNlLqd6b7sJHrN3_eh=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1k4Z7_GZXTi0zCJq9xsQWECquBk0nTsUm/preview"
+          },
+          {
+            "title": "ex05 - Chrome擴充功能 捕捉網頁截圖",
+            "id": "ex05",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMvWs3yzhl28PF2DKPVgUB90vOTHPTGbG4S_LtR_gnxh7dxF2lLEdWWieeA-v2ZTvfAC458TJlKr4DlA8GMmj0AkhOvswWML8bLLLFEnKjcsiOm_oSUZ1ebkBO1vHkIcZm50tfEEdxvITWMqRki0JTf=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Qii-ywZldRWvhZHMR39AAS6Vb7kmGD6N/preview"
+          },
+          {
+            "title": "ex06 - Chrome擴充功能 滾動整頁截圖",
+            "id": "ex06",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM5AP0JKq48haP3w8ba2gFA58eKYD8d15T7CUg-9EeShXWElGRLB1Xpu0du9ArwPc89uWB-2UVTJJrZp4ZTfTOjbZrWOBDfJr83FPszjRd0YqpZNISm4khL8MG3Hu-3XA_w3n9Ps2XSAwUV9JB8PcHN=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1-wJahKpdKdzZ2cByeEN6O09uAeya8GVQ/preview"
+          },
+          {
+            "title": "ex07 - Chrome擴充功能 GoFullPage",
+            "id": "ex07",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMTupBLRm_EXys7BD9G6cA1DmnkEvwgFNgEdAMp4FoNLBgg8S48iCHa0d1OcKeiJBzyK5qVzLwJaS18_sqmvX85Kvc0en5kKykHZPkY9G_vC5Uclosjxr5lI3Gv4SRKEbCvnJh6D3ZzFZABllq3A3IL=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1SnS113IwW7n8YUweeGDYQcI5U3Nf_EaK/preview"
+          }
+        ]
+      },
+      {
+        "title": "Ch03 - blockly game 遊戲",
+        "id": "Ch03",
+        "sections": [
+          {
+            "title": "ex01 - 拼圖",
+            "id": "ex01",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBafWEgQARPH1tnsJcjA10F4OWLcAk0i75xsc7L17bUZOqoofmLN56jWCkJgrCCYqPvdqmhmiwcBjlHi-aEl-sbrDQ0hxy-CcpPmIrbCTaVMoObiu3FmVakrL495j4oSePzdhyIOpQxYvwyIpK7n9j=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1pGD1vy3P916VYZMgEcjSDAXPrtGwxzTE/preview",
+            "buttons": [
+              {
+                "title": "Blockly 遊戲",
+                "url": "https://blockly.games/?lang=zh-hant"
+              }
+            ]
+          },
+          {
+            "title": "ex02 - 迷宮",
+            "id": "ex02",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMLYXK83jQi1KFiut4Z7v22_yAHlFrDLv2WyulvrlDKD9VH3Lfo-kVgHSVo1TupgAIC6sB6ya_BZgmg-XcnqyyuKNFlIz5adCWSuwANSpELdAKipWzvC3wKY6n6T_l5Cjg8w9Qt-1qdc_b_rdzF8kba=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1wU2PfO4PqJ2W3-OXWbLB-kd8h6PeAr3V/preview",
+            "buttons": [
+              {
+                "title": "Blockly 遊戲",
+                "url": "https://blockly.games/?lang=zh-hant"
+              }
+            ]
+          },
+          {
+            "title": "ex03 - 小鳥",
+            "id": "ex03",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOaiqVnxx6Muk6SdxgOQ35vYXQnien8eK2XjDad90kV5WlZYV0XVf_CjbbsNTqm9FXLJgqQ8QUYG0DXxqSuJj4CWxEt7LIkcJAOMR5QXxuxkGz-Mg07IS5YOJ9NBFPUuQ5wk_pBj9KxqsoffZ0bK72w=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1KIruKqOeSb687yRpo_h0B9jWOyX6EaEn/preview",
+            "buttons": [
+              {
+                "title": "Blockly 遊戲",
+                "url": "https://blockly.games/?lang=zh-hant"
+              }
+            ]
+          },
+          {
+            "title": "ex04 - 烏龜",
+            "id": "ex04",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczN3P3KflnVXANgxFqxfysIOBm6KSSGUYj7WwCw61SCko1wXqeNgiNoMZftaTorF5beTMn5rUHJlrG6CRFW1IaIp554fUlHOGoV_Bk5Ei4-yAhyW3LRJOHsUeNteTtP3gvG994uQSW-PcgryxO7TeJdQ=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1OiZuHecXngPvY9oLTEveoXtLL4HAp5h8/preview",
+            "buttons": [
+              {
+                "title": "Blockly 遊戲",
+                "url": "https://blockly.games/?lang=zh-hant"
+              }
+            ]
+          },
+          {
+            "title": "ex05 - 影片",
+            "id": "ex05",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMv8uhluB9bg2poK8_dIvhWkkqycVe0AbIKWPAf-JUf8go9Ytxf5PMUd9xaESNLmrAhV-wCcOmWI-ox7SuRoQg07sGxiCZV2Al6_z9zLqVgW4M5uGYBBkcz6n9GHMlphS5LUq5r5z746xqPsyN1P-ao=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Az4Hj1NdJHnjDo9iNKIe7lAX3GsdnZzG/preview",
+            "buttons": [
+              {
+                "title": "Blockly 遊戲",
+                "url": "https://blockly.games/?lang=zh-hant"
+              }
+            ]
+          },
+          {
+            "title": "ex06 - 音樂",
+            "id": "ex06",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxEg5s946mry2pZAzoLGPMRR2zDGIFNoi5vuYAODNFpL35EVQnMd4kW1zrOD2z5_SFjUVqQ_rZc3NwnkIoSiABzScrx4kX6tVSceNfJn1MVOOotEPmVd51lGr1stI3utXuKi_Qt5ZVHzuuSODuIhGb=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/18s47hg6Dm1fNUN6nYcbHR81S2PXfkwzG/preview",
+            "buttons": [
+              {
+                "title": "Blockly 遊戲",
+                "url": "https://blockly.games/?lang=zh-hant"
+              }
+            ]
+          },
+          {
+            "title": "ex07 - 池塘遊戲教程",
+            "id": "ex07",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM0VQbuTUbJJvr4hTwKOqNxEUzx2q5VYTOT5CZ5_amE2k84TkWkyPvdDx87aHogbYXhifjJ4X2uESgY1dctxyFd0hzg9ivil8e-pLdjQjnLWx0TH-c8gRlTQTRLKN0nmkAbz528tlhUKR0wGk9SvAel=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Snu--TIiheU_jD0Mxa6YoEk8VprjlG6u/preview",
+            "buttons": [
+              {
+                "title": "Blockly 遊戲",
+                "url": "https://blockly.games/?lang=zh-hant"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "[07] USART HMI 教學",
     "id": "course07",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMjEKmBAI5GWmOHxmOrCHpviXu4gp8UvIGbFEYK7qSQQev-rbwfbmt6U02m1GJ6O0MaQTxuegfAybQYgO3BWqn3OR4kG_HF7qWYksgXk8Gw4JS3N4gibOe5D6QKFp4ZRmrHVOf6XMZeQw6g6-zqgjxy=w600-h416-s-no-gm?authuser=0",
