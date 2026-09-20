@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加加研究室 (程式創造++)</title>
+  <!--
+    GitHub Pages 找不到檔案時會顯示這個 404.html。
+    分享連結（例如 https://ccplus2561.github.io/609070101）其實沒有對應的實體檔案，
+    所以會先落到這裡，再由下面的程式把它轉成 /?id=609070101 交給 index.html 處理。
+    此檔案必須放在與 index.html 同一層（儲存庫根目錄）。
+  -->
+  <script>
+    (function () {
+      var l = window.location;
+      var seg = '';
+      try {
+        seg = decodeURIComponent(l.pathname.replace(/^\/+|\/+$/g, '').split('/')[0] || '');
+      } catch (e) {
+        seg = '';
+      }
+      var target = l.protocol + '//' + l.host + '/';
+      if (/^[A-Za-z0-9_-]+$/.test(seg)) {
+        target += '?id=' + encodeURIComponent(seg);
+      }
+      l.replace(target);
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=/"></noscript>
+</head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-align:center;padding:40px 16px;color:#555;">
+  <p>載入中…</p>
+  <p><a href="/">若沒有自動跳轉，請點此回到加加研究室</a></p>
+</body>
+</html>
