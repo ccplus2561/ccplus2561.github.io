@@ -78,6 +78,7 @@
       min-height: var(--app-height, 100vh);
       display: flex;
       flex-direction: column;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
       position: relative;
       transition: background-color 0.4s ease, max-width 0.3s ease;
     }
@@ -321,10 +322,6 @@
     body.desktop-mode .section-card-tag { font-size: 0.85rem; }
     body.desktop-mode .list-title { font-size: 1.1rem; }
     body.desktop-mode .search-badge { font-size: 0.85rem; }
-    body.desktop-mode .search-result-title { font-size: 1.05rem; }
-    body.desktop-mode .search-result-sub { font-size: 1rem; }
-    body.desktop-mode .search-result-icon { width: 48px; height: 48px; }
-    body.desktop-mode .search-group-label { font-size: 0.88rem; }
     body.desktop-mode .empty-state p { font-size: 1.05rem; }
     body.desktop-mode footer { font-size: 0.9rem; padding: 22px; }
     body.desktop-mode .btn-icon { font-size: 0.95rem; padding: 8px 16px; }
@@ -731,78 +728,6 @@
       color: var(--text-muted);
       margin-top: 3px;
       display: block;
-    }
-
-    /* 搜尋結果：主副標題置換（父層課程名為主標題，子層小章節為副標題） */
-    .search-result-main {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .search-result-icon {
-      width: 42px;
-      height: 42px;
-      object-fit: contain;
-      flex-shrink: 0;
-      border-radius: 8px;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
-    }
-
-    .search-result-text {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      min-width: 0;
-    }
-
-    .search-result-title {
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .search-result-sub {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .search-result-sub .search-arrow {
-      color: var(--primary-color);
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    /* 搜尋結果分組標題：智能搜尋（精準）／ 類似結果（模糊） */
-    .search-group-label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin: 4px 2px 2px;
-    }
-
-    .search-group-label.fuzzy {
-      color: var(--text-muted);
-    }
-
-    .search-group-label .search-group-count {
-      font-weight: 500;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-    }
-
-    .search-group-divider {
-      border: none;
-      border-top: 1px dashed rgba(0, 0, 0, 0.1);
-      margin: 14px 2px 4px;
     }
 
     .modal-overlay {
@@ -1574,150 +1499,6 @@
       z-index: 10;
       pointer-events: auto; /* 攔截點擊事件 */
     }
-
-    /* ===== 分享功能 ===== */
-    .share-btn {
-      width: 34px;
-      height: 34px;
-      min-width: 34px;
-      padding: 0;
-      border: none;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.94);
-      color: var(--primary-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      cursor: pointer;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-      transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
-      z-index: 5;
-    }
-    .share-btn:hover { background: var(--primary-color); color: #fff; }
-    .share-btn:active { transform: scale(0.88); }
-    .card > .share-btn,
-    .section-card > .share-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-    }
-    .list-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-      margin-left: 10px;
-    }
-    .list-item .share-btn {
-      width: 32px;
-      height: 32px;
-      min-width: 32px;
-      background: rgba(0, 0, 0, 0.05);
-      box-shadow: none;
-    }
-    .list-item .share-btn:hover { background: var(--primary-color); color: #fff; }
-    #headerShareBtn .share-label { display: none; }
-    body.desktop-mode #headerShareBtn .share-label { display: inline; }
-
-    .share-target-title {
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.4;
-      word-break: break-word;
-    }
-    .share-target-meta {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    .share-level-badge {
-      background: var(--primary-color);
-      color: #fff;
-      border-radius: 10px;
-      padding: 1px 9px;
-      font-size: 0.72rem;
-      font-weight: 600;
-    }
-    .share-url-input {
-      width: 100%;
-      padding: 11px 12px;
-      border: 1.5px solid #dde3ea;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      color: var(--text-main);
-      background: #fff;
-      outline: none;
-      -webkit-user-select: text !important;
-      user-select: text !important;
-    }
-    .share-url-input:focus { border-color: var(--primary-color); }
-    .share-primary-btn,
-    .share-secondary-btn {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: transform 0.15s ease;
-    }
-    .share-primary-btn {
-      border: none;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-      color: #fff;
-    }
-    .share-secondary-btn {
-      border: 1.5px solid var(--primary-color);
-      background: #fff;
-      color: var(--primary-color);
-    }
-    .share-primary-btn:active,
-    .share-secondary-btn:active { transform: scale(0.97); }
-    .share-tip {
-      min-height: 1.2em;
-      text-align: center;
-      font-size: 0.82rem;
-      color: #2e7d32;
-    }
-    .share-tip.error { color: #e53935; }
-    .mode-share-hint {
-      background: rgba(0, 123, 199, 0.08);
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      color: var(--primary-dark);
-      text-align: center;
-      word-break: break-word;
-    }
-    .share-toast {
-      position: fixed;
-      left: 50%;
-      bottom: 90px;
-      transform: translate(-50%, 20px);
-      background: rgba(30, 30, 30, 0.92);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 22px;
-      font-size: 0.88rem;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      max-width: 86vw;
-      text-align: center;
-    }
-    .share-toast.show { opacity: 1; transform: translate(-50%, 0); }
   </style>
 </head>
 <body>
@@ -1729,7 +1510,6 @@
       </div>
       <div class="modal-body">
         <p class="mode-select-text">請選擇本次要使用的頁面樣式，隨時可在選單中切換</p>
-        <div class="mode-share-hint" id="modeShareHint" style="display:none;"></div>
         <div class="mode-choice-row">
           <div class="mode-choice-btn" id="modeChoiceMobile" onclick="chooseMode('mobile')">
             <i class="fa-solid fa-mobile-screen-button"></i>
@@ -1765,9 +1545,6 @@
             <i class="fa-regular fa-bell"></i> 網頁公告
             <span class="notice-badge" id="noticeBadgeDesktop"></span>
           </button>
-          <button class="btn-icon" id="headerShareBtn" style="display:none;" onclick="triggerHaptic(); shareCurrent();" title="分享此頁連結" aria-label="分享此頁連結">
-            <i class="fa-solid fa-share-nodes"></i><span class="share-label"> 分享</span>
-          </button>
           <button class="btn-icon desktop-only" onclick="triggerHaptic(); switchMode('mobile');" title="切換為手機版">
             <i class="fa-solid fa-mobile-screen-button"></i> 手機版
           </button>
@@ -1777,7 +1554,7 @@
       <div class="search-container" id="searchContainer">
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass" onclick="triggerHaptic(); toggleSearch();"></i>
-          <input type="text" id="searchInput" placeholder="搜尋標題、單元...（空格或+進行進階搜尋）" oninput="handleSearch()">
+          <input type="text" id="searchInput" placeholder="搜尋 標題、單元、感測器..." oninput="handleSearch()">
           <i class="fa-solid fa-circle-xmark clear-search" id="clearSearchBtn" onclick="clearSearch()"></i>
         </div>
       </div>
@@ -1832,30 +1609,6 @@
     </div>
   </div>
 
-  <div class="modal-overlay" id="shareModal" onclick="closeShareModalOnOverlay(event)">
-    <div class="modal-card" style="max-width:400px;">
-      <div class="modal-header">
-        <h3><i class="fa-solid fa-share-nodes"></i> 分享連結</h3>
-        <button class="modal-close-btn" onclick="closeShareModal()"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <div class="share-target-title" id="shareTargetTitle"></div>
-          <div class="share-target-meta">
-            <span class="share-level-badge" id="shareLevelBadge"></span>
-            <span id="shareTargetPath"></span>
-          </div>
-        </div>
-        <input type="text" id="shareUrlInput" class="share-url-input" readonly onclick="this.select()">
-        <button type="button" class="share-primary-btn" onclick="copyShareUrl()"><i class="fa-regular fa-copy"></i> 複製連結</button>
-        <button type="button" class="share-secondary-btn" id="shareNativeBtn" style="display:none;" onclick="nativeShare()"><i class="fa-solid fa-share-nodes"></i> 分享到其他 App</button>
-        <div class="share-tip" id="shareCopyTip"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="share-toast" id="shareToast"></div>
-
   <!-- 資料載入說明：
        Data.js／Post.js 已改為一般 JavaScript 檔案，並在 <head> 最上方
        以 <script src="./Data.js"> 與 <script src="./Post.js"> 直接載入
@@ -1865,6 +1618,8 @@
        偵測）的區塊已隨網站遷移至 GitHub 一併移除。 -->
 
   <script>
+    const APP_VERSION = "2026";
+
     const THEME_PALETTES = [
       { primary: "#1976d2", dark: "#0d47a1", glow: "rgba(25, 118, 210, 0.25)", bgFrom: "#e7f1fc", bgTo: "#eef1fb", card: "#f6faff" },
       { primary: "#2e7d32", dark: "#1b5e20", glow: "rgba(46, 125, 50, 0.25)", bgFrom: "#e8f6ea", bgTo: "#eef7f1", card: "#f6fbf7" },
@@ -1908,6 +1663,7 @@
     const sidebarNav = document.getElementById('sidebarNav');
     const navHomeBtn = document.getElementById('navHomeBtn');
     const navSearchBtn = document.getElementById('navSearchBtn');
+    const NOTICE_READ_KEY = 'jj_lab_last_read_version';
 
     function applyRandomTheme() {
       const randomPalette = THEME_PALETTES[Math.floor(Math.random() * THEME_PALETTES.length)];
@@ -1941,8 +1697,6 @@
     function chooseMode(mode) {
       switchMode(mode);
       modeModal.classList.remove('active');
-      deepLinkModeChosen = true;
-      tryOpenPendingDeepLink();
     }
 
     function switchMode(mode) {
@@ -2102,17 +1856,16 @@
       }
     }
 
-    // 網頁公告紅點：跟「選擇電腦版/手機版」一樣，每次重新進入網頁都要顯示，
-    // 不記憶上次是否已讀（不使用 localStorage 長期保存已讀狀態）
-    let noticeUnread = true;
-
     function refreshNoticeBadge() {
+      let lastRead = null;
+      try { lastRead = localStorage.getItem(NOTICE_READ_KEY); } catch (e) {}
+      const isUnread = lastRead !== APP_VERSION;
       const badges = [document.getElementById('noticeBadgeDesktop'), document.getElementById('noticeBadgeMobile')];
-      badges.forEach(b => { if (b) b.style.display = noticeUnread ? 'block' : 'none'; });
+      badges.forEach(b => { if (b) b.style.display = isUnread ? 'block' : 'none'; });
     }
 
     function markNoticeAsRead() {
-      noticeUnread = false;
+      try { localStorage.setItem(NOTICE_READ_KEY, APP_VERSION); } catch (e) {}
       refreshNoticeBadge();
     }
 
@@ -2288,8 +2041,6 @@
       backBtn.style.display = "none";
       updateSidebarActive(null);
       updateBottomNavHome(true);
-      currentSubIds = [];
-      setShareTarget(null);
 
       if (typeof courseData === 'undefined') {
         appContent.innerHTML = `<div class="empty-state"><p style="color:#d32f2f;">未找到 courseData 資料！</p></div>`;
@@ -2302,7 +2053,6 @@
           <div class="card" style="animation-delay: ${index * 0.03}s" onclick="triggerHaptic(); createRipple(event, this); renderChapters('${item.id}')">
             <img src="${item.iconUrl}" class="card-custom-img" alt="${item.title}" onerror="this.src='https://via.placeholder.com/44?text=Icon'">
             <div class="card-title">${item.title}</div>
-            ${shareBtnHtml(item.id)}
           </div>
         `;
       });
@@ -2330,8 +2080,6 @@
       backBtn.style.display = "flex";
       updateSidebarActive(bookId);
       updateBottomNavHome(false);
-      currentSubIds = [];
-      setShareTarget(book.id);
 
       if (!book.chapters || book.chapters.length === 0) {
         renderEmptyState();
@@ -2343,7 +2091,7 @@
         html += `
           <div class="list-item" style="animation-delay: ${index * 0.04}s" onclick="triggerHaptic(); createRipple(event, this); renderSections('${book.id}', '${chap.id}')">
             <span class="list-title">${chap.title}</span>
-            <span class="list-actions">${shareBtnHtml(chap.id)}<i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i></span>
+            <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i>
           </div>
         `;
       });
@@ -2384,8 +2132,6 @@
       backBtn.style.display = "flex";
       updateSidebarActive(bookId, chapterId);
       updateBottomNavHome(false);
-      currentSubIds = parentSubIds.slice();
-      setShareTarget(currentTarget.id);
 
       // 需求 4: 第3層 L1.3 - Esp32 進入後為圖卡應用不是清單樣式，包含圖片功能
       const isEsp32CardView = (chapterId === 'l1-3');
@@ -2417,7 +2163,7 @@
             html += `
               <div class="list-item" style="animation-delay: ${index * 0.04}s" onclick="triggerHaptic(); createRipple(event, this); renderSections('${bookId}', '${chapterId}', ${nextSubIds})">
                 <span class="list-title">${sub.title}</span>
-                <span class="list-actions">${shareBtnHtml(sub.id)}<i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i></span>
+                <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i>
               </div>
             `;
           });
@@ -2460,7 +2206,6 @@
           html += `
             <div class="section-card" style="animation-delay: ${index * 0.04}s" onclick="triggerHaptic(); createRipple(event, this); openSection('${bookId}', '${chapterId}', ${secPayload})">
               <img src="${coverImg}" class="section-card-cover" alt="${sec.title}" onerror="this.src='${meta.defaultCover}'">
-              ${shareBtnHtml(sec.id)}
               <div class="section-card-body">
                 <div class="section-card-title">${sec.title}</div>
                 <div class="section-card-tag"><i class="${isLocked ? 'fa-solid fa-lock' : meta.icon}"></i> ${isLocked ? '需要密碼才能瀏覽' : meta.label}</div>
@@ -2495,7 +2240,6 @@
     }
 
     function dispatchOpenSection(bookId, chapterId, sec) {
-      const stackBefore = navigationStack.length;
       const mode = sec.mode || 'pdf';
       if (mode === 'video') {
         openVideoViewer(bookId, chapterId, sec.title, sec.videoUrl, sec.videoNote, sec.buttons || []);
@@ -2504,7 +2248,6 @@
       } else {
         openPdfViewer(bookId, chapterId, sec.title, sec.pdfUrl, sec.buttons || []);
       }
-      if (navigationStack.length > stackBefore) setShareTarget(sec.id);
     }
 
     // 記住目前等待輸入密碼的小章節內容，供密碼畫面的送出按鈕使用
@@ -2514,14 +2257,13 @@
       if (searchInput.value.trim() !== '') {
         navigationStack.push({ type: 'search' });
       } else {
-        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId, parentSubIds: currentSubIds.slice() });
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
       }
 
       headerTitle.innerText = sec.title;
       backBtn.style.display = "flex";
       updateSidebarActive(bookId, chapterId);
       updateBottomNavHome(false);
-      setShareTarget(sec.id);
 
       window.__pendingPasswordSection = { bookId, chapterId, sec };
 
@@ -2698,7 +2440,7 @@
       if (searchInput.value.trim() !== '') {
         navigationStack.push({ type: 'search' });
       } else {
-        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId, parentSubIds: currentSubIds.slice() });
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
       }
 
       headerTitle.innerText = title;
@@ -2726,7 +2468,7 @@
       if (searchInput.value.trim() !== '') {
         navigationStack.push({ type: 'search' });
       } else {
-        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId, parentSubIds: currentSubIds.slice() });
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
       }
 
       headerTitle.innerText = title;
@@ -2822,7 +2564,7 @@
       if (searchInput.value.trim() !== '') {
         navigationStack.push({ type: 'search' });
       } else {
-        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId, parentSubIds: currentSubIds.slice() });
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
       }
 
       headerTitle.innerText = title;
@@ -2838,18 +2580,8 @@
       `;
     }
 
-    // 將搜尋輸入拆成多個關鍵字：支援空白、「+」、全形／半形逗號、頓號作為分隔符
-    // 例如輸入「A + 骰」會拆成 ["a", "骰"]，用來做多關鍵字交集(AND)比對
-    function parseSearchKeywords(raw) {
-      return raw
-        .split(/[+\s,，、]+/)
-        .map(s => s.trim().toLowerCase())
-        .filter(Boolean);
-    }
-
     function handleSearch() {
-      const rawQuery = searchInput.value.trim();
-      const query = rawQuery.toLowerCase();
+      const query = searchInput.value.trim().toLowerCase();
 
       if (query === '') {
         clearSearchBtn.style.display = 'none';
@@ -2862,145 +2594,87 @@
       headerTitle.innerText = "搜尋結果";
       updateSidebarActive(null);
       updateBottomNavHome(false);
-      setShareTarget(null);
       if (sidebarNav) {
         const home = sidebarNav.querySelector('[data-nav-home]');
         if (home) home.classList.remove('active');
       }
 
-      const keywords = parseSearchKeywords(query);
-      // 防呆：理論上不會發生（query 已確認非空字串），仍保留原始查詢當作備援關鍵字
-      const effectiveKeywords = keywords.length > 0 ? keywords : [query];
-
-      const preciseResults = [];
-      const fuzzyResults = [];
-
-      // 依「父層（課程）＋子層（章節路徑）」組成完整比對文字，讓多關鍵字可以
-      // 跨層級比對（例如 "A" 命中課程名、"骰" 命中小章節名，兩者交集才算精準符合）
-      function classifyNode(type, bookTitle, bookIcon, chainTitles, action, nodeId) {
-        const ownTitle = chainTitles[chainTitles.length - 1];
-        const ownTitleLower = ownTitle.toLowerCase();
-        const combinedText = (bookTitle + ' ' + chainTitles.join(' ')).toLowerCase();
-
-        // ID 搜尋：關鍵字長度 ≥ 5 且是該節點 ID 的開頭時視為命中，
-        // 例如輸入「60907」會找到 Android studio 教學及底下所有章節，輸入完整 ID 則精準找到該項目
-        const idLower = String(nodeId == null ? '' : nodeId).toLowerCase();
-        const idHit = k => k.length >= 5 && idLower.startsWith(k);
-
-        const allInCombined = effectiveKeywords.every(k => combinedText.includes(k) || idHit(k));
-        const anyInCombined = effectiveKeywords.some(k => combinedText.includes(k) || idHit(k));
-
-        if (!allInCombined && !anyInCombined) return;
-
-        const resultObj = {
-          type,
-          bookTitle,
-          bookIcon: bookIcon || '',
-          ownTitle,
-          ownMatched: effectiveKeywords.every(k => ownTitleLower.includes(k) || idHit(k)),
-          action,
-          id: nodeId
-        };
-
-        if (allInCombined) preciseResults.push(resultObj);
-        else fuzzyResults.push(resultObj);
-      }
+      let results = [];
 
       courseData.forEach(book => {
-        classifyNode('book', book.title, book.iconUrl, [book.title],
-          searchOpener(book.id, () => renderChapters(book.id)), book.id);
+        if (book.title.toLowerCase().includes(query)) {
+          results.push({
+            type: 'book',
+            title: book.title,
+            badge: '課程主分類',
+            action: () => renderChapters(book.id)
+          });
+        }
 
-        function searchSubchapters(list, chainTitles) {
+        function searchSubchapters(list, parentTitle) {
           list.forEach(item => {
-            const newChain = [...chainTitles, item.title];
-            classifyNode('chapter', book.title, book.iconUrl, newChain,
-              searchOpener(item.id, () => renderSections(book.id, item.id)), item.id);
-
-            if (item.subchapters) searchSubchapters(item.subchapters, newChain);
+            if (item.title.toLowerCase().includes(query)) {
+              results.push({
+                type: 'chapter',
+                title: item.title,
+                badge: parentTitle,
+                action: () => renderSections(book.id, item.id)
+              });
+            }
+            if (item.subchapters) searchSubchapters(item.subchapters, `${parentTitle} > ${item.title}`);
             if (item.sections) {
               item.sections.forEach(sec => {
-                classifyNode('section', book.title, book.iconUrl, [...newChain, sec.title],
-                  searchOpener(sec.id, () => openSection(book.id, item.id, sec)), sec.id);
+                if (sec.title.toLowerCase().includes(query)) {
+                  results.push({
+                    type: 'section',
+                    title: sec.title,
+                    badge: `${parentTitle} > ${item.title}`,
+                    action: () => openSection(book.id, item.id, sec)
+                  });
+                }
               });
             }
           });
         }
 
         if (book.chapters) {
-          searchSubchapters(book.chapters, [book.title]);
+          searchSubchapters(book.chapters, book.title);
         }
       });
 
-      // 精準結果內，本身標題就完全命中的排在前面，跨層級才交集命中的排在後面
-      preciseResults.sort((a, b) => (b.ownMatched ? 1 : 0) - (a.ownMatched ? 1 : 0));
-
-      if (preciseResults.length === 0 && fuzzyResults.length === 0) {
+      if (results.length === 0) {
         appContent.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-magnifying-glass" style="font-size:2.5rem; margin-bottom:12px; color:#aaa;"></i>
-            <p>找不到與「${escapeHtmlText(rawQuery)}」相關的內容</p>
+            <p>找不到與「${query}」相關的內容</p>
           </div>
         `;
-        window.currentSearchResults = [];
         return;
       }
 
-      function iconClassFor(type) {
-        if (type === 'chapter') return 'fa-folder-open';
-        if (type === 'section') return 'fa-file-pdf';
-        return 'fa-book';
-      }
+      let html = `<div class="list-container">`;
+      results.forEach((res, index) => {
+        let iconClass = "fa-book";
+        if (res.type === 'chapter') iconClass = "fa-folder-open";
+        if (res.type === 'section') iconClass = "fa-file-pdf";
 
-      // 左側課程圖示 + 右側主副標題（父層課程名為主標題，子層章節為副標題）
-      function renderResultItem(res, flatIndex) {
-        const iconClass = iconClassFor(res.type);
-        const subLine = res.type === 'book'
-          ? `<i class="fa-solid ${iconClass}"></i> 課程主分類`
-          : `<i class="fa-solid ${iconClass}"></i> <span class="search-arrow">↳</span> ${escapeHtmlText(res.ownTitle)}`;
-        const fallbackIcon = 'https://via.placeholder.com/64/007bc7/ffffff?text=' + encodeURIComponent(res.bookTitle.charAt(0) || '?');
-
-        return `
-          <div class="list-item" style="animation-delay: ${flatIndex * 0.03}s" onclick="triggerHaptic(); createRipple(event, this); executeSearchResult(this)" data-func-id="${flatIndex}">
-            <div class="search-result-main">
-              <img src="${escapeHtmlAttr(res.bookIcon)}" class="search-result-icon" alt="${escapeHtmlAttr(res.bookTitle)}" onerror="this.src='${fallbackIcon}'">
-              <div class="search-result-text">
-                <div class="search-result-title">${escapeHtmlText(res.bookTitle)}</div>
-                <span class="search-result-sub">${subLine}</span>
+        html += `
+          <div class="list-item" style="animation-delay: ${index * 0.03}s" onclick="triggerHaptic(); createRipple(event, this); executeSearchResult(this)" data-func-id="${results.indexOf(res)}">
+            <div>
+              <div class="list-title">
+                <i class="fa-solid ${iconClass}" style="color:var(--primary-color); margin-right:8px;"></i>
+                ${res.title}
               </div>
+              <span class="search-badge">${res.badge}</span>
             </div>
-            <span class="list-actions">${shareBtnHtml(res.id)}<i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i></span>
+            <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i>
           </div>
         `;
-      }
-
-      const combinedResults = [...preciseResults, ...fuzzyResults];
-      let html = '';
-
-      if (preciseResults.length > 0) {
-        html += `
-          <div class="search-group-label">
-            <i class="fa-solid fa-bolt"></i> 智能搜尋 <span class="search-group-count">（${preciseResults.length} 筆精準結果）</span>
-          </div>
-        `;
-        html += `<div class="list-container">`;
-        preciseResults.forEach((res, i) => { html += renderResultItem(res, i); });
-        html += `</div>`;
-      }
-
-      if (fuzzyResults.length > 0) {
-        if (preciseResults.length > 0) html += `<hr class="search-group-divider">`;
-        html += `
-          <div class="search-group-label fuzzy">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> 類似結果 <span class="search-group-count">（${fuzzyResults.length} 筆相關結果）</span>
-          </div>
-        `;
-        html += `<div class="list-container">`;
-        fuzzyResults.forEach((res, i) => { html += renderResultItem(res, preciseResults.length + i); });
-        html += `</div>`;
-      }
+      });
+      html += `</div>`;
 
       appContent.innerHTML = html;
-      window.currentSearchResults = combinedResults;
+      window.currentSearchResults = results;
     }
 
     function executeSearchResult(element) {
@@ -3071,268 +2745,6 @@
       renderHall();
     }
 
-
-    /* =====================================================================
-       分享功能：主課程 / 大章節 / 中章節 / 小章節 都能依 Data.js 的 id 產生分享連結
-       ・分享連結 = SHARE_URL_PREFIX + id（例如 https://ccplus2561.github.io/609070101）
-       ・開啟含 id 的網址：先選瀏覽模式（手機版／電腦版），選完自動跳到該 id 的位置
-       ・網址沒有 id（或找不到該 id）：照常載入大廳
-       ・搭配根目錄的 404.html：GitHub Pages 找不到 /609070101 這個路徑時，
-         404.html 會把它轉成 /?id=609070101 交給本頁處理
-       ===================================================================== */
-    const SHARE_URL_PREFIX = 'https://ccplus2561.github.io/';
-    // 若想改用「?id=」樣式（不依賴 404.html），改成：'https://ccplus2561.github.io/?id='
-
-    const SHARE_LEVEL_LABEL = { book: '主課程', chapter: '大章節', sub: '中章節', section: '小章節' };
-    const idIndex = new Map();
-    let idIndexReady = false;
-    let currentShareId = null;      // header 分享按鈕目前指向的 id
-    let currentSubIds = [];         // 目前所在清單的中章節路徑（讓內容頁「返回」能回到正確那一層）
-    let pendingDeepLink = null;     // 網址帶進來、尚待跳轉的 { id, source }
-    let deepLinkModeChosen = false;
-    let deepLinkAppReady = false;
-    let shareState = { id: null, url: '', title: '' };
-    let shareToastTimer = null;
-    const headerShareBtn = document.getElementById('headerShareBtn');
-    const shareModal = document.getElementById('shareModal');
-
-    // 把 courseData 攤平成 id → 位置資訊，之後分享、跳轉、搜尋都靠它
-    function buildIdIndex() {
-      idIndex.clear();
-      idIndexReady = true;
-      if (typeof courseData === 'undefined' || !Array.isArray(courseData)) return;
-
-      const add = (node, info) => {
-        if (node == null || node.id == null || node.id === '') return;
-        const key = String(node.id);
-        if (idIndex.has(key)) {
-          console.warn('[分享功能] 發現重複的 id，分享連結只會指向第一個：', key, node.title);
-          return;
-        }
-        idIndex.set(key, Object.assign({ id: key, node: node }, info));
-      };
-
-      const walk = (container, bookId, chapterId, subIds, chain) => {
-        (container.subchapters || []).forEach(sub => {
-          const path = [...subIds, sub.id];
-          const subChain = [...chain, sub.title];
-          add(sub, { kind: 'sub', bookId, chapterId, subIds: path, chain: subChain });
-          walk(sub, bookId, chapterId, path, subChain);
-        });
-        (container.sections || []).forEach(sec => {
-          add(sec, { kind: 'section', bookId, chapterId, subIds, chain: [...chain, sec.title] });
-        });
-      };
-
-      courseData.forEach(book => {
-        add(book, { kind: 'book', bookId: book.id, chapterId: null, subIds: [], chain: [book.title] });
-        (book.chapters || []).forEach(chap => {
-          const chain = [book.title, chap.title];
-          add(chap, { kind: 'chapter', bookId: book.id, chapterId: chap.id, subIds: [], chain });
-          walk(chap, book.id, chap.id, [], chain);
-        });
-      });
-    }
-
-    function getNodeInfoById(id) {
-      if (!idIndexReady) buildIdIndex();
-      if (id == null || id === '') return null;
-      return idIndex.get(String(id)) || null;
-    }
-
-    function buildShareUrl(id) {
-      return SHARE_URL_PREFIX + encodeURIComponent(String(id));
-    }
-
-    function shareBtnHtml(id) {
-      if (id == null || id === '') return '';
-      return `<button type="button" class="share-btn" data-share-id="${escapeHtmlAttr(id)}" title="分享連結" aria-label="分享連結"><i class="fa-solid fa-share-nodes"></i></button>`;
-    }
-
-    // 卡片／清單上的分享按鈕：在最外層攔截點擊，避免同時觸發卡片本身的「進入」動作
-    document.addEventListener('click', function (e) {
-      const btn = e.target && e.target.closest ? e.target.closest('.share-btn[data-share-id]') : null;
-      if (!btn) return;
-      e.stopPropagation();
-      e.preventDefault();
-      triggerHaptic();
-      openShareModal(btn.getAttribute('data-share-id'));
-    }, true);
-
-    // header 分享按鈕的顯示與否：只有「主課程／章節清單／小章節內容」這幾種頁面才顯示
-    function setShareTarget(id) {
-      currentShareId = (id == null || id === '') ? null : String(id);
-      if (headerShareBtn) {
-        headerShareBtn.style.display = (currentShareId && getNodeInfoById(currentShareId)) ? '' : 'none';
-      }
-      requestAnimationFrame(fitHeaderTitle);
-    }
-
-    function shareCurrent() {
-      if (currentShareId) openShareModal(currentShareId);
-    }
-
-    function openShareModal(id) {
-      const info = getNodeInfoById(id);
-      if (!info) {
-        showShareToast('這個項目暫時無法分享');
-        return;
-      }
-      closeMoreMenu();
-      shareState = { id: info.id, url: buildShareUrl(info.id), title: info.node.title || '' };
-
-      const parents = info.chain.slice(0, -1);
-      document.getElementById('shareTargetTitle').textContent = shareState.title;
-      document.getElementById('shareLevelBadge').textContent = SHARE_LEVEL_LABEL[info.kind] || '';
-      document.getElementById('shareTargetPath').textContent = parents.join(' › ');
-      document.getElementById('shareUrlInput').value = shareState.url;
-      const tip = document.getElementById('shareCopyTip');
-      tip.textContent = '';
-      tip.classList.remove('error');
-      document.getElementById('shareNativeBtn').style.display = (typeof navigator.share === 'function') ? '' : 'none';
-      shareModal.classList.add('active');
-    }
-
-    function closeShareModal() {
-      shareModal.classList.remove('active');
-    }
-
-    function closeShareModalOnOverlay(event) {
-      if (event.target === shareModal) closeShareModal();
-    }
-
-    async function copyShareUrl() {
-      const input = document.getElementById('shareUrlInput');
-      const tip = document.getElementById('shareCopyTip');
-      let ok = false;
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(shareState.url);
-          ok = true;
-        }
-      } catch (e) {
-        ok = false;
-      }
-      if (!ok) {
-        // 舊版瀏覽器／非 https 環境的備援作法
-        try {
-          input.focus();
-          input.select();
-          input.setSelectionRange(0, input.value.length);
-          ok = document.execCommand('copy');
-        } catch (e) {
-          ok = false;
-        }
-      }
-      tip.classList.toggle('error', !ok);
-      tip.textContent = ok ? '✓ 已複製連結，可以貼給朋友了！' : '無法自動複製，請長按上方網址手動複製';
-    }
-
-    function nativeShare() {
-      if (typeof navigator.share !== 'function') return;
-      navigator.share({ title: shareState.title, text: shareState.title, url: shareState.url }).catch(() => { /* 使用者取消分享 */ });
-    }
-
-    function showShareToast(msg) {
-      const el = document.getElementById('shareToast');
-      if (!el) return;
-      el.textContent = msg;
-      el.classList.add('show');
-      clearTimeout(shareToastTimer);
-      shareToastTimer = setTimeout(() => el.classList.remove('show'), 2800);
-    }
-
-    function resetSearchUi() {
-      searchInput.value = '';
-      clearSearchBtn.style.display = 'none';
-      searchContainer.classList.remove('active');
-      if (navSearchBtn) navSearchBtn.classList.remove('active');
-    }
-
-    // 依 id 跳到對應位置，並把「返回」的路徑完整補上（小章節 → 中章節 → 大章節 → 主課程 → 大廳）
-    function navigateToId(id) {
-      const info = getNodeInfoById(id);
-      if (!info) return false;
-
-      resetSearchUi();                              // 搜尋框有字時，內容頁會改寫返回紀錄，所以先清掉
-      renderHall();                                 // 同時清空 navigationStack
-      renderChapters(info.bookId);                  // 主課程
-      if (info.kind === 'book') return true;
-
-      renderSections(info.bookId, info.chapterId, []);   // 大章節
-      if (info.kind === 'chapter') return true;
-
-      info.subIds.forEach((_, i) => {                    // 中章節（可能有多層）
-        renderSections(info.bookId, info.chapterId, info.subIds.slice(0, i + 1));
-      });
-      if (info.kind === 'sub') return true;
-
-      openSection(info.bookId, info.chapterId, info.node);   // 小章節（有密碼的會先出現密碼畫面）
-      return true;
-    }
-
-    // 搜尋結果的點擊動作：有 id 就走 navigateToId，否則維持原本的開啟方式
-    function searchOpener(id, fallback) {
-      return () => (getNodeInfoById(id) ? navigateToId(id) : fallback());
-    }
-
-    // 從網址讀 id：支援 /?id=xxx（404.html 轉址後的樣子）、/xxx（本機伺服器直接支援時）、/#xxx
-    function readDeepLink() {
-      const idRe = /^[A-Za-z0-9_-]+$/;
-      let id = null;
-      let source = null;
-      try {
-        const q = (new URLSearchParams(window.location.search).get('id') || '').trim();
-        if (q && idRe.test(q)) { id = q; source = 'query'; }
-
-        if (!id) {
-          const seg = decodeURIComponent(window.location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0] || '');
-          if (seg && idRe.test(seg)) { id = seg; source = 'path'; }
-        }
-        if (!id) {
-          const h = decodeURIComponent(window.location.hash.replace(/^#\/?/, ''));
-          if (h && idRe.test(h)) { id = h; source = 'hash'; }
-        }
-      } catch (e) {
-        id = null;
-      }
-      return id ? { id, source } : null;
-    }
-
-    // 讀完 id 後把網址還原乾淨，避免重新整理或之後瀏覽時網址與畫面不一致
-    function cleanDeepLinkUrl(source) {
-      try {
-        window.history.replaceState(null, '', source === 'path' ? '/' : window.location.pathname);
-      } catch (e) { /* 部分環境（例如 file://）不允許改網址，略過即可 */ }
-    }
-
-    pendingDeepLink = readDeepLink();
-    if (pendingDeepLink) cleanDeepLinkUrl(pendingDeepLink.source);
-
-    // 選擇瀏覽模式的視窗上，先告訴使用者「選完會前往哪裡」
-    function initDeepLinkHint() {
-      const hintEl = document.getElementById('modeShareHint');
-      if (!pendingDeepLink || !hintEl) return;
-      const info = getNodeInfoById(pendingDeepLink.id);
-      if (!info) return;
-      hintEl.textContent = '🔗 選擇後將直接前往：' + info.chain.join(' › ');
-      hintEl.style.display = '';
-    }
-
-    // 必須「已選好瀏覽模式」且「頁面已準備好」兩個條件都成立，才執行跳轉
-    function tryOpenPendingDeepLink() {
-      if (!pendingDeepLink || !deepLinkModeChosen || !deepLinkAppReady) return;
-      const link = pendingDeepLink;
-      pendingDeepLink = null;
-      const hintEl = document.getElementById('modeShareHint');
-      if (hintEl) hintEl.style.display = 'none';
-
-      const ok = navigateToId(link.id);
-      if (!ok && link.source === 'query') {
-        showShareToast('找不到分享的內容，已為你開啟大廳');
-      }
-    }
-
     window.onload = function() {
       setAppHeight();
       setBottomNavSpace();
@@ -3342,9 +2754,6 @@
       refreshNoticeBadge();
       renderHall();
       fitHeaderTitle();
-      initDeepLinkHint();
-      deepLinkAppReady = true;
-      tryOpenPendingDeepLink();
     };
   </script>
 
@@ -3536,7 +2945,7 @@
       if (searchInput.value.trim() !== '') {
         navigationStack.push({ type: 'search' });
       } else {
-        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId, parentSubIds: currentSubIds.slice() });
+        navigationStack.push({ type: 'sections', bookId: bookId, chapterId: chapterId });
       }
 
       headerTitle.innerText = title;
