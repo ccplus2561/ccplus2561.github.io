@@ -1,8 +1,19 @@
 // 在 Google Apps Script 編輯器裡建立一個名為 "Post" 的 HTML 檔案
 var postData = [
   {
-    version: "【講義】v26.0915",
+    version: "【講義】v26.0918",
     isExpanded: true,
+    logs: [
+      {
+        tag: "上架",
+        title: "[04] Google 教學",
+        content: "涵蓋帳戶、Chrome 瀏覽器與 Blockly 遊戲教學"
+      }
+    ]
+  },
+  {
+    version: "【講義】v26.0915",
+    isExpanded: false,
     logs: [
       {
         tag: "上架",
