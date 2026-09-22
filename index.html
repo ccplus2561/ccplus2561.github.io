@@ -273,7 +273,6 @@
       padding: 28px 36px;
     }
 
-    /* 需求 3: 電腦版大廳與進入 Arduino 教學後高度同步（統一網格樣式與內距） */
     body.desktop-mode .grid-hall {
       grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
       gap: 22px;
@@ -1163,7 +1162,7 @@
       text-decoration: underline;
     }
 
-    /* ---------- 教學模式（像部落格文章一樣，依序排列各種內容區塊） ---------- */
+    /* ---------- 教學模式 ---------- */
     .article-container {
       animation: fadeInUp 0.4s ease;
     }
@@ -1294,7 +1293,6 @@
       z-index: 1000;
     }
 
-    /* 程式碼框：允許選取與複製（覆蓋全站禁止選取的保護樣式） */
     .code-copyable, .code-copyable * {
       -webkit-user-select: text !important;
       -moz-user-select: text !important;
@@ -1391,7 +1389,6 @@
       animation: fadeInUp 0.4s ease;
     }
 
-    /* ---------- 小章節密碼保護畫面 ---------- */
     .password-gate-container {
       max-width: 380px;
       margin: 40px auto 0;
@@ -1554,7 +1551,7 @@
       height: 60px;
       background: transparent;
       z-index: 10;
-      pointer-events: auto; /* 攔截點擊事件 */
+      pointer-events: auto; 
     }
   </style>
 </head>
@@ -2461,7 +2458,7 @@
       fitPdfViewerHeight();
     }
 
-    // 影片模式：播放 YouTube 影片 + 下方資訊欄（補充文字可點連結、禁止複製）
+    // 影片模式：播放 YouTube 影片 + 下方資訊欄
     function openVideoViewer(bookId, chapterId, title, videoUrl, videoNote, buttons = []) {
       if (!videoUrl || videoUrl === "") {
         alert("該章節影片準備中！");
@@ -2544,7 +2541,6 @@
       return '';
     }
 
-    // 程式碼框允許複製：點擊按鈕直接複製到剪貼簿
     function copyArticleCode(codeId, btn) {
       const el = document.getElementById(codeId);
       if (!el) return;
@@ -2916,7 +2912,6 @@
     document.addEventListener('touchend', function () { clearTimeout(touchTimer); }, { passive: true });
     document.addEventListener('touchmove', function () { clearTimeout(touchTimer); }, { passive: true });
 
-    /* ---------- 2. 快捷鍵全面封鎖 ---------- */
     document.addEventListener('keydown', function (e) {
       var key = (e.key || '').toUpperCase();
       var blocked = false;
@@ -2934,38 +2929,42 @@
       }
     }, true);
 
-    /* ---------- 3. 開發者工具偵測（視窗尺寸差 + debugger 中斷計時法） ---------- */
     var THRESHOLD = 170;
     var sizeSuspect = false;
     var timingSuspect = false;
+    var CONFIRM_STREAK = 2;
+    var sizeSuspectStreak = 0;
+    var timingSuspectStreak = 0;
 
     function updateOverlay() {
       overlay.classList.toggle('active', sizeSuspect || timingSuspect);
     }
 
     function checkBySize() {
-      sizeSuspect =
+      var suspicious =
         (window.outerWidth - window.innerWidth > THRESHOLD) ||
         (window.outerHeight - window.innerHeight > THRESHOLD);
+      sizeSuspectStreak = suspicious ? sizeSuspectStreak + 1 : 0;
+      sizeSuspect = sizeSuspectStreak >= CONFIRM_STREAK;
       updateOverlay();
     }
 
     function checkByTiming() {
       var start = performance.now();
-      // eslint-disable-next-line no-debugger
       debugger;
-      timingSuspect = (performance.now() - start) > 100;
+      var suspicious = (performance.now() - start) > 100;
+      timingSuspectStreak = suspicious ? timingSuspectStreak + 1 : 0;
+      timingSuspect = timingSuspectStreak >= CONFIRM_STREAK;
       updateOverlay();
     }
 
-    // 桌機環境進行較嚴格偵測；行動裝置螢幕比例差異大，避免誤判改用其他防護手段
     if (!('ontouchstart' in window)) {
       setInterval(checkBySize, 800);
       setInterval(checkByTiming, 1200);
       window.addEventListener('resize', checkBySize);
     }
 
-    /* ---------- 4. PDF 講義 Blob 動態載入（覆寫 openPdfViewer，行為與原本完全相容） ---------- */
+    /* ---------- 4. PDF 講義 Blob 動態載入---------- */
     var activeBlobUrl = null;
 
     function releaseActiveBlobUrl() {
@@ -3039,7 +3038,6 @@
           container.appendChild(iframe);
         })
         .catch(function () {
-          // 若來源不支援跨網域 Blob 讀取，自動退回原始直接載入方式，確保功能不中斷
           container.innerHTML =
             '<iframe src="' + pdfUrl + '#toolbar=0&navpanes=0" allow="autoplay" ' +
             'style="width:100%;height:100%;border:none;"></iframe>';
@@ -3054,7 +3052,7 @@
         return originalGoBack.apply(this, arguments);
       };
     }
-    window.addEventListener('beforeunload', releaseActiveBlobUrl);
+    window.addEventListener('pagehide', releaseActiveBlobUrl);
 
   })();
   </script>
