@@ -1358,6 +1358,570 @@ var courseData = [
     ]
   },
   {
+    "title": "[05] LINE 教學",
+    "id": "course05",
+    "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczP9hMO0ctMsHpt-ShMDhITULfta_8O4B9W9Ulsqq01t9rvPuOpzWob4PhKxt763XoZ1U0swvHdqTaN_EDSY3oZj7M92hT8ADqQ2MLfd6ngCg3MKZnLo5nJizGPpiyxU0Q0O6xaW5ntMOiInFD2elJ0e=w447-h447-s-no-gm?authuser=0",
+    "chapters": [
+      {
+        "title": "P1 - LINE 應用",
+        "id": "P1"
+      },
+      {
+        "title": "P2 - LINE Bot教學",
+        "id": "P2",
+        "subchapters": [
+          {
+            "title": "Ch01 - 開發環境",
+            "id": "Ch01",
+            "sections": [
+              {
+                "title": "ex01 - 建立 LINE 官方帳號",
+                "id": "ex01",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOEtBWNcbtosx2Se7KH08Mjx3GT_BpB-pFw_3F77H9Dp6tq4uDgUhYo-hk4y1aPXtcx6yUS477ys_7qAmIUfxUM1FvatfpQeID78Zl7_GmBICvWGK1rocBUrWrL_aGo2jhUvsvZ7whfln-2phOzYV_C=w1280-h720-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1ACLPVFB4yVi30vCuGMAOxXuDZHvoXYL4/preview",
+                "buttons": [
+                  {
+                    "title": "LINE Developers",
+                    "url": "https://developers.line.biz/en/"
+                  }
+                ]
+              },
+              {
+                "title": "ex02 - 發環境建置(上)",
+                "id": "ex02",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPvG6Z7jCuq2gJ6WIM7zNbbOszS6wwpIVceEn4I4V5fkHkPn7ZedNLNV79b-GuynLVk2DQ_0S6VCmhOp04XNo_Zp0Za86KwSRdVq5ZBL-PaeP3P-JKmj6PVfQMxZdbxDyKg2fuX6VXe0Oasi_NNv1HB=w1280-h720-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1nLr_vAaXRXqFu99dnTO2GPquicsG4uo0/preview"
+              },
+              {
+                "title": "ex03 - 開發環境建置(下)",
+                "id": "ex03",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP0J8zpg8r6WBY7xDk5MkrpCsNroN-5ef0IpK-L4uDA1Pp_62alXtvD1sqHj5OGcMF57Ef6E3NiHaYc7chv6iGDUKrdkE8Z6PFhkjzPUCqlsRU7NLvP4OGwFVNqjCzJms3Dn3lRadQJ3hhoBL17rmNx=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1On8B71H6Sr2zBBfyWslGN5penSXbbueo/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "建立虛擬環境"
+                  },
+                  {
+                    "type": "code",
+                    "content": "Python –m venv linebot"
+                  },
+                  {
+                    "type": "code",
+                    "content": "cd linebot /Scripts"
+                  },
+                  {
+                    "type": "code",
+                    "content": "activate.bat"
+                  },
+                  {
+                    "type": "code",
+                    "content": "pip install –r 路徑"
+                  },
+                  {
+                    "type": "text",
+                    "content": "查看所有套件"
+                  },
+                  {
+                    "type": "code",
+                    "content": "pip list"
+                  },
+                  {
+                    "type": "text",
+                    "content": "離開虛擬環境"
+                  },
+                  {
+                    "type": "code",
+                    "content": "deactivate"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Ch02 - 基本用法",
+            "id": "Ch02",
+            "sections": [
+              {
+                "title": "ex04 - 入門 Bot運作",
+                "id": "ex04",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP4j5--Iu0V8BzCH3j16lWYsQo-CN3E8BYkMpctLBk7JKaMAyDYIKhHP9UTJP0QYKH8zGIWm4GVnuMVs2nTAl_WLPji4OphXgX0sr9I1z__k3xdL6QNy_sLXSglXfiwAZo533PKZb1ktIoDLswComsd=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1FCP9VNrPumxHPHT8vmbP7lsC6HAPf3es/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔範本程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "from flask import Flask, request, abort\n\nfrom linebot.v3 import (\n    WebhookHandler\n)\nfrom linebot.v3.exceptions import (\n    InvalidSignatureError\n)\nfrom linebot.v3.messaging import (\n    Configuration,\n    ApiClient,\n    MessagingApi,\n    ReplyMessageRequest,\n    TextMessage\n)\nfrom linebot.v3.webhooks import (\n    MessageEvent,\n    TextMessageContent\n)\n\napp = Flask(__name__)\n\nconfiguration = Configuration(access_token='YOUR_CHANNEL_ACCESS_TOKEN')\nhandler = WebhookHandler('YOUR_CHANNEL_SECRET')\n\n\n@app.route(\"/callback\", methods=['POST'])\ndef callback():\n    # get X-Line-Signature header value\n    signature = request.headers['X-Line-Signature']\n\n    # get request body as text\n    body = request.get_data(as_text=True)\n    app.logger.info(\"Request body: \" + body)\n\n    # handle webhook body\n    try:\n        handler.handle(body, signature)\n    except InvalidSignatureError:\n        app.logger.info(\"Invalid signature. Please check your channel access token/channel secret.\")\n        abort(400)\n\n    return 'OK'\n\n\n@handler.add(MessageEvent, message=TextMessageContent)\ndef handle_message(event):\n    with ApiClient(configuration) as api_client:\n        line_bot_api = MessagingApi(api_client)\n        line_bot_api.reply_message_with_http_info(\n            ReplyMessageRequest(\n                reply_token=event.reply_token,\n                messages=[TextMessage(text=event.message.text)]\n            )\n        )\n\nif __name__ == \"__main__\":\n    app.run()"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "LINE Bot SDK",
+                    "url": "https://pypi.org/project/line-bot-sdk/3.9.0/"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/L5xVlDAS#q46H02w3PuOqTMf7ALmj_Q"
+                  }
+                ]
+              },
+              {
+                "title": "ex05 - 文字回應",
+                "id": "ex05",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczN5GkFukW_lfN2JgI7nHSJSB5VvI60yclbXCv3F6pv7yoZKdSuMFBtaxxFyKrmGQZpiGFU2QDqo3uqeUQeqmn0SP8z33tUAlY9HwHgBEjueybNz-GpgEHcs9L954mClfFcprNsE5SW2oeMZzp6iolHT=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1KLp7DGzvQKIMmUiiel3Vronrug8QYILt/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '文字':\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[TextMessage(text=\"我是文字!!\")]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/jto03RzI#ozueCsII4frIJ8dcfHnuvQ"
+                  }
+                ]
+              },
+              {
+                "title": "ex06 - 表情符號",
+                "id": "ex06",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMPgPxo3QdvZ5Zp81XDDvMEs7W1agFdZc5li75jsiWcYflpVqA613NzMhduOQcB4lt4Md8QK8b7RX0Dv1Uz2O-CASpmPphmTGQir2DEdesfYqaFon23P39b5MGaJMEXC78xfxW8Q0Pbxq2JM5vlQJ1g=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1Qo5Btu0mWJaeTU2qQEkcNit3cw_s-pG_/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '表情符號':\n            emojis = [\n                Emoji(index=0, product_id=\"5ac223c6040ab15980c9b44a\", emoji_id=\"009\"),\n                Emoji(index=14, product_id=\"5ac21184040ab15980c9b43a\", emoji_id=\"013\")\n            ]\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[TextMessage(text='$ 表情符號，祝你生日快樂 $', emojis=emojis)]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "LINE官方文件",
+                    "url": "https://developers.line.biz/en/docs/messaging-api/emoji-list/"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/D4IkXAgJ#uGnrulAn9jqdfp5sc1R4ag"
+                  }
+                ]
+              },
+              {
+                "title": "ex07 - 發送貼圖",
+                "id": "ex07",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMEQYigbtBdh2jSIryGjCJ9DqvzSMA7jnQ2LQnl2t57KGYLsrnspFuiM1IG55-gjP_NVUZhoSMVk3e77sLRU0Aud_XD7UXOWTSXCcQ6YOpyrXmHN8pA2x24DnWuFZN2vtsTBL60jUqFZ-ZTth6jaX3t=w1280-h720-s-no-gm?authuser=0",
+                "buttons": [
+                  {
+                    "title": "LINE官網文件",
+                    "url": "https://developers.line.biz/en/docs/messaging-api/sticker-list/"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/ipogHRRa#DcAx577Vcmr0V-8ZY1OStA"
+                  }
+                ],
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1o_FD9k78WgYOcwNoYat40Qybw92-fVSX/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '貼圖':\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[StickerMessage(package_id=\"6325\", sticker_id=\"10979921\")]\n                )\n            )"
+                  }
+                ]
+              },
+              {
+                "title": "ex08 - 發送圖片",
+                "id": "ex08",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMvReFEyPCK3ZXoyC7_i92o7HNidOaVCG4s7mYNiLVvJodrihg5eqYdA2Yx7ltHuwCNPMzm6fSqNOUtYh8JDZtIQQJ3cVfonpe7oCUNHtAeQqwE0kuNYtzlQvzj0bRS3PIHkG-Htym4FluXdKdWym_A=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1GXBPie8Br-ZMtLqhvzg8JiE2tMqp585B/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '圖片':\n            url = request.url_root + 'static/Logo.png'\n            url = url.replace(\"http\", \"https\")\n            app.logger.info(\"url=\" + url)\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[\n                        ImageMessage(original_content_url=url, preview_image_url=url)\n                    ]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "素材圖片",
+                    "url": "https://mega.nz/folder/nhAERA5a#iBda27-Bdng6IWUI7zUuaw"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/file/ysxyBaaZ#Q0erujcaarEay7oKZlRtWwymAdNixxm-_DfQym8uZgU"
+                  }
+                ]
+              },
+              {
+                "title": "ex09 - 發送影片",
+                "id": "ex09",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMc5VbpoP9DuTEzLaFJKocEnxS1_xh8RNxWouHRsLpBXukXpOv3yDEnwAVacPxm7Bkyppnq8zSkg1wd4MpnXO1kVcwuQPMaKfMR5URGVeMyQJYBBF0OwFtAdAApgKKwY6LEy77_uQRl4P4xl3MfhT50=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/14yU2m-JWm5ywM1ZQpM9_JbN9i9tEdrkc/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '影片':\n            url = request.url_root + 'static/video.mp4'\n            url = url.replace(\"http\", \"https\")\n            app.logger.info(\"url=\" + url)\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[\n                        VideoMessage(original_content_url=url, preview_image_url=url)\n                    ]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "素材影片",
+                    "url": "https://mega.nz/folder/W5gTzTrb#kOOoOBXU_E3udOLU68vv2Q"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/file/7gYHHI5K#xlQVntzTDdx43lUWU3W4X5tBMQz9pVeZCLBMq78a-_c"
+                  }
+                ]
+              },
+              {
+                "title": "ex10 - 發送音訊",
+                "id": "ex10",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOKTkRI-pbq9PNOfcPrmtp8YS4f8nA1qatEVm44anPGNDY4aIeo7uf-JHDvkDPtoxDU06mH9NG-7MWEXIc9sCEj25N8Hb9DtXzQv0Ta0S8_ceRCj8d14vndf8H1xHaxWv1NxY8h_P127EyRWNvtfAEw=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1VT1ACWrpVeDXUMUymd45flEHa7CBJQf8/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '音訊':\n            url = request.url_root + 'static/music.mp3'\n            url = url.replace(\"http\", \"https\")\n            app.logger.info(\"url=\" + url)\n            duration = 60000  # in milliseconds\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[\n                        AudioMessage(original_content_url=url, duration=duration)\n                    ]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "素材音檔",
+                    "url": "https://mega.nz/folder/2gghETqA#oU4iJqn7MWoSILpOLlMukg"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/file/TgomVTCC#7caB2sYZuauPPqUyisXxY3EPh9VCgQ9zgNL5IbmVuiU"
+                  }
+                ]
+              },
+              {
+                "title": "ex11 - 發送位置",
+                "id": "ex11",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOP0z4Si223ZN8Tx4IqeT3ayI1zkrzIC0wLyp_NInWHNaREyOEppomGMDLkaR8fL5DPweej-rvUroo04H8XePttIYORcmSz7aQ3Y4pvMsDFuriL6SqgwmsIpblZon4yqgHZNFE5Obufy2IA7LZ5ZduE=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/101VIKIdTBCs7rKJpmJXSNJmGk4DjOW41/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '位置':\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[\n                        LocationMessage(title='Location', address=\"Taipei\", latitude=25.0339784, longitude=121.5632488)\n                    ]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/H4ZHxDBb#EtD7zl8iizo53rc9Dmf0CA"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Ch03 - 常見模版",
+            "id": "Ch03",
+            "sections": [
+              {
+                "title": "ex12 - 確認模版訊息",
+                "id": "ex12",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOxLNIcoIwwJmgBm7i42MXa2gcF6W2OnNJKkncbopgWumHrZ2gNIoP2gil-TSjKEMa51T8oc-M-HZo2z-dGKF2u5pF0xb0lTCCeN-Y5pnfbvCCtDqkicf3IV3K-H2jAWJkB39spH2juzxm39fs2zSB6=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1RD9Hq-Pr1_iLEsjubovLTLeHWwVNSZa8/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "if text == '確認模版訊息':\n            confirm_template = ConfirmTemplate(\n                text='這篇教學你滿意嗎?',\n                actions=[\n                    MessageAction(label='滿意', text='滿意呦~'),\n                    MessageAction(label='不滿', text='在加油!')\n                ]\n            )\n            template_message = TemplateMessage(\n                alt_text='Confirm alt text',\n                template=confirm_template\n            )\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[template_message]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/6tRhVRoQ#OdmJ2qSJEi5kP6v3qY-egA"
+                  }
+                ]
+              },
+              {
+                "title": "ex13 - 按鈕模版訊息",
+                "id": "ex13",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP-wleuhAGjqwOCvm1EUjnlEVosleFfWc45IQ-vx0g9fOpgMI3lnGGjANgPMU5HgJaxz9RnJk_H6p7oQx4wGfzTRHUiRusWDi31SswbbkzVjgLXsFQn0AojoDh87clj4EHl4Lt7UkEWLDY4ig1oC2O4=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1CbCDSEUa9sQkMYkTG7ZY_xVGXwU3wmRF/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "# Buttons Template\n\n        if text == '按鈕模版訊息':\n            url = request.url_root + 'static/Logo.png'\n            url = url.replace(\"http\", \"https\")\n            app.logger.info(\"url=\" + url)\n            buttons_template = ButtonsTemplate(\n                thumbnail_image_url=url,\n                title='按鈕模版訊息',\n                text='請詳細說明按鈕模版的訊息',\n                actions=[\n                    CameraAction(label='拍照'),\n                    CameraRollAction(label='選擇相片'),\n                    LocationAction(label='選擇位置')\n                ]\n            )\n            template_message = TemplateMessage(\n                alt_text=\"This is a buttons template\",\n                template=buttons_template\n            )\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[template_message]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "素材圖片",
+                    "url": "https://mega.nz/folder/nhAERA5a#iBda27-Bdng6IWUI7zUuaw"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/Xtw2yAQZ#-uTxonLNbgLqrnp1Tq-QVg"
+                  }
+                ]
+              },
+              {
+                "title": "ex14 - 輪播模版訊息",
+                "id": "ex14",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOuMwhpAjlaj4Xrfllp8X_h83Y_LA71cVw-iDPMc5Rm7K3yY0C3H3ImSmE6fqrpcJlmL2AnpO9dX-gXZYCk5kmfb9XdTHBHfnn-wzrStJWAH51AEGNJgqjE8-_bM-x2XDm63pr_lAJMR26vn82FEEt1=w1280-h720-s-no-gm?authuser=0",
+                "buttons": [
+                  {
+                    "title": "素材圖片",
+                    "url": "https://mega.nz/folder/nhAERA5a#iBda27-Bdng6IWUI7zUuaw"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/OwJXAQIR#d9usVJ8638SIFyHiz34-hA"
+                  }
+                ],
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1gKpC_NFaDbOjt5JlDzXoEhNxBgjc5yP4/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "# Carousel Template\n\n        if text == '輪播模版訊息':\n            url = request.url_root + 'static/Logo.png'\n            url = url.replace(\"http\", \"https\")\n            app.logger.info(\"url=\" + url)\n            carousel_template = CarouselTemplate(\n                columns=[\n                    CarouselColumn(\n                        thumbnail_image_url=url,\n                        title='Google模版',\n                        text='這是第一項的模版',\n                        actions=[\n                            URIAction(\n                                label='前往 Google 網站',\n                                uri='https://www.google.com'\n                            )\n                        ]\n                    ),\n\n                    CarouselColumn(\n                        thumbnail_image_url=url,\n                        title='奇摩模版',\n                        text='這是第二項的模版',\n                        actions=[\n                            URIAction(\n                                label='前往 Yaho 網站',\n                                uri='https://www.yahoo.com'\n                            )\n                        ]\n                    )\n                ]\n            )\n            carousel_message = TemplateMessage(\n                alt_text='這是 Carousel Template',\n                template=carousel_template\n            )\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages =[carousel_message]\n                )\n            )"
+                  }
+                ]
+              },
+              {
+                "title": "ex15 - 圖片輪播模版訊息",
+                "id": "ex15",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM00VMdfnDwmMR0Aswk9ceTrFpIHUhXFlQKwocRvMPZAVdzbKHvc2YptCoIXZ-Zyxks6M22C0NWWew_qcqA0odmEH-gPTDCZOAOuc3yxupdz-eyjkplc6SEP86TPzyvR4jWT-aK6lt0eehCXMj62U27=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1cRHG3vzClyYUNg_0YkUQ0P3sp-3kOJoq/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "# ImageCarousel Template\n\n        if text == '圖片輪播模版訊息':\n            url = request.url_root + 'static/'\n            url = url.replace(\"http\", \"https\")\n            app.logger.info(\"url=\" + url)\n            image_carousel_template = ImageCarouselTemplate(\n                columns=[\n                    ImageCarouselColumn(\n                        image_url=url+'FB.png',\n                        action=URIAction(\n                            label='前往FB',\n                            uri='https://www.facebook.com/'\n                        )\n                    ),\n                    ImageCarouselColumn(\n                        image_url=url+'IG.jpg',\n                        action=URIAction(\n                            label='前往IG',\n                            uri='https://instagram.com/'\n                        )\n                    ),\n                    ImageCarouselColumn(\n                        image_url=url+'YT.png',\n                        action=URIAction(\n                            label='前往YT',\n                            uri='https://www.youtube.com/@CCplus2561'\n                        )\n                    ),\n                ]\n            )\n            image_carousel_message = TemplateMessage(\n                alt_text='圖片輪播範本',\n                template=image_carousel_template\n            )\n            line_bot_api.reply_message(\n                ReplyMessageRequest(\n                    reply_token=event.reply_token,\n                    messages=[image_carousel_message]\n                )\n            )"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "素材圖片",
+                    "url": "https://mega.nz/folder/r5gVRTYR#ohVj3G_7SrdAyxMDlwYrAA"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/file/vpQkiBbY#wRpGWn1L2k82S57n5eRlOO9YA5cFDj9YC6EoO5Vb-KI"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Ch04 - 進階模版",
+            "id": "Ch04",
+            "sections": [
+              {
+                "title": "ex16 - 自訂化訊息",
+                "id": "ex16",
+                "mode": "article",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNmkPkN9rVFohyXOJyPFE_Xc1psgG95hwCmcmHWHnHN7vYBWu3IVDCNJZqR6jJ2GVUkzwH2SpD9Lme54D1MDvOdr3o0rzP3ZSc80I8gQiDzx8v2HV4aVTzMrAHdyPUG_npmpJetESumTzUKemUybUhW=w1280-h720-s-no-gm?authuser=0",
+                "blocks": [
+                  {
+                    "type": "pdf",
+                    "content": "https://drive.google.com/file/d/1E3x9fcnMML2U95N0VyPA0X1thWtx4AHG/preview"
+                  },
+                  {
+                    "type": "text",
+                    "content": "〔範例片段程式碼〕"
+                  },
+                  {
+                    "type": "code",
+                    "content": "{\n  \"type\": \"bubble\",\n  \"hero\": {\n    \"type\": \"image\",\n    \"url\": \"https://pimg.1px.tw/ccplus2561/1755010008-2120985222-g_q.png\",\n    \"size\": \"full\",\n    \"aspectRatio\": \"20:13\",\n    \"aspectMode\": \"cover\"\n  },\n  \"body\": {\n    \"type\": \"box\",\n    \"layout\": \"vertical\",\n    \"contents\": [\n      {\n        \"type\": \"text\",\n        \"text\": \"程式創造++\",\n        \"weight\": \"bold\",\n        \"size\": \"xl\",\n        \"contents\": [\n          {\n            \"type\": \"span\",\n            \"text\": \"程式創造++\"\n          },\n          {\n            \"type\": \"span\",\n            \"text\": \"   @CCplus2561\",\n            \"size\": \"md\",\n            \"weight\": \"regular\",\n            \"style\": \"italic\"\n          }\n        ]\n      },\n      {\n        \"type\": \"box\",\n        \"layout\": \"baseline\",\n        \"margin\": \"md\",\n        \"contents\": [\n          {\n            \"type\": \"icon\",\n            \"size\": \"sm\",\n            \"url\": \"https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png\"\n          },\n          {\n            \"type\": \"icon\",\n            \"size\": \"sm\",\n            \"url\": \"https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png\"\n          },\n          {\n            \"type\": \"icon\",\n            \"size\": \"sm\",\n            \"url\": \"https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png\"\n          },\n          {\n            \"type\": \"icon\",\n            \"size\": \"sm\",\n            \"url\": \"https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png\"\n          },\n          {\n            \"type\": \"icon\",\n            \"size\": \"sm\",\n            \"url\": \"https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png\"\n          },\n          {\n            \"type\": \"text\",\n            \"text\": \"5.0\",\n            \"size\": \"sm\",\n            \"color\": \"#999999\",\n            \"margin\": \"md\",\n            \"flex\": 0\n          }\n        ]\n      },\n      {\n        \"type\": \"box\",\n        \"layout\": \"vertical\",\n        \"margin\": \"lg\",\n        \"spacing\": \"sm\",\n        \"contents\": [\n          {\n            \"type\": \"box\",\n            \"layout\": \"baseline\",\n            \"spacing\": \"sm\",\n            \"contents\": [\n              {\n                \"type\": \"text\",\n                \"text\": \"連結：\",\n                \"color\": \"#aaaaaa\",\n                \"size\": \"sm\",\n                \"flex\": 1\n              },\n              {\n                \"type\": \"text\",\n                \"text\": \"youtube.com/@CCplus2561\",\n                \"wrap\": true,\n                \"color\": \"#666666\",\n                \"size\": \"sm\",\n                \"flex\": 5\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  },\n  \"footer\": {\n    \"type\": \"box\",\n    \"layout\": \"horizontal\",\n    \"contents\": [\n      {\n        \"type\": \"button\",\n        \"action\": {\n          \"type\": \"uri\",\n          \"label\": \"YouTube\",\n          \"uri\": \"https://www.youtube.com/@CCplus2561\"\n        },\n        \"style\": \"primary\",\n        \"margin\": \"md\"\n      },\n      {\n        \"type\": \"button\",\n        \"action\": {\n          \"type\": \"uri\",\n          \"label\": \"Pixnet\",\n          \"uri\": \"https://ccplus2561.pixnet.net/blog\"\n        },\n        \"style\": \"secondary\",\n        \"margin\": \"md\"\n      }\n    ]\n  }\n}"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "官方模擬器",
+                    "url": "https://developers.line.biz/flex-simulator/?status=success"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/PtpQTKAJ#yD0DlbhM1iEQr6oZpSKd5Q"
+                  }
+                ]
+              },
+              {
+                "title": "ex17 - 快速回覆訊息",
+                "id": "ex17",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPLOKAJ-H5m-9oi7IhW0KRFWy83s8S7oMEbizXOCBdjuIxRDX8YdsW6MyliKaNmgI44scj2IojIzbSsaAHdW-fTd8-pryWx2ROjO56xuy3ary15dNm_YAsPqA_nNQ6yDKRde09XLC8a1oAcMEKJNlDB=w1280-h720-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1RC37ghwWFtDgL84JVnrFtRUlaHsJeFdn/preview",
+                "buttons": [
+                  {
+                    "title": "圖片素材",
+                    "url": "https://mega.nz/folder/j4RkRLYC#0-4VEl_0Zx9dAQBN0QTTXA"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/file/H1xmmIRL#ahHZSIoVt-_xX1wgMdrC2BjcDawzUhWAKPPdvT8lp30"
+                  }
+                ]
+              },
+              {
+                "title": "ex18 - 圖文選單-方式1 (後台設計)",
+                "id": "ex18",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOPqzCWpjB0dhoOcxq6YMv58OT4uQOYmycdeBrM-FlOBDb-YStKtThJJKhPpi52JHb5tJQzLTdEwiQ85Fx_uMmFM_sNG0yaf91qNlBWdk9xZWWg6s_JxC6KD9bz9JXq-WIxdKnQz3mxa6pgeYtux_kW=w1280-h720-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1KjpT0C5nozrOJn7sf47yCVZSMflJpkrv/preview",
+                "buttons": [
+                  {
+                    "title": "素材圖片",
+                    "url": "https://mega.nz/folder/Lpxz2YKJ#7iBiUnQPsS5P4FvwkU7ryw"
+                  }
+                ]
+              },
+              {
+                "title": "ex19 - 圖文選單-方式2 (API設計)",
+                "id": "ex19",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNLCFa2U5Hq6nbZusNnhP699YkjG2P4lHF3-MqWbtTqwZk2F_ZU0wc6hTFKoEfEmsTYuB7YNcrrOcYMqlTCfbYMYuPKiKo_2LR6Vd0ax2JmcKM5ar28oSxkqwjKD1iosOdKeA2izEBp6upCs1Y0LYu3=w1280-h720-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/18x2db_ROIJ2bWNtN356-9RGAYgENJFEl/preview",
+                "buttons": [
+                  {
+                    "title": "LINE Bot Designer",
+                    "url": "https://developers.line.biz/en/docs/messaging-api/download-bot-designer/"
+                  },
+                  {
+                    "title": "素材圖片",
+                    "url": "https://mega.nz/folder/Lpxz2YKJ#7iBiUnQPsS5P4FvwkU7ryw"
+                  },
+                  {
+                    "title": "本教學程式碼",
+                    "url": "https://mega.nz/folder/zkZ1XA7T#S224BjJGJYBbOcZ4VPiblg"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Ch05 - 實戰小應用",
+            "id": "Ch05",
+            "sections": [
+              {
+                "title": "ex20 - 取得群組ID (webhook)",
+                "id": "ex20",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNmS6doMpcO9ONd0UL4tGV-dwvPFkzvvwPSJrQbOOlK7cSFgiB3k36Hw5QDd-WusO5zp2MJYC2ablSaP3Jdlzi-PN1rsSL7HHoSjSjkts6Zt38eWeR9XIuKSfguyDxRbmE0dRzu_xp-6wMm6IoWsAmb=w1280-h720-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1eX-p4drAh7r7X-4X-WEMGZkAcOrijVQa/preview",
+                "buttons": [
+                  {
+                    "title": "webhook網站",
+                    "url": "https://webhook.site"
+                  }
+                ]
+              },
+              {
+                "title": "ex21 - Apps Script 連動Google 日曆",
+                "id": "ex21",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPWyCIm5M6uNX5sH4EUmqcgQE5Sq8Vp2psX8K7pLQ2fnVSnbYW53Ua5baDMZ-phMHsERjYGrbnhONO4WW5jX3VEJyrPbAGWOkumt2-xc-HzO0tY11k8YkEXApxs95H8J4d9WXj6KO2nXPYnBdKuJRym=w1280-h720-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1ULBG9wdOMfvsIwLA1AsCM8fmDFabyPe5/preview"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "[07] USART HMI 教學",
     "id": "course07",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMjEKmBAI5GWmOHxmOrCHpviXu4gp8UvIGbFEYK7qSQQev-rbwfbmt6U02m1GJ6O0MaQTxuegfAybQYgO3BWqn3OR4kG_HF7qWYksgXk8Gw4JS3N4gibOe5D6QKFp4ZRmrHVOf6XMZeQw6g6-zqgjxy=w600-h416-s-no-gm?authuser=0",
