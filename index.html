@@ -78,7 +78,6 @@
       min-height: var(--app-height, 100vh);
       display: flex;
       flex-direction: column;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
       position: relative;
       transition: background-color 0.4s ease, max-width 0.3s ease;
     }
@@ -322,6 +321,10 @@
     body.desktop-mode .section-card-tag { font-size: 0.85rem; }
     body.desktop-mode .list-title { font-size: 1.1rem; }
     body.desktop-mode .search-badge { font-size: 0.85rem; }
+    body.desktop-mode .search-result-title { font-size: 1.05rem; }
+    body.desktop-mode .search-result-sub { font-size: 1rem; }
+    body.desktop-mode .search-result-icon { width: 48px; height: 48px; }
+    body.desktop-mode .search-group-label { font-size: 0.88rem; }
     body.desktop-mode .empty-state p { font-size: 1.05rem; }
     body.desktop-mode footer { font-size: 0.9rem; padding: 22px; }
     body.desktop-mode .btn-icon { font-size: 0.95rem; padding: 8px 16px; }
@@ -728,6 +731,78 @@
       color: var(--text-muted);
       margin-top: 3px;
       display: block;
+    }
+
+    /* 搜尋結果：主副標題置換（父層課程名為主標題，子層小章節為副標題） */
+    .search-result-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .search-result-icon {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 8px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+    }
+
+    .search-result-text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .search-result-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .search-result-sub {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .search-result-sub .search-arrow {
+      color: var(--primary-color);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* 搜尋結果分組標題：智能搜尋（精準）／ 類似結果（模糊） */
+    .search-group-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 4px 2px 2px;
+    }
+
+    .search-group-label.fuzzy {
+      color: var(--text-muted);
+    }
+
+    .search-group-label .search-group-count {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    .search-group-divider {
+      border: none;
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+      margin: 14px 2px 4px;
     }
 
     .modal-overlay {
@@ -1554,7 +1629,7 @@
       <div class="search-container" id="searchContainer">
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass" onclick="triggerHaptic(); toggleSearch();"></i>
-          <input type="text" id="searchInput" placeholder="搜尋 標題、單元、感測器..." oninput="handleSearch()">
+          <input type="text" id="searchInput" placeholder="搜尋標題、單元...（空格或+進行進階搜尋）" oninput="handleSearch()">
           <i class="fa-solid fa-circle-xmark clear-search" id="clearSearchBtn" onclick="clearSearch()"></i>
         </div>
       </div>
@@ -1618,8 +1693,6 @@
        偵測）的區塊已隨網站遷移至 GitHub 一併移除。 -->
 
   <script>
-    const APP_VERSION = "2026";
-
     const THEME_PALETTES = [
       { primary: "#1976d2", dark: "#0d47a1", glow: "rgba(25, 118, 210, 0.25)", bgFrom: "#e7f1fc", bgTo: "#eef1fb", card: "#f6faff" },
       { primary: "#2e7d32", dark: "#1b5e20", glow: "rgba(46, 125, 50, 0.25)", bgFrom: "#e8f6ea", bgTo: "#eef7f1", card: "#f6fbf7" },
@@ -1663,7 +1736,6 @@
     const sidebarNav = document.getElementById('sidebarNav');
     const navHomeBtn = document.getElementById('navHomeBtn');
     const navSearchBtn = document.getElementById('navSearchBtn');
-    const NOTICE_READ_KEY = 'jj_lab_last_read_version';
 
     function applyRandomTheme() {
       const randomPalette = THEME_PALETTES[Math.floor(Math.random() * THEME_PALETTES.length)];
@@ -1856,16 +1928,17 @@
       }
     }
 
+    // 網頁公告紅點：跟「選擇電腦版/手機版」一樣，每次重新進入網頁都要顯示，
+    // 不記憶上次是否已讀（不使用 localStorage 長期保存已讀狀態）
+    let noticeUnread = true;
+
     function refreshNoticeBadge() {
-      let lastRead = null;
-      try { lastRead = localStorage.getItem(NOTICE_READ_KEY); } catch (e) {}
-      const isUnread = lastRead !== APP_VERSION;
       const badges = [document.getElementById('noticeBadgeDesktop'), document.getElementById('noticeBadgeMobile')];
-      badges.forEach(b => { if (b) b.style.display = isUnread ? 'block' : 'none'; });
+      badges.forEach(b => { if (b) b.style.display = noticeUnread ? 'block' : 'none'; });
     }
 
     function markNoticeAsRead() {
-      try { localStorage.setItem(NOTICE_READ_KEY, APP_VERSION); } catch (e) {}
+      noticeUnread = false;
       refreshNoticeBadge();
     }
 
@@ -2580,8 +2653,18 @@
       `;
     }
 
+    // 將搜尋輸入拆成多個關鍵字：支援空白、「+」、全形／半形逗號、頓號作為分隔符
+    // 例如輸入「A + 骰」會拆成 ["a", "骰"]，用來做多關鍵字交集(AND)比對
+    function parseSearchKeywords(raw) {
+      return raw
+        .split(/[+\s,，、]+/)
+        .map(s => s.trim().toLowerCase())
+        .filter(Boolean);
+    }
+
     function handleSearch() {
-      const query = searchInput.value.trim().toLowerCase();
+      const rawQuery = searchInput.value.trim();
+      const query = rawQuery.toLowerCase();
 
       if (query === '') {
         clearSearchBtn.style.display = 'none';
@@ -2599,82 +2682,130 @@
         if (home) home.classList.remove('active');
       }
 
-      let results = [];
+      const keywords = parseSearchKeywords(query);
+      // 防呆：理論上不會發生（query 已確認非空字串），仍保留原始查詢當作備援關鍵字
+      const effectiveKeywords = keywords.length > 0 ? keywords : [query];
+
+      const preciseResults = [];
+      const fuzzyResults = [];
+
+      // 依「父層（課程）＋子層（章節路徑）」組成完整比對文字，讓多關鍵字可以
+      // 跨層級比對（例如 "A" 命中課程名、"骰" 命中小章節名，兩者交集才算精準符合）
+      function classifyNode(type, bookTitle, bookIcon, chainTitles, action) {
+        const ownTitle = chainTitles[chainTitles.length - 1];
+        const ownTitleLower = ownTitle.toLowerCase();
+        const combinedText = (bookTitle + ' ' + chainTitles.join(' ')).toLowerCase();
+
+        const allInCombined = effectiveKeywords.every(k => combinedText.includes(k));
+        const anyInCombined = effectiveKeywords.some(k => combinedText.includes(k));
+
+        if (!allInCombined && !anyInCombined) return;
+
+        const resultObj = {
+          type,
+          bookTitle,
+          bookIcon: bookIcon || '',
+          ownTitle,
+          ownMatched: effectiveKeywords.every(k => ownTitleLower.includes(k)),
+          action
+        };
+
+        if (allInCombined) preciseResults.push(resultObj);
+        else fuzzyResults.push(resultObj);
+      }
 
       courseData.forEach(book => {
-        if (book.title.toLowerCase().includes(query)) {
-          results.push({
-            type: 'book',
-            title: book.title,
-            badge: '課程主分類',
-            action: () => renderChapters(book.id)
-          });
-        }
+        classifyNode('book', book.title, book.iconUrl, [book.title], () => renderChapters(book.id));
 
-        function searchSubchapters(list, parentTitle) {
+        function searchSubchapters(list, chainTitles) {
           list.forEach(item => {
-            if (item.title.toLowerCase().includes(query)) {
-              results.push({
-                type: 'chapter',
-                title: item.title,
-                badge: parentTitle,
-                action: () => renderSections(book.id, item.id)
-              });
-            }
-            if (item.subchapters) searchSubchapters(item.subchapters, `${parentTitle} > ${item.title}`);
+            const newChain = [...chainTitles, item.title];
+            classifyNode('chapter', book.title, book.iconUrl, newChain, () => renderSections(book.id, item.id));
+
+            if (item.subchapters) searchSubchapters(item.subchapters, newChain);
             if (item.sections) {
               item.sections.forEach(sec => {
-                if (sec.title.toLowerCase().includes(query)) {
-                  results.push({
-                    type: 'section',
-                    title: sec.title,
-                    badge: `${parentTitle} > ${item.title}`,
-                    action: () => openSection(book.id, item.id, sec)
-                  });
-                }
+                classifyNode('section', book.title, book.iconUrl, [...newChain, sec.title], () => openSection(book.id, item.id, sec));
               });
             }
           });
         }
 
         if (book.chapters) {
-          searchSubchapters(book.chapters, book.title);
+          searchSubchapters(book.chapters, [book.title]);
         }
       });
 
-      if (results.length === 0) {
+      // 精準結果內，本身標題就完全命中的排在前面，跨層級才交集命中的排在後面
+      preciseResults.sort((a, b) => (b.ownMatched ? 1 : 0) - (a.ownMatched ? 1 : 0));
+
+      if (preciseResults.length === 0 && fuzzyResults.length === 0) {
         appContent.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-magnifying-glass" style="font-size:2.5rem; margin-bottom:12px; color:#aaa;"></i>
-            <p>找不到與「${query}」相關的內容</p>
+            <p>找不到與「${escapeHtmlText(rawQuery)}」相關的內容</p>
           </div>
         `;
+        window.currentSearchResults = [];
         return;
       }
 
-      let html = `<div class="list-container">`;
-      results.forEach((res, index) => {
-        let iconClass = "fa-book";
-        if (res.type === 'chapter') iconClass = "fa-folder-open";
-        if (res.type === 'section') iconClass = "fa-file-pdf";
+      function iconClassFor(type) {
+        if (type === 'chapter') return 'fa-folder-open';
+        if (type === 'section') return 'fa-file-pdf';
+        return 'fa-book';
+      }
 
-        html += `
-          <div class="list-item" style="animation-delay: ${index * 0.03}s" onclick="triggerHaptic(); createRipple(event, this); executeSearchResult(this)" data-func-id="${results.indexOf(res)}">
-            <div>
-              <div class="list-title">
-                <i class="fa-solid ${iconClass}" style="color:var(--primary-color); margin-right:8px;"></i>
-                ${res.title}
+      // 左側課程圖示 + 右側主副標題（父層課程名為主標題，子層章節為副標題）
+      function renderResultItem(res, flatIndex) {
+        const iconClass = iconClassFor(res.type);
+        const subLine = res.type === 'book'
+          ? `<i class="fa-solid ${iconClass}"></i> 課程主分類`
+          : `<i class="fa-solid ${iconClass}"></i> <span class="search-arrow">↳</span> ${escapeHtmlText(res.ownTitle)}`;
+        const fallbackIcon = 'https://via.placeholder.com/64/007bc7/ffffff?text=' + encodeURIComponent(res.bookTitle.charAt(0) || '?');
+
+        return `
+          <div class="list-item" style="animation-delay: ${flatIndex * 0.03}s" onclick="triggerHaptic(); createRipple(event, this); executeSearchResult(this)" data-func-id="${flatIndex}">
+            <div class="search-result-main">
+              <img src="${escapeHtmlAttr(res.bookIcon)}" class="search-result-icon" alt="${escapeHtmlAttr(res.bookTitle)}" onerror="this.src='${fallbackIcon}'">
+              <div class="search-result-text">
+                <div class="search-result-title">${escapeHtmlText(res.bookTitle)}</div>
+                <span class="search-result-sub">${subLine}</span>
               </div>
-              <span class="search-badge">${res.badge}</span>
             </div>
-            <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem;"></i>
+            <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem; flex-shrink:0;"></i>
           </div>
         `;
-      });
-      html += `</div>`;
+      }
+
+      const combinedResults = [...preciseResults, ...fuzzyResults];
+      let html = '';
+
+      if (preciseResults.length > 0) {
+        html += `
+          <div class="search-group-label">
+            <i class="fa-solid fa-bolt"></i> 智能搜尋 <span class="search-group-count">（${preciseResults.length} 筆精準結果）</span>
+          </div>
+        `;
+        html += `<div class="list-container">`;
+        preciseResults.forEach((res, i) => { html += renderResultItem(res, i); });
+        html += `</div>`;
+      }
+
+      if (fuzzyResults.length > 0) {
+        if (preciseResults.length > 0) html += `<hr class="search-group-divider">`;
+        html += `
+          <div class="search-group-label fuzzy">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 類似結果 <span class="search-group-count">（${fuzzyResults.length} 筆相關結果）</span>
+          </div>
+        `;
+        html += `<div class="list-container">`;
+        fuzzyResults.forEach((res, i) => { html += renderResultItem(res, preciseResults.length + i); });
+        html += `</div>`;
+      }
 
       appContent.innerHTML = html;
-      window.currentSearchResults = results;
+      window.currentSearchResults = combinedResults;
     }
 
     function executeSearchResult(element) {
