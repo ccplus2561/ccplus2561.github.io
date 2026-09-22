@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>加加研究室</title>
+  <script>
+    // GitHub Pages 對不存在的路徑（例如分享連結 /60924020101）都會導到這頁，
+    // 這裡把路徑轉成查詢字串導回首頁，讓 index.html 讀取並跳轉到對應內容。
+    (function () {
+      var path = location.pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+      if (path) {
+        location.replace('/?cid=' + encodeURIComponent(path));
+      } else {
+        location.replace('/' + location.search);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>頁面轉向中，請稍候...</p>
+</body>
+</html>
