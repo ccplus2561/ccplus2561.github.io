@@ -7,8 +7,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ccplus2561/ccplus2561.github.io/main/ccplus2561_logo.png">
 
-    <script src="./Data.js"></script>
-    <script src="./Post.js"></script>
+    <script>
+      // 修正：GitHub Pages / 瀏覽器會快取住 Data.js、Post.js 舊版本，
+      // 導致一般瀏覽模式更新內容後看不到最新版，要用無痕模式才會抓到新版。
+      // 不使用「網址加時間戳記」的方式，改用同步 XHR 並在請求標頭加上
+      // Cache-Control: no-cache，讓瀏覽器每次都會跟伺服器確認是否有新版本、
+      // 不直接套用本機舊快取；同步請求也能維持「先載入完成才繼續往下執行」
+      // 的原本順序，不影響後面其他程式的運作。
+      //
+      // 注意：本機用 file:// 直接開啟 index.html 測試時，瀏覽器會擋掉
+      // XHR 讀取本機檔案（CORS 限制），且本機開檔案本來就沒有「瀏覽器快取
+      // 住舊版」這個問題，所以本機測試時維持用原本的 <script src> 載入，
+      // 只有正式部署到 http/https 網站時才套用「強制略過快取」的做法。
+      (function () {
+        function loadWithScriptTag(path) {
+          document.write('<script src="' + path + '"><\/script>');
+        }
+        function loadFresh(path) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', path, false); // false = 同步，確保載入完成才繼續
+          xhr.setRequestHeader('Cache-Control', 'no-cache');
+          xhr.send(null);
+          if (xhr.status === 200) {
+            (0, eval)(xhr.responseText); // 在全域範圍執行，等同原本的 <script src>
+          }
+        }
+
+        if (location.protocol === 'file:') {
+          loadWithScriptTag('./Data.js');
+          loadWithScriptTag('./Post.js');
+        } else {
+          loadFresh('./Data.js');
+          loadFresh('./Post.js');
+        }
+      })();
+    </script>
 
   <style>
     :root {
@@ -3100,8 +3133,14 @@
 
       if (!isDirectPdfFileUrl(pdfUrl)) {
         // Drive/Docs 檢視器頁面：直接嵌入，讓 Google 自己的頁面渲染 PDF 內容
+        // 修正：加上 credentialless，讓這個 iframe 用「乾淨、未登入」的暫時環境載入，
+        // 不會帶入使用者自己瀏覽器裡的 Google 登入 cookie，
+        // 避免瀏覽過的講義被記錄進使用者自己 Google 雲端硬碟的「最近使用」／「與我共用」。
+        // 注意：credentialless 目前是 Chrome / Edge 等 Chromium 系瀏覽器才支援的新屬性，
+        // Safari、Firefox 尚未支援，這兩種瀏覽器在登入 Google 帳號的情況下暫時仍可能出現此狀況，
+        // 屬於瀏覽器相容性限制，不影響其餘功能。
         container.innerHTML =
-          '<iframe src="' + pdfUrl + '" allow="autoplay" ' +
+          '<iframe src="' + pdfUrl + '" allow="autoplay" credentialless referrerpolicy="no-referrer" ' +
           'style="width:100%;height:100%;border:none;"></iframe>';
         return;
       }
