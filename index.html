@@ -384,6 +384,9 @@
       margin-left: auto;
     }
 
+    .share-content-label { display: none; }
+    body.desktop-mode .share-content-label { display: inline; }
+
     .btn-icon {
       z-index: 10;
       background: rgba(255, 255, 255, 0.2);
@@ -1599,9 +1602,28 @@
             <i class="fa-regular fa-bell"></i> 網頁公告
             <span class="notice-badge" id="noticeBadgeDesktop"></span>
           </button>
-          <button class="btn-icon desktop-only" onclick="triggerHaptic(); switchMode('mobile');" title="切換為手機版">
-            <i class="fa-solid fa-mobile-screen-button"></i> 手機版
+          <button class="btn-icon share-content-btn" id="shareContentBtn" style="display:none;" onclick="triggerHaptic(); shareCurrentContent();" title="分享此頁連結">
+            <i class="fa-solid fa-link"></i> <span class="share-content-label">頁面分享</span>
           </button>
+          <div class="more-menu desktop-only" id="desktopMoreBtn">
+            <button class="btn-icon" onclick="triggerHaptic(); toggleMoreMenu(event, 'desktopMoreDropdown');" title="更多">
+              <i class="fa-solid fa-ellipsis"></i> 更多
+            </button>
+            <div class="more-dropdown" id="desktopMoreDropdown">
+              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://forms.gle/VNmKovMUvjLEPB3U6', '_blank');">
+                <i class="fa-solid fa-comment-dots"></i> 意見箱
+              </div>
+              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://myship.7-11.com.tw/general/detail/GM2609136362684', '_blank');">
+                <i class="fa-solid fa-store"></i> 專題隨便賣
+              </div>
+              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); shareWebsite();">
+                <i class="fa-solid fa-share-nodes"></i> 網站分享
+              </div>
+              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); switchMode('mobile');">
+                <i class="fa-solid fa-mobile-screen-button"></i> 切換手機版
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -1635,10 +1657,19 @@
         <span>公告</span>
         <span class="notice-badge" id="noticeBadgeMobile"></span>
       </div>
-      <div class="more-menu bottom-nav-item" id="navMoreBtn" onclick="triggerHaptic(); toggleMoreMenu(event);">
+      <div class="more-menu bottom-nav-item" id="navMoreBtn" onclick="triggerHaptic(); toggleMoreMenu(event, 'moreDropdown');">
         <i class="fa-solid fa-ellipsis"></i>
         <span>更多</span>
         <div class="more-dropdown more-dropdown-up" id="moreDropdown">
+          <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://forms.gle/VNmKovMUvjLEPB3U6', '_blank');">
+            <i class="fa-solid fa-comment-dots"></i> 意見箱
+          </div>
+          <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://myship.7-11.com.tw/general/detail/GM2609136362684', '_blank');">
+            <i class="fa-solid fa-store"></i> 專題隨便賣
+          </div>
+          <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); shareWebsite();">
+            <i class="fa-solid fa-share-nodes"></i> 網站分享
+          </div>
           <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); switchMode('desktop');">
             <i class="fa-solid fa-desktop"></i> 切換電腦版
           </div>
@@ -1688,6 +1719,8 @@
     ];
 
     let navigationStack = [];
+    let currentShareId = null;
+    let pendingShareId = null;
     let currentMode = 'mobile';
 
     const appContent = document.getElementById('appContent');
@@ -1740,6 +1773,14 @@
     function chooseMode(mode) {
       switchMode(mode);
       modeModal.classList.remove('active');
+      if (pendingShareId) {
+        const targetId = pendingShareId;
+        pendingShareId = null;
+        const found = navigateToShareId(targetId);
+        if (!found) {
+          alert('找不到分享的內容，可能已被更新或移除，已為您導向首頁。');
+        }
+      }
     }
 
     function switchMode(mode) {
@@ -1775,19 +1816,132 @@
       }
     }
 
-    function toggleMoreMenu(event) {
+    function toggleMoreMenu(event, targetId) {
       if (event) event.stopPropagation();
-      moreDropdown.classList.toggle('active');
+      document.querySelectorAll('.more-dropdown').forEach(function (dropdown) {
+        if (dropdown.id === targetId) {
+          dropdown.classList.toggle('active');
+        } else {
+          dropdown.classList.remove('active');
+        }
+      });
     }
 
     function closeMoreMenu() {
-      moreDropdown.classList.remove('active');
+      document.querySelectorAll('.more-dropdown').forEach(function (dropdown) {
+        dropdown.classList.remove('active');
+      });
     }
 
     document.addEventListener('click', function (e) {
-      const menu = document.querySelector('.more-menu');
-      if (menu && !menu.contains(e.target)) closeMoreMenu();
+      const insideAnyMenu = Array.from(document.querySelectorAll('.more-menu')).some(function (menu) {
+        return menu.contains(e.target);
+      });
+      if (!insideAnyMenu) closeMoreMenu();
     });
+
+    function shareWebsite() {
+      const shareUrl = 'https://ccplus2561.github.io/';
+      const shareData = {
+        title: '加加研究室 (程式創造++)',
+        text: '加加研究室 - 程式創造教學網站，一起來看看吧！',
+        url: shareUrl
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(function () {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(function () {
+          alert('網站連結已複製到剪貼簿！');
+        }).catch(function () {
+          alert(shareUrl);
+        });
+      } else {
+        alert(shareUrl);
+      }
+    }
+
+    // ---------- 分享本篇（依 主課程/大章節/中章節/小章節 各自 ID 產生連結） ----------
+
+    function updateShareButtonVisibility() {
+      const btn = document.getElementById('shareContentBtn');
+      if (!btn) return;
+      btn.style.display = currentShareId ? 'flex' : 'none';
+    }
+
+    function shareCurrentContent() {
+      if (!currentShareId) {
+        shareWebsite();
+        return;
+      }
+      const shareUrl = 'https://ccplus2561.github.io/' + currentShareId;
+      const shareTitle = (headerTitle && headerTitle.innerText) ? headerTitle.innerText : '加加研究室';
+      const shareData = {
+        title: shareTitle,
+        text: shareTitle + ' - 加加研究室教學內容分享',
+        url: shareUrl
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(function () {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(function () {
+          alert('頁面連結已複製到剪貼簿！');
+        }).catch(function () {
+          alert(shareUrl);
+        });
+      } else {
+        alert(shareUrl);
+      }
+    }
+
+    // 依 ID 在 courseData 中往下尋找（支援 主課程 > 大章節 > 中章節(可多層) > 小章節）
+    function searchWithinChapter(node, bookId, chapterId, parentSubIds, id) {
+      if (node.sections) {
+        for (const sec of node.sections) {
+          if (sec.id === id) return { type: 'section', bookId: bookId, chapterId: chapterId, sec: sec };
+        }
+      }
+      if (node.subchapters) {
+        for (const sub of node.subchapters) {
+          if (sub.id === id) {
+            return { type: 'subchapter', bookId: bookId, chapterId: chapterId, parentSubIds: parentSubIds.concat([sub.id]) };
+          }
+          const deeper = searchWithinChapter(sub, bookId, chapterId, parentSubIds.concat([sub.id]), id);
+          if (deeper) return deeper;
+        }
+      }
+      return null;
+    }
+
+    function findTargetById(id) {
+      for (const book of courseData) {
+        if (book.id === id) return { type: 'course', bookId: book.id };
+        if (!book.chapters) continue;
+        for (const chap of book.chapters) {
+          if (chap.id === id) return { type: 'chapter', bookId: book.id, chapterId: chap.id };
+          const found = searchWithinChapter(chap, book.id, chap.id, [], id);
+          if (found) return found;
+        }
+      }
+      return null;
+    }
+
+    // 進入分享連結後，依解析結果導向對應的 主課程/大章節/中章節/小章節
+    function navigateToShareId(id) {
+      const target = findTargetById(id);
+      if (!target) return false;
+      if (target.type === 'course') {
+        renderChapters(target.bookId);
+      } else if (target.type === 'chapter') {
+        renderSections(target.bookId, target.chapterId);
+      } else if (target.type === 'subchapter') {
+        renderSections(target.bookId, target.chapterId, target.parentSubIds);
+      } else if (target.type === 'section') {
+        openSection(target.bookId, target.chapterId, target.sec);
+      } else {
+        return false;
+      }
+      return true;
+    }
 
     function fitHeaderTitle() {
       if (!headerTitle) return;
@@ -2054,6 +2208,8 @@
       navigationStack = [];
       headerTitle.innerText = "加加研究室";
       backBtn.style.display = "none";
+      currentShareId = null;
+      updateShareButtonVisibility();
       updateSidebarActive(null);
       updateBottomNavHome(true);
 
@@ -2093,6 +2249,8 @@
       navigationStack.push({ type: 'hall' });
       headerTitle.innerText = book.title;
       backBtn.style.display = "flex";
+      currentShareId = bookId;
+      updateShareButtonVisibility();
       updateSidebarActive(bookId);
       updateBottomNavHome(false);
 
@@ -2145,6 +2303,8 @@
 
       headerTitle.innerText = currentTarget.title;
       backBtn.style.display = "flex";
+      currentShareId = currentTarget.id || chapterId;
+      updateShareButtonVisibility();
       updateSidebarActive(bookId, chapterId);
       updateBottomNavHome(false);
 
@@ -2249,6 +2409,8 @@
     }
 
     function dispatchOpenSection(bookId, chapterId, sec) {
+      currentShareId = sec.id || null;
+      updateShareButtonVisibility();
       const mode = sec.mode || 'pdf';
       if (mode === 'video') {
         openVideoViewer(bookId, chapterId, sec.title, sec.videoUrl, sec.videoNote, sec.buttons || []);
@@ -2270,6 +2432,8 @@
 
       headerTitle.innerText = sec.title;
       backBtn.style.display = "flex";
+      currentShareId = sec.id || null;
+      updateShareButtonVisibility();
       updateSidebarActive(bookId, chapterId);
       updateBottomNavHome(false);
 
@@ -2599,6 +2763,8 @@
       clearSearchBtn.style.display = 'block';
       backBtn.style.display = "flex";
       headerTitle.innerText = "搜尋結果";
+      currentShareId = null;
+      updateShareButtonVisibility();
       updateSidebarActive(null);
       updateBottomNavHome(false);
       if (sidebarNav) {
@@ -2806,6 +2972,17 @@
       refreshNoticeBadge();
       renderHall();
       fitHeaderTitle();
+
+      // 讀取分享連結帶入的內容 ID（由 404.html 轉成 ?cid= 查詢字串），
+      // 待使用者選擇瀏覽模式後再導向對應內容
+      try {
+        const urlParams = new URLSearchParams(location.search);
+        const cid = urlParams.get('cid');
+        if (cid) {
+          pendingShareId = cid;
+          history.replaceState(null, '', '/' + cid);
+        }
+      } catch (e) {}
     };
   </script>
 
