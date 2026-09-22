@@ -1599,25 +1599,9 @@
             <i class="fa-regular fa-bell"></i> 網頁公告
             <span class="notice-badge" id="noticeBadgeDesktop"></span>
           </button>
-          <div class="more-menu desktop-only" id="desktopMoreBtn">
-            <button class="btn-icon" onclick="triggerHaptic(); toggleMoreMenu(event, 'desktopMoreDropdown');" title="更多">
-              <i class="fa-solid fa-ellipsis"></i> 更多
-            </button>
-            <div class="more-dropdown" id="desktopMoreDropdown">
-              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://forms.gle/VNmKovMUvjLEPB3U6', '_blank');">
-                <i class="fa-solid fa-comment-dots"></i> 意見箱
-              </div>
-              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://myship.7-11.com.tw/general/detail/GM2609136362684', '_blank');">
-                <i class="fa-solid fa-store"></i> 專題隨便賣
-              </div>
-              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); shareWebsite();">
-                <i class="fa-solid fa-share-nodes"></i> 網站分享
-              </div>
-              <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); switchMode('mobile');">
-                <i class="fa-solid fa-mobile-screen-button"></i> 切換手機版
-              </div>
-            </div>
-          </div>
+          <button class="btn-icon desktop-only" onclick="triggerHaptic(); switchMode('mobile');" title="切換為手機版">
+            <i class="fa-solid fa-mobile-screen-button"></i> 手機版
+          </button>
         </div>
       </header>
 
@@ -1651,19 +1635,10 @@
         <span>公告</span>
         <span class="notice-badge" id="noticeBadgeMobile"></span>
       </div>
-      <div class="more-menu bottom-nav-item" id="navMoreBtn" onclick="triggerHaptic(); toggleMoreMenu(event, 'moreDropdown');">
+      <div class="more-menu bottom-nav-item" id="navMoreBtn" onclick="triggerHaptic(); toggleMoreMenu(event);">
         <i class="fa-solid fa-ellipsis"></i>
         <span>更多</span>
         <div class="more-dropdown more-dropdown-up" id="moreDropdown">
-          <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://forms.gle/VNmKovMUvjLEPB3U6', '_blank');">
-            <i class="fa-solid fa-comment-dots"></i> 意見箱
-          </div>
-          <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); window.open('https://myship.7-11.com.tw/general/detail/GM2609136362684', '_blank');">
-            <i class="fa-solid fa-store"></i> 專題隨便賣
-          </div>
-          <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); shareWebsite();">
-            <i class="fa-solid fa-share-nodes"></i> 網站分享
-          </div>
           <div class="more-dropdown-item" onclick="event.stopPropagation(); triggerHaptic(); closeMoreMenu(); switchMode('desktop');">
             <i class="fa-solid fa-desktop"></i> 切換電腦版
           </div>
@@ -1800,49 +1775,19 @@
       }
     }
 
-    function toggleMoreMenu(event, targetId) {
+    function toggleMoreMenu(event) {
       if (event) event.stopPropagation();
-      document.querySelectorAll('.more-dropdown').forEach(function (dropdown) {
-        if (dropdown.id === targetId) {
-          dropdown.classList.toggle('active');
-        } else {
-          dropdown.classList.remove('active');
-        }
-      });
+      moreDropdown.classList.toggle('active');
     }
 
     function closeMoreMenu() {
-      document.querySelectorAll('.more-dropdown').forEach(function (dropdown) {
-        dropdown.classList.remove('active');
-      });
+      moreDropdown.classList.remove('active');
     }
 
     document.addEventListener('click', function (e) {
-      const insideAnyMenu = Array.from(document.querySelectorAll('.more-menu')).some(function (menu) {
-        return menu.contains(e.target);
-      });
-      if (!insideAnyMenu) closeMoreMenu();
+      const menu = document.querySelector('.more-menu');
+      if (menu && !menu.contains(e.target)) closeMoreMenu();
     });
-
-    function shareWebsite() {
-      const shareUrl = 'https://ccplus2561.github.io/';
-      const shareData = {
-        title: '加加研究室 (程式創造++)',
-        text: '加加研究室 - 程式創造教學網站，一起來看看吧！',
-        url: shareUrl
-      };
-      if (navigator.share) {
-        navigator.share(shareData).catch(function () {});
-      } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(shareUrl).then(function () {
-          alert('網站連結已複製到剪貼簿！');
-        }).catch(function () {
-          alert(shareUrl);
-        });
-      } else {
-        alert(shareUrl);
-      }
-    }
 
     function fitHeaderTitle() {
       if (!headerTitle) return;
