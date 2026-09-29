@@ -1,8 +1,19 @@
 // 在 Google Apps Script 編輯器裡建立一個名為 "Post" 的 HTML 檔案
 var postData = [
   {
-    version: "【講義】v26.0924",
+    version: "【講義】v26.1001",
     isExpanded: true,
+    logs: [
+      {
+        tag: "上架",
+        title: "Windows 教學",
+        content: "手把手教你 Win11 安裝、優化與常用設定。"
+      }
+    ]
+  },
+  {
+    version: "【講義】v26.0924",
+    isExpanded: false,
     logs: [
       {
         tag: "上架",
