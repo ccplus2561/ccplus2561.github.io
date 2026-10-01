@@ -1,8 +1,44 @@
 // 在 Google Apps Script 編輯器裡建立一個名為 "Post" 的 HTML 檔案
 var postData = [
   {
-    version: "【講義】v26.1001",
+    version: "🚀 - 網站升級 (61002",
     isExpanded: true,
+    logs: [
+      {
+        tag: "新增",
+        title: "智能搜尋",
+        content: "新增智能搜尋，支援多關鍵字組合查詢更精準！"
+      },
+      {
+        tag: "優化",
+        title: "搜尋結果類別呈現",
+        content: "結果雙類別清晰呈現，快速找到所需文章。"
+      },
+      {
+        tag: "優化",
+        title: "搜尋結果圖示",
+        content: "強化圖示提升閱讀體驗。"
+      },
+      {
+        tag: "優化",
+        title: "網頁公告",
+        content: "訊息分類清晰更易讀。"
+      },
+      {
+        tag: "修正",
+        title: "手機版陰影BUG",
+        content: "修復手機陰影顯示問題，提升視覺品質。"
+      },
+      {
+        tag: "修正",
+        title: "網頁公告紅點標示異常",
+        content: "修復公告紅點異常，訊息通知更準確。"
+      }
+    ]
+  },
+  {
+    version: "📖 - 新講義 (61001",
+    isExpanded:  false,
     logs: [
       {
         tag: "上架",
@@ -12,7 +48,7 @@ var postData = [
     ]
   },
   {
-    version: "【講義】v26.0924",
+    version: "📖 - 新講義 (60924",
     isExpanded: false,
     logs: [
       {
@@ -23,7 +59,7 @@ var postData = [
     ]
   },
   {
-    version: "【講義】v26.0918",
+    version: "📖 - 新講義 (60918",
     isExpanded:  false,
     logs: [
       {
@@ -34,7 +70,7 @@ var postData = [
     ]
   },
   {
-    version: "【講義】v26.0915",
+    version: "📖 - 新講義 (60915",
     isExpanded: false,
     logs: [
       {
@@ -45,7 +81,7 @@ var postData = [
     ]
   },
   {
-    version: "【講義】v26.0914",
+    version: "📖 - 新講義 (60914",
     isExpanded: false,
     logs: [
       {
@@ -56,7 +92,7 @@ var postData = [
     ]
   },
   {
-    version: "【講義】v26.0909",
+    version: "📖 - 新講義 (60909",
     isExpanded: false,
     logs: [
       {
@@ -67,7 +103,7 @@ var postData = [
     ]
   },
 {
-    version: "【更新】v26.0908",
+    version: "🚀 - 網站升級 (60908",
     isExpanded: false,
     logs: [
       {
@@ -78,7 +114,7 @@ var postData = [
     ]
   },
   {
-    version: "【講義】v26.0907",
+    version: "📖 - 新講義 (60907",
     isExpanded: false,
     logs: [
       {
@@ -89,7 +125,7 @@ var postData = [
     ]
   },
   {
-    version: "【更新】v26.0904",
+    version: "🚀 - 網站升級 (60904",
     isExpanded: false,
     logs: [
       {
@@ -110,7 +146,7 @@ var postData = [
     ]
   },
   {
-    version: "【更新】v26.0902",
+    version: "🚀 - 網站升級 (60902",
     isExpanded: false,
     logs: [
       {
@@ -136,7 +172,7 @@ var postData = [
     ]
   },
   {
-    version: "【更新】v26.0831",
+    version: "🚀 - 網站升級 (60831",
     isExpanded: false,
     logs: [
       {
