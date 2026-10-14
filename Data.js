@@ -1,5 +1,267 @@
 var courseData = [
   {
+    "title": "YouTube 頻道",
+    "id": "61015",
+    "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMCWkDML0AT1VZqz7F6w7gVXi3QQeG3DCJddfaGC7qfKvoQ_8p1DbnWFQOUSRI1ph3AwGJB0ow6ESESEpZJ_YRPLlu8LBWVkLBMAkCuyW3HWl8ZveCW34qvJEgDIDhZmo9aZ26fSeSsS9_QwS-eK8_G=w512-h358-s-no-gm?authuser=0",
+    "chapters": [
+      {
+        "title": "Ch01 - 花田少年史",
+        "id": "6101501",
+        "type": "Ch",
+        "sections": [
+          {
+            "title": "Ex01 - [花田少年史] 第01集 - 古早古早以前",
+            "id": "610150101",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/fp6XE4I9NGM?si=lTZutb9sPIPK4DbQ",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第01集 - 古早古早以前\n🎬集數：01集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 古早古早以前\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第02集： [ https://youtu.be/4bNmSOnaWno ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150101 ]"
+          },
+          {
+            "title": "Ex02 - [花田少年史] 第02集 - 幽靈小雪的請求",
+            "id": "610150102",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/4bNmSOnaWno",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第02集 - 幽靈小雪的請求\n🎬集數：02集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 幽靈小雪的請求\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第03集： [ https://youtu.be/Y7hDlz11Wgw ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150102 ]"
+          },
+          {
+            "title": "Ex03 - [花田少年史] 第03集 - 花田二路",
+            "id": "610150103",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/Y7hDlz11Wgw",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第03集 - 花田二路\n🎬集數：03集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 花田二路\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第04集： [ https://youtu.be/S-CxrhDugbg ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150103 ]"
+          },
+          {
+            "title": "Ex04 - [花田少年史] 第04集 - 向日葵盛開的家",
+            "id": "610150104",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/S-CxrhDugbg",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第04集 - 向日葵盛開的家\n🎬集數：04集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 向日葵盛開的家\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第05集： [ https://youtu.be/ol82sCkn5Ag ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150104 ]"
+          },
+          {
+            "title": "Ex05 - [花田少年史] 第05集 - 雞雞老子",
+            "id": "610150105",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/ol82sCkn5Ag",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第05集 - 雞雞老子\n🎬集數：05集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 雞雞老子\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第06集： [ https://youtu.be/VkmsTqd6zHU ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150105 ]"
+          },
+          {
+            "title": "Ex06 - [花田少年史] 第06集 - 阿桂",
+            "id": "610150106",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/VkmsTqd6zHU",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第06集 - 阿桂\n🎬集數：06集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 阿桂\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第07集： [ https://youtu.be/AWq3OwA_C1Y ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150106 ]"
+          },
+          {
+            "title": "Ex07 - [花田少年史] 第07集 - 炸火腿",
+            "id": "610150107",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/AWq3OwA_C1Y",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第07集 - 炸火腿\n🎬集數：07集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 炸火腿\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第08集： [ https://youtu.be/9WGGAXs3JLc ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150107 ]"
+          },
+          {
+            "title": "Ex08 - [花田少年史] 第08集 - 淚灑胸前",
+            "id": "610150108",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/9WGGAXs3JLc",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第08集 - 淚灑胸前\n🎬集數：08集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 淚灑胸前\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第09集： [ https://youtu.be/u6_aZotyIFE ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150108 ]"
+          },
+          {
+            "title": "Ex09 - [花田少年史] 第09集 - 靈媒凱都力妮",
+            "id": "610150109",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/u6_aZotyIFE",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第09集 - 靈媒凱都力妮\n🎬集數：09集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 靈媒凱都力妮\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第10集： [ https://youtu.be/3aLEuSttVZM ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150109 ]"
+          },
+          {
+            "title": "Ex10 - [花田少年史] 第10集 - 家族",
+            "id": "610150110",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/3aLEuSttVZM",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第10集 - 家族\n🎬集數：10集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 家族\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第11集： [ https://youtu.be/MLrsTRgxcuI ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150110 ]"
+          },
+          {
+            "title": "Ex11 - [花田少年史] 第11集 - 人生最大的危機",
+            "id": "610150111",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/MLrsTRgxcuI",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第11集 - 人生最大的危機\n🎬集數：11集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 人生最大的危機\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第12集： [ https://youtu.be/23cG-34mzUY ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150111 ]"
+          },
+          {
+            "title": "Ex12 - [花田少年史] 第12集 - 重要的東西",
+            "id": "610150112",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/23cG-34mzUY",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第12集 - 重要的東西\n🎬集數：12集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 重要的東西\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第13集： [ https://youtu.be/DjRK5GTTfmI ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150112 ]"
+          },
+          {
+            "title": "Ex13 - [花田少年史] 第13集 - 第13年的夥伴",
+            "id": "610150113",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/DjRK5GTTfmI",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第13集 - 第13年的夥伴\n🎬集數：13集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 第13年的夥伴\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第14集： [ https://youtu.be/ccSdHrSlBDg ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150113 ]"
+          },
+          {
+            "title": "Ex14 - [花田少年史] 第14集 - 天邪鬼",
+            "id": "610150114",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/ccSdHrSlBDg",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第14集 - 天邪鬼\n🎬集數：14集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 天邪鬼\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第15集： [ https://youtu.be/p7lrgY_hxyk ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150114 ]"
+          },
+          {
+            "title": "Ex15 - [花田少年史] 第15集 - 權八",
+            "id": "610150115",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/p7lrgY_hxyk",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第15集 - 權八\n🎬集數：15集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 權八\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第16集： [ https://youtu.be/lITqgJnKSB4 ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150115 ]"
+          },
+          {
+            "title": "Ex16 - [花田少年史] 第16集 - 花小姐",
+            "id": "610150116",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/lITqgJnKSB4",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第16集 - 花小姐\n🎬集數：16集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 花小姐\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第17集： [ https://youtu.be/CVSrtSeHutU ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150116 ]"
+          },
+          {
+            "title": "Ex17 - [花田少年史] 第17集 - 幽靈櫻花樹下",
+            "id": "610150117",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/CVSrtSeHutU",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第17集 - 幽靈櫻花樹下\n🎬集數：17集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 幽靈櫻花樹下\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第18集： [ https://youtu.be/Yvr7gWlSlFY ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150117 ]"
+          },
+          {
+            "title": "Ex18 - [花田少年史] 第18集 - 約定",
+            "id": "610150118",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/Yvr7gWlSlFY",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第18集 - 約定\n🎬集數：18集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 約定\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第19集： [ https://youtu.be/CoAoG9gwtKo ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150118 ]"
+          },
+          {
+            "title": "Ex19 - [花田少年史] 第19集 - 狂奔的Melon",
+            "id": "610150119",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/CoAoG9gwtKo",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第19集 - 狂奔的Melon\n🎬集數：19集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 狂奔的Melon\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第20集： [ https://youtu.be/LnEu-QUElyw ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150119 ]"
+          },
+          {
+            "title": "Ex20 - [花田少年史] 第20集 - 聖誕節禮物",
+            "id": "610150120",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/LnEu-QUElyw",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第20集 - 聖誕節禮物\n🎬集數：20集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 聖誕節禮物\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第21集： [ https://youtu.be/xrr2P_zbVA0 ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150120 ]"
+          },
+          {
+            "title": "Ex21 - [花田少年史] 第21集 - 下雪的夜晚",
+            "id": "610150121",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/xrr2P_zbVA0",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第21集 - 下雪的夜晚\n🎬集數：21集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 下雪的夜晚\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第22集： [ https://youtu.be/YQ_3UhtuLnw ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150121 ]"
+          },
+          {
+            "title": "Ex22 - [花田少年史] 第22集 - 玲子",
+            "id": "610150122",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/YQ_3UhtuLnw",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第22集 - 玲子\n🎬集數：22集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 玲子\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第23集： [ https://youtu.be/kbGutDeCXtA ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150122 ]"
+          },
+          {
+            "title": "Ex23 - [花田少年史] 第23集 - 夜間任務",
+            "id": "610150123",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/kbGutDeCXtA",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第23集 - 夜間任務\n🎬集數：23集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 夜間任務\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第24集： [ https://youtu.be/aSs95Po-HoE ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150123 ]"
+          },
+          {
+            "title": "Ex24 - [花田少年史] 第24集 - 母子地藏",
+            "id": "610150124",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/aSs95Po-HoE",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第24集 - 母子地藏\n🎬集數：24集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 母子地藏\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第25集： [ https://youtu.be/uWtU676CQcg ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150124 ]"
+          },
+          {
+            "title": "Ex25 - [花田少年史] 第25集 - 片粟花",
+            "id": "610150125",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/uWtU676CQcg",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第25集 - 片粟花\n🎬集數：25集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00 - 主題曲\n01:20 - 片粟花\n22:13 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第01~05集： [ https://youtu.be/vto3u7bu9WE ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150125 ]"
+          },
+          {
+            "title": "Ex26 - [花田少年史] 第01~05集 連續播放",
+            "id": "610150126",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/vto3u7bu9WE",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第01~05集 連續播放\n🎬集數：01~05集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00:00 - 主題曲\n00:01:20 - 古早古早以前 \n00:22:13 - 幽靈小雪的請求\n00:43:07 - 花田二路\n01:04:00 - 向日葵盛開的家\n01:24:52 - 雞雞老子\n01:45:44 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第06~10集： [ https://youtu.be/25pxhkVipfU ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150126 ]"
+          },
+          {
+            "title": "Ex27 - [花田少年史] 第06~10集 連續播放",
+            "id": "610150127",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/25pxhkVipfU",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第06~10集 連續播放\n🎬集數：06~10集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00:00 - 主題曲\n00:01:20 - 阿桂\n00:22:13 - 炸火腿\n00:43:07 - 淚灑胸前\n01:04:00 - 靈媒凱都力妮\n01:24:52 - 家族\n01:45:44 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第11~15集： [ https://youtu.be/Pr86Yxh6pp8 ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150127 ]"
+          },
+          {
+            "title": "Ex28 - [花田少年史] 第11~15集 連續播放",
+            "id": "610150128",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/Pr86Yxh6pp8",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第11~15集 連續播放\n🎬集數：11~15集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00:00 - 主題曲\n00:01:20 - 人生最大的危機\n00:22:13 - 重要的東西\n00:43:07 - 第13年的夥伴\n01:04:00 - 天邪鬼\n01:24:52 - 權八\n01:45:44 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第16~20集： [ https://youtu.be/BPmUsI0MVqk ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150128 ]"
+          },
+          {
+            "title": "Ex29 - [花田少年史] 第16~20集 連續播放",
+            "id": "610150129",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/BPmUsI0MVqk",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第16~20集 連續播放\n🎬集數：16~20集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00:00 - 主題曲\n00:01:20 - 花小姐\n00:22:13 - 幽靈櫻花樹下\n00:43:07 - 約定\n01:03:54 - 狂奔的Melon\n01:24:46 - 聖誕節禮物\n01:45:44 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第21~25集： [ https://youtu.be/QTOM8YarXAA ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150129 ]"
+          },
+          {
+            "title": "Ex30 - [花田少年史] 第21~25集 連續播放",
+            "id": "610150130",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/QTOM8YarXAA",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第21~25集 連續播放\n🎬集數：21~25集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00:00 - 主題曲\n00:01:20 - 下雪的夜晚\n00:22:13 - 玲子\n00:43:07 - 夜間任務\n01:04:00 - 母子地藏\n01:24:52 - 片粟花\n01:45:44 - 片尾曲\n\n================ 🎬 相關推薦 ================\n🌐花田少年史 - 第01~25集： [ https://youtu.be/PTIlWBkLK2o ]\n\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150130 ]"
+          },
+          {
+            "title": "Ex31 - [花田少年史] 第01~25集 連續播放",
+            "id": "610150131",
+            "mode": "video",
+            "coverUrl": "",
+            "videoUrl": "https://youtu.be/PTIlWBkLK2o",
+            "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第01~25集 連續播放\n🎬集數：01~25集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00:00 - 主題曲\n00:01:20 - 古早古早以前 \n00:22:13 - 幽靈小雪的請求\n00:43:07 - 花田二路\n01:04:00 - 向日葵盛開的家\n01:24:52 - 雞雞老子\n01:45:44 - 阿桂\n02:06:33 - 炸火腿\n02:27:25 - 淚灑胸前\n02:48:17 - 靈媒凱都力妮\n03:19:48 - 家族\n03:30:00 - 人生最大的危機\n03:50:53 - 重要的東西\n04:11:46 - 第13年的夥伴\n04:32:36 - 天邪鬼\n04:53:32 - 權八\n05:14:19 - 花小姐\n05:35:15 - 幽靈櫻花樹下\n05:56:00 - 約定\n06:16:53 - 狂奔的Melon\n06:37:45 - 聖誕節禮物\n06:58:36 - 下雪的夜晚\n07:19:28 - 玲子\n07:40:19 - 夜間任務\n08:01:12 - 母子地藏\n08:22:04 - 片粟花\n08:42:55 - 片尾曲\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150131 ]"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "Android studio 教學",
     "id": "60907",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczPrPDitk3AqQeUEIOuNPrJZLwe_VkZaGLC-PPILwxprmWhAiJxDemu9WqF7Z0cWlG6xy_j1BZZtGx1WZfERmDlimvkfRpwjTWqdfNy7OSNfmSliwEuUNkBO7zu9zhq9web4zgMJS3SnN5-CvkUaiqs=w512-h512-s-no-gm?authuser=0",
