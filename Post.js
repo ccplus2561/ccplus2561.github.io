@@ -1,8 +1,19 @@
 // 在 Google Apps Script 編輯器裡建立一個名為 "Post" 的 HTML 檔案
 var postData = [
   {
+    version: "📖 - 新講義 (61014",
+    isExpanded:  true,
+    logs: [
+      {
+        tag: "上架",
+        title: "XBee 教學",
+        content: "實作 XBee 模組設定，運用 Uno R3 建構 Zigbee 拓樸。"
+      }
+    ]
+  },
+  {
     version: "🚀 - 網站升級 (61012",
-    isExpanded: true,
+    isExpanded: false,
     logs: [
       {
         tag: "新增",
