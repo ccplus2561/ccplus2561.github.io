@@ -370,9 +370,25 @@ var courseData = [
   },
   {
     "title": "Arduino 教學",
-    "id": "test1",
+    "id": "60831",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMWx7LxpO7ijbs7tt1mw8cTZmMIdzcAvnIc_Mai72fylmP286QjPtmSmjlUS7d9SfkBMgHB5ExCICFl0sEQa-hhCmrfM2P6nKMX7R5VQLuAfge6aj-KhlOVk8zILdUcUYc_qBCtN4vqHeMr4lJC36U=w447-h447-s-no-gm?authuser=0",
-    "chapters": []
+    "chapters": [
+      {
+        "title": "P01 - Uno R3 / Mega 2560 教學",
+        "id": "6083101",
+        "type": "P"
+      },
+      {
+        "title": "P02 - Esp32 教學 (motoduino)",
+        "id": "6083102",
+        "type": "P"
+      },
+      {
+        "title": "P03 - Esp32 教學",
+        "id": "6083103",
+        "type": "P"
+      }
+    ]
   },
   {
     "title": "ASRPRO 語音模組",
@@ -3398,8 +3414,57 @@ var courseData = [
     ]
   },
   {
+    "title": "XBee 教學",
+    "id": "61014",
+    "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczM7AF8bXGDr2cfAyqRQk5cYDEh8Kuhq3Dqsyt4KWvt1MPbbxXR3QdmCTPrEPv8Bu_H6wk-WG86Hd98NpIA6d47m8nZtJG9wdlQL83SWVwWWhmdDV0QmzmIJvaGqnCa9URK09Q7woBDXRNblRQhsY3I_=w512-h472-s-no-gm?authuser=0",
+    "chapters": [
+      {
+        "title": "Ch01 - Arduino Uno R3",
+        "id": "6101401",
+        "type": "Ch",
+        "sections": [
+          {
+            "title": "Ex01 - XBee下載教學",
+            "id": "610140101",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNsVtoixZ4MSGih3fISOqkO5B9NIi3yLla2zOxkQWTQF7a5iWjDcfRPe3Ekllrd4vMjbryw8Xb3m8HiqXcos03kaqagXKFFM25vp6X0m5R8thH_MXPzTMlK9sAZ04PMBWrM2B-I5VMWyyJVKRY5J01f=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1vZc_4nLxe_vbSsZBGdH3zDljTbGO3-5t/preview"
+          },
+          {
+            "title": "Ex02 - XBee1與XBee2 互相連接(1對1互傳訊息)",
+            "id": "610140102",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqykBRkY3wXwR1BevTWy6LBeW6BP5EZiOmNML-vu89oFbnfByvEbcFi-YUfIq2ntfSHVMjsmxjnul4xJqYAXHOgEFAHiu6sH0Gh12PICPskapMzGFpdSwr7dS4sQ8Oh8DAY9LlLwZLN-4IY_H-r4p1=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1EU7JsQ-kcMzQtqbdvobPsbsCaSppkTHq/preview"
+          },
+          {
+            "title": "Ex03 - XBee1與XBee2 互相連接(1對1控制Uno)",
+            "id": "610140103",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOBs3Y7AjgncnB8-3SzLLR3nj5dr2qu1vTPVqQVHhX7YR6GYs31zGjd4Fdk0hNkxRPKLfstCZEJEnPkateuPgn-JDBbJ_MkLk7Pz1r96CNVNEnSa2UvorhmntKbY1ByUmJDf5RhssvcByMOYzI7PvYU=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1tvVohqlMpqhF7IMpiRU8UU6mtJcfElCc/preview"
+          },
+          {
+            "title": "Ex04 - XBee廣播通信(1對多互傳訊息)",
+            "id": "610140104",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMc7y2El2MwxZIcgfF5aMem-OvWn5gE5kH2CbNNMjGESZJe6IA_VuxytZYEB-ETMwQjlaoXcVeJV9Th01pkJjmX6cNuZfWegoQQ1OYUjZ7LDpGLMj6zKAeMTWbp5f6GZ0qx45L9inck94GNsQFE2PHr=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/17sWoXkN4QK8kyGb_B8TVmeJ4_QHtUgd4/preview"
+          },
+          {
+            "title": "Ex05 - XBee廣播通信(1對多控制Uno)",
+            "id": "610140105",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczN2PC_wppg33NYNeGIptYMbLH-wpDZgNFLPDhzu2yw_B6Vz9UVSDr9bWrfhMbS9A4waWotQfUG-NVCp1wnQKoT7UOkkRATkRp4XUoeKFClDOMARlyYPEC0-nQxZEC_Z1YpLHkKoklcx52P-wSIgqsYY=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1zzXrlzCiLApLBmo1iBXO1PIMcdDbYYVm/preview"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "更多教學",
-    "id": "test2",
+    "id": "61012",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczO6UrBP0MoWAby29oTPGq0AXoNUAnOSYGDggayMazC1ueDMGnUsJuyXKpdp0WPG6mXwzqwLahQFAmZpKHUula55hZZ3n7BL_WZk-FHaN8ca0ByJYHWMtX60m4r4g1jXgwB6A2jLwpAqqSykfxKXPy8a=w512-h514-s-no-gm?authuser=0",
     "chapters": []
   }
