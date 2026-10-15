@@ -41,7 +41,6 @@
       --card-bg: #ffffff;
       --text-main: #2c3e50;
       --text-muted: #666666;
-      /* 需求 1: 電腦版的整體寬度稍寬，但固定寬度 */
       --desktop-max-width: 1440px;
       --app-height: 100vh;
     }
@@ -101,7 +100,7 @@
     .desktop-sidebar {
       display: none;
       flex-direction: column;
-      width: 264px;
+      width: 270px;
       flex-shrink: 0;
       padding: 20px 14px;
       gap: 3px;
@@ -583,6 +582,151 @@
 
     .search-container.desktop-inline.active .search-box input::placeholder {
       color: #999;
+    }
+
+    .search-container.desktop-inline.active .search-box {
+      width: 300px;
+    }
+
+    .search-box input {
+      min-width: 0;
+    }
+
+    .search-box i.clear-search {
+      flex-shrink: 0;
+    }
+
+    .search-box i.fa-magnifying-glass {
+      flex-shrink: 0;
+    }
+
+    .search-box i.search-help-btn {
+      color: #aaa;
+      cursor: pointer;
+      margin: 0 0 0 2px;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+
+    .search-box i.search-help-btn:hover,
+    .search-box i.search-help-btn.open {
+      color: var(--primary-color);
+    }
+
+    .search-container.desktop-inline:not(.active) .search-help-btn {
+      display: none;
+    }
+
+    .search-help-pop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 900;
+      width: min(340px, calc(100vw - 24px));
+      background: #ffffff;
+      color: var(--text-main);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      padding: 12px 16px 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+
+    .search-help-pop.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .search-help-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .search-help-close {
+      margin-left: auto;
+      border: none;
+      background: transparent;
+      color: #999;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 2px 4px;
+    }
+
+    .search-help-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 0;
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+
+    .search-help-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent-glow);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .search-help-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .search-help-desc {
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .search-help-example {
+      display: inline-block;
+      background: #f0f2f5;
+      color: var(--primary-dark);
+      border-radius: 6px;
+      padding: 0 7px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .search-help-tip {
+      margin-top: 4px;
+      padding-top: 9px;
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .search-help-tip i {
+      color: #f5a623;
+      margin-right: 4px;
+    }
+
+    /* 搜尋結果：ID 命中標籤 */
+    .search-id-badge {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: var(--accent-glow);
+      border-radius: 10px;
+      padding: 1px 8px;
     }
 
     main {
@@ -1632,6 +1776,7 @@
           <i class="fa-solid fa-magnifying-glass" onclick="triggerHaptic(); toggleSearch();"></i>
           <input type="text" id="searchInput" placeholder="搜尋標題、單元...（空格或+進行進階搜尋）" oninput="handleSearch()">
           <i class="fa-solid fa-circle-xmark clear-search" id="clearSearchBtn" onclick="clearSearch()"></i>
+          <i class="fa-regular fa-circle-question search-help-btn" id="searchHelpBtn" title="搜尋說明" onclick="triggerHaptic(); toggleSearchHelp(event);"></i>
         </div>
       </div>
 
@@ -1692,6 +1837,35 @@
       <div class="modal-body" id="noticeModalBody">
       </div>
     </div>
+  </div>
+
+  <div class="search-help-pop" id="searchHelpPop" role="dialog" aria-label="搜尋說明">
+    <div class="search-help-head">
+      <i class="fa-solid fa-circle-question"></i> 搜尋小幫手
+      <button class="search-help-close" type="button" onclick="closeSearchHelp()" aria-label="關閉"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="search-help-item">
+      <div class="search-help-icon"><i class="fa-solid fa-font"></i></div>
+      <div class="search-help-body">
+        <div class="search-help-name">單一關鍵字</div>
+        <div class="search-help-desc">輸入標題或單元名稱的一部分，例如：<span class="search-help-example" onclick="applySearchExample('點餐')">點餐</span></div>
+      </div>
+    </div>
+    <div class="search-help-item">
+      <div class="search-help-icon"><i class="fa-solid fa-plus"></i></div>
+      <div class="search-help-body">
+        <div class="search-help-name">多個關鍵字（進階搜尋）</div>
+        <div class="search-help-desc">用「+」或「空格」連接，會優先列出同時符合的內容，例如：<span class="search-help-example" onclick="applySearchExample('Win+本')">Win+本</span></div>
+      </div>
+    </div>
+    <div class="search-help-item">
+      <div class="search-help-icon"><i class="fa-solid fa-hashtag"></i></div>
+      <div class="search-help-body">
+        <div class="search-help-name">ID 文章搜尋</div>
+        <div class="search-help-desc">直接輸入內容 ID（分享連結最後那串數字），會置頂並直接前往，例如：<span class="search-help-example" onclick="applySearchExample('609180204')">609180204</span></div>
+      </div>
+    </div>
+    <div class="search-help-tip"><i class="fa-solid fa-lightbulb"></i> 「智能搜尋」為精準結果，「類似結果」為部分符合的相關內容。</div>
   </div>
 
   <script>
@@ -2750,6 +2924,61 @@
         .filter(Boolean);
     }
 
+    // ID 搜尋：從關鍵字中取出可能的內容 ID（支援直接輸入 ID、貼上分享網址或 ?cid= 連結）
+    function extractSearchIds(keywords) {
+      const ids = [];
+      keywords.forEach(k => {
+        let t = k;
+        const cidMatch = t.match(/[?&]cid=([^&#]+)/);
+        if (cidMatch) {
+          t = cidMatch[1];
+        } else {
+          t = t.replace(/[?#].*$/, '').replace(/\/+$/, '').split('/').pop();
+        }
+        if (/^\d+$/.test(t) && ids.indexOf(t) === -1) ids.push(t);
+      });
+      return ids;
+    }
+
+    // 依 ID 找出對應的 主課程／大章節／中章節／小章節，包成搜尋結果
+    function findIdSearchResults(ids) {
+      const results = [];
+      if (ids.length === 0) return results;
+
+      courseData.forEach(book => {
+        function add(type, chain, id) {
+          if (id === undefined || id === null) return;
+          const idStr = String(id);
+          if (ids.indexOf(idStr) === -1) return;
+          results.push({
+            type: type,
+            bookTitle: book.title,
+            bookIcon: book.iconUrl || '',
+            ownTitle: chain[chain.length - 1],
+            ownMatched: true,
+            matchedId: idStr,
+            action: () => navigateToShareId(idStr)
+          });
+        }
+
+        function walk(list, chain) {
+          list.forEach(item => {
+            const newChain = [...chain, item.title];
+            add('chapter', newChain, item.id);
+            if (item.subchapters) walk(item.subchapters, newChain);
+            if (item.sections) {
+              item.sections.forEach(sec => add('section', [...newChain, sec.title], sec.id));
+            }
+          });
+        }
+
+        add('book', [book.title], book.id);
+        if (book.chapters) walk(book.chapters, [book.title]);
+      });
+
+      return results;
+    }
+
     function handleSearch() {
       const rawQuery = searchInput.value.trim();
       const query = rawQuery.toLowerCase();
@@ -2826,6 +3055,19 @@
       // 精準結果內，本身標題就完全命中的排在前面，跨層級才交集命中的排在後面
       preciseResults.sort((a, b) => (b.ownMatched ? 1 : 0) - (a.ownMatched ? 1 : 0));
 
+      // ID 直達：輸入內容剛好是某內容的 ID 時，該內容置頂顯示，並移除重複項目
+      const idResults = findIdSearchResults(extractSearchIds(keywords));
+      if (idResults.length > 0) {
+        const idKeyOf = r => r.type + '|' + r.bookTitle + '|' + r.ownTitle;
+        const idKeys = new Set(idResults.map(idKeyOf));
+        [preciseResults, fuzzyResults].forEach(arr => {
+          for (let i = arr.length - 1; i >= 0; i--) {
+            if (idKeys.has(idKeyOf(arr[i]))) arr.splice(i, 1);
+          }
+        });
+        preciseResults.unshift(...idResults);
+      }
+
       if (preciseResults.length === 0 && fuzzyResults.length === 0) {
         appContent.innerHTML = `
           <div class="empty-state">
@@ -2857,7 +3099,7 @@
               <img src="${escapeHtmlAttr(res.bookIcon)}" class="search-result-icon" alt="${escapeHtmlAttr(res.bookTitle)}" onerror="this.src='${fallbackIcon}'">
               <div class="search-result-text">
                 <div class="search-result-title">${escapeHtmlText(res.bookTitle)}</div>
-                <span class="search-result-sub">${subLine}</span>
+                <span class="search-result-sub">${subLine}${res.matchedId ? ` <span class="search-id-badge"><i class="fa-solid fa-hashtag"></i> ${escapeHtmlText(res.matchedId)}</span>` : ''}</span>
               </div>
             </div>
             <i class="fa-solid fa-chevron-right" style="color:#aaa; font-size:0.8rem; flex-shrink:0;"></i>
@@ -2962,6 +3204,51 @@
       if (navSearchBtn) navSearchBtn.classList.remove('active');
       renderHall();
     }
+
+    // 搜尋說明（?）浮動視窗
+    const searchHelpBtn = document.getElementById('searchHelpBtn');
+    const searchHelpPop = document.getElementById('searchHelpPop');
+
+    function positionSearchHelp() {
+      const rect = searchHelpBtn.getBoundingClientRect();
+      const width = searchHelpPop.offsetWidth;
+      const left = Math.min(Math.max(12, rect.right - width), window.innerWidth - width - 12);
+      searchHelpPop.style.left = Math.max(12, left) + 'px';
+      searchHelpPop.style.top = (rect.bottom + 10) + 'px';
+    }
+
+    function toggleSearchHelp(event) {
+      if (event) event.stopPropagation();
+      if (searchHelpPop.classList.contains('active')) {
+        closeSearchHelp();
+        return;
+      }
+      positionSearchHelp();
+      searchHelpPop.classList.add('active');
+      searchHelpBtn.classList.add('open');
+    }
+
+    function closeSearchHelp() {
+      searchHelpPop.classList.remove('active');
+      searchHelpBtn.classList.remove('open');
+    }
+
+    function applySearchExample(text) {
+      triggerHaptic();
+      searchInput.value = text;
+      closeSearchHelp();
+      handleSearch();
+    }
+
+    document.addEventListener('click', function (e) {
+      if (!searchHelpPop.classList.contains('active')) return;
+      if (searchHelpPop.contains(e.target) || searchHelpBtn.contains(e.target)) return;
+      closeSearchHelp();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeSearchHelp();
+    });
+    window.addEventListener('resize', closeSearchHelp);
 
     window.onload = function() {
       setAppHeight();
