@@ -1,8 +1,29 @@
 // 在 Google Apps Script 編輯器裡建立一個名為 "Post" 的 HTML 檔案
 var postData = [
   {
+    version: "🚀 - 網站升級 (61016",
+    isExpanded: true,
+    logs: [
+      {
+        tag: "新增",
+        title: "文章ID搜尋",
+        content: "支援輸入文章 ID，精準直達目標教學內容。"
+      },
+      {
+        tag: "新增",
+        title: "搜尋小幫手",
+        content: "點擊「？」即可查看搜尋說明，找資料更輕鬆。"
+      },
+      {
+        tag: "優化",
+        title: "搜尋結果",
+        content: "優化搜尋結果引導S。"
+      }
+    ]
+  },
+  {
     version: "📖 - 新講義 (61015",
-    isExpanded:  true,
+    isExpanded:  false,
     logs: [
       {
         tag: "上架",
