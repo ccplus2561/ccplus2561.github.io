@@ -258,6 +258,27 @@ var courseData = [
             "videoNote": "⚠️ 提醒： 部分影片包含成人內容，請遵守 YouTube 年齡限制規定觀看。🔞\n\n💽影片名稱：《花田少年史》第01~25集 連續播放\n🎬集數：01~25集\n📁播放清單：[ https://www.youtube.com/playlist?list=PLOrdAySpFIQpIGpF5vPsWDGMFrEN4dFzN ]\n\n🧩 ===== 時間軸（章節標記） ===== 🧩\n00:00:00 - 主題曲\n00:01:20 - 古早古早以前 \n00:22:13 - 幽靈小雪的請求\n00:43:07 - 花田二路\n01:04:00 - 向日葵盛開的家\n01:24:52 - 雞雞老子\n01:45:44 - 阿桂\n02:06:33 - 炸火腿\n02:27:25 - 淚灑胸前\n02:48:17 - 靈媒凱都力妮\n03:19:48 - 家族\n03:30:00 - 人生最大的危機\n03:50:53 - 重要的東西\n04:11:46 - 第13年的夥伴\n04:32:36 - 天邪鬼\n04:53:32 - 權八\n05:14:19 - 花小姐\n05:35:15 - 幽靈櫻花樹下\n05:56:00 - 約定\n06:16:53 - 狂奔的Melon\n06:37:45 - 聖誕節禮物\n06:58:36 - 下雪的夜晚\n07:19:28 - 玲子\n07:40:19 - 夜間任務\n08:01:12 - 母子地藏\n08:22:04 - 片粟花\n08:42:55 - 片尾曲\n================ 🔗 本集文章 ================\n🌐程式創造++ 網站： [ https://ccplus2561.github.io/610150131 ]"
           }
         ]
+      },
+      {
+        "title": "Ch02 - 頻道設置",
+        "id": "6101502",
+        "type": "Ch",
+        "sections": [
+          {
+            "title": "Ex01 - 創建YouTube頻道",
+            "id": "610150201",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNJcl5GtVYU6q7cOqeVKlORKNLwVVrSZDqDyxKDubE9o47-nrDOzevF2U712mIkoRgFVqtsKBZM5Ex9qaURosHMii4PkimhZe4biywFplR4PMhjE2XhIc_uFGklqLP-OamImZreAjMTG3jEIvL_QeT0=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Xf7AmpTQMQ-4bd31EyF6RTvbU9t0NFCg/preview"
+          },
+          {
+            "title": "Ex02 - 轉移頻道",
+            "id": "610150202",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM6oVkS2sgHVxb4tLqyLGLcLQagYiTiB28i69ZbBqp10xHN0OLeQViaUO-q5CdnxQyWvelYLpGp95GWo6eObuSBOeFsxldk4YuWtSyW4FRpsGDIO8znxdnMEW_vOz8r8dB-yz7wwWbZd0qMLIJwphrx=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/16ALCiJk5Zy3GUlYZzPTKDrccgzv7Hlvy/preview"
+          }
+        ]
       }
     ]
   },
