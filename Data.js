@@ -841,6 +841,12 @@ var courseData = [
     ]
   },
   {
+    "title": "GitHub 教學",
+    "id": "61023",
+    "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczMFnWL_3OTgwoTlaGFmZL6VSd5LzbxjP8Xnf2zBNlj3lwWoFO3BkiHgQskDY5dKE3VeT2GY3xkB4pAHqS519Yz38DAxaWH5zjKvTERe0qGLpP0WKV7gqOaMxL5J0ecxCMYrPx9KAL_YzbWu415TGIqZ=w512-h512-s-no-gm?authuser=0",
+    "chapters": []
+  },
+  {
     "title": "Google 教學",
     "id": "60918",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczOdMDK9S-GeefcKEV6YeHdC09_5zoFD6blhKooNSY1BjfY_Y30_TKQNiC8T1MSDtgGpWBRfFkkXTsRuVkLAfO9-5i5m-GI9y-IlEb17zBRUm8C-p_dCE6Awj-uE-7O3QV0sVspA-g0DC1w1gLh97ZF0=w200-h204-s-no-gm?authuser=0",
@@ -3358,14 +3364,24 @@ var courseData = [
             "pdfUrl": "https://drive.google.com/file/d/1A1_T2UDxLfJtgA1YuJQuuMll2PxukDCH/preview"
           },
           {
-            "title": "Ex34 - CMD清除硬碟",
+            "title": "Ex34 - CMD快速清除硬碟",
             "id": "610010234",
             "mode": "article",
-            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczO1OCY34bpD4jte-fVHx4rVygvx6c2L2hFi5wtt8MB_pKPfWKxVu5tgeepfG8vb1AzuJRwkqdcGG-aTjgN9AkDXAgSkmYRgc0-agmcMp98K10xtVxQZsFTyHXPBOpsHwzluH-KjFC4ztuta1ow1pfa8=w1280-h720-s-no-gm?authuser=0",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNAYz1y2NLpHTDvJXwvHHh_V14zR-lB6RbA8VFDsbpkGh6CmSW3FaQQ7JCLuExz2OG2vsZw9EV3NGD6eD8ybj7BaPLBAQuAk53BrdkZjJUuUEvOZZf5lJoYidS5Gb0HICcb7Irj8xR0J3uCWy5LRbOR=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "CMD深度清除硬碟 教學",
+                "url": "https://ccplus2561.github.io/610010235"
+              },
+              {
+                "title": "磁碟分割 新增磁碟區 教學",
+                "url": "https://ccplus2561.github.io/610010217"
+              }
+            ],
             "blocks": [
               {
                 "type": "pdf",
-                "content": "https://drive.google.com/file/d/1nSoCoBkSYjjbbuzQIGBGWXW_NbDbc2mZ/preview"
+                "content": "https://drive.google.com/file/d/1HufkibXOsqpzkNM-E4DUzvBKFiWA3Uwo/preview"
               },
               {
                 "type": "code",
@@ -3388,6 +3404,52 @@ var courseData = [
                 "content": "Clean"
               }
             ]
+          },
+          {
+            "title": "Ex35 - CMD深度清除硬碟",
+            "id": "610010235",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMwWG8QR4kA4rXi5Cgg7fPnz6AZgy9inNxhJipnkYmvy0qYzLoj3BF2sAJ_bjm8Z_ZuJxmAuMkCUM3A-cjjbCNW9HFnhDU27x84y-2CXFMqNHtaUU4a1Nr6_5OBE1ckpsJEoxUabE_FYapVuYXD4NYf=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "CMD快速清除硬碟 教學",
+                "url": "https://ccplus2561.github.io/610010234"
+              },
+              {
+                "title": "磁碟分割 新增磁碟區 教學",
+                "url": "https://ccplus2561.github.io/610010217"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/1nIT93RKnjoVJ2X_1r0F_yj8cVoaCOUht/preview"
+              },
+              {
+                "type": "code",
+                "content": "CMD"
+              },
+              {
+                "type": "code",
+                "content": "Diskpart"
+              },
+              {
+                "type": "code",
+                "content": "List Disk"
+              },
+              {
+                "type": "code",
+                "content": "Select Disk xx"
+              },
+              {
+                "type": "code",
+                "content": "detail disk"
+              },
+              {
+                "type": "code",
+                "content": "Clean all"
+              }
+            ]
           }
         ],
         "type": "Ch"
@@ -3405,6 +3467,10 @@ var courseData = [
               {
                 "title": "bandizip",
                 "url": "https://tw.bandisoft.com/bandizip/"
+              },
+              {
+                "title": "Bandizip關閉更新視窗 教學篇",
+                "url": "https://ccplus2561.github.io/610010401"
               }
             ],
             "pdfUrl": "https://drive.google.com/file/d/1N61d4HyWDHqKvyBggDOpoJaW2nJXVtc0/preview"
@@ -3515,7 +3581,13 @@ var courseData = [
             "id": "610010313",
             "mode": "pdf",
             "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczO9z388khTvv9A9taUFe0cDQcZWXl7kj_YWpKNptqYVhGGPRzkt8tsfq836xKvWywXcHmryX2FCIZoekD2FaI7yc-N8ikXQNex4o4q5E0CT9M15Ryu0Zki16Xwf4CgaL3CEA_n0VSWvVGtigjyBjxSx=w1280-h720-s-no-gm?authuser=0",
-            "pdfUrl": "https://drive.google.com/file/d/1rXjfaE97VU004J3L7zg3HCqjCfgNz1zV/preview"
+            "pdfUrl": "https://drive.google.com/file/d/1rXjfaE97VU004J3L7zg3HCqjCfgNz1zV/preview",
+            "buttons": [
+              {
+                "title": "PowerDirector威力導演刪除預設檔案",
+                "url": "https://ccplus2561.github.io/610010403"
+              }
+            ]
           },
           {
             "title": "Ex14 - PotPlayer播放器",
@@ -3690,9 +3762,136 @@ var courseData = [
             "mode": "pdf",
             "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMm59vK0Il1PDCXgElaZuhu_JtKSqnDSpSBENeCSypxNrjrnoHZkfxNYJjD9jKBPtri2J2XSw_Q7jpRdAxTJbj_gUvd3J2tRVy29TV5v__j1GEsqxmufTrCe4wGJq7a9BKoGoPLj9kljSARoQJxrxis=w1280-h720-s-no-gm?authuser=0",
             "pdfUrl": "https://drive.google.com/file/d/1EHwP0lRKyyrrxVwV7rqd8b3ipGQavbR3/preview"
+          },
+          {
+            "title": "Ex29 - Quartus II 9.1安裝",
+            "id": "610010329",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP1fa8LkObMmvRISRc4grmjgB6L405-tK4tWga7s0Di6u_6sU0EHLDjBeLiSJDnD2TsJnQBQX7gFUIRj6P-BtndzeAXow2fgyAbykvqEXuNj7fnYnrpm0NDeHztAc0WE5vUfWmE2LZLk0kurcWlvHkJ=w1619-h911-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1PUFc7EBg-rP5KlgZoilBLnMNPqqVFaJr/preview"
+          },
+          {
+            "title": "Ex30 - Quartus II 13安裝",
+            "id": "610010330",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczM7j72YitpOYHoG6FO7zgwgX_Cpej3lG5gUCK4HnslIxKLjsy8hbwcUgoWPF0BCGN68OcAWGQMuuOI_VQ6HdE_YwAcwHPSg6Ms5YPEZ3kuuRTOO9bCUo4ZZAL_k1Y3tKjrvUcxj-4mXYDt37Q8wBR_W=w1619-h911-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/13hd9FfG1BNgHXCEJC7lw9mhdgvttRfkV/preview"
+          },
+          {
+            "title": "Ex31 - JDK下載安裝",
+            "id": "610010331",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP2UKT2pw0r1-BoDpcFDsUtZpU_BLrIuj5vTNhTK1-wqhCM8OpsqOdWUYWhUh5IDIcpfkZNO2-uBaRgWAvGV6y8Mr6gplo_7CKhMxk8FVmKVDetMKM7PIdgMiv2GJGWJ-h6iNnY38cD_owj0iJTsYyH=w1619-h911-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Z4HSgcXs_RiiuyZPUvJkekKxqLYLaFg1/preview"
+          },
+          {
+            "title": "Ex32 - 華碩智慧輸入法",
+            "id": "610010332",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPnHvABqkh1r4eYP3vhepRYto1c60TLbyJBWsNoBjPiRzkQ0gkkFbA4nyhEVerkvrSmCnpT2nI4m8RA_SM6AsdJVwt28gzNFOGMnpE8tCJEeGbhOMWjdecd3jrpbeQ4YMfRh79Vff5A8KLYhsgTPogZ=w1619-h911-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1u8QHKYnG-CwfX2B1FilaTN00Jn0VvWwC/preview"
           }
         ],
         "type": "Ch"
+      },
+      {
+        "title": "Ch04 - 免費軟體應用",
+        "id": "6100104",
+        "type": "Ch",
+        "sections": [
+          {
+            "title": "Ex01 - Bandizip關閉更新視窗",
+            "id": "610010401",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP57E4eTqKkrfABMdby4z9tfms4cpcHRdHXi0JyWEfp0hTHJv-qoeYcpfTEkT25EzE25uWST_-4rVA5lIZLJzJGgCKZnH6TJG9YbdjoNZk-3hLB_5BeE2nyA2MLIw91WU4eI667lsrIHrjxWCGV5bIg=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1FeJpn8dPkB2sFRnm6cYOR4leXnJ81Kyi/preview",
+            "buttons": [
+              {
+                "title": "Bandizip下載教學",
+                "url": "https://ccplus2561.github.io/610010301"
+              }
+            ]
+          },
+          {
+            "title": "Ex02 - 條碼產生器",
+            "id": "610010402",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNA7-TYNwDrJQhL5iC_kN-NEO1bdUfsGc_tB3BKfTIIx9pmiuSydoQZ3fjhtuiAnL40LmQEP7TLH0uWkrjvAqs0ZHttXmeoPQiB7FB0d8s7VXkM8614UYZdVCg3gM9eqILajFGT7wLxIDYXfRV2tDvC=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1dbwl0YD0tCUrteVgdfq7YvgZJF8JhNfH/preview",
+            "buttons": [
+              {
+                "title": "下載連結",
+                "url": "https://mega.nz/folder/GkIiRBQS#vazU7zvmWhbf5Mxk8KJfaQ"
+              }
+            ]
+          },
+          {
+            "title": "Ex03 - PowerDirector威力導演 刪除預設檔案",
+            "id": "610010403",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMk959hEKnq4gEfkT3qNYY_0bUTklcbf5vIAIiy18ZNnXO10y5A4I5W6u3bPz1KlTqTrFFGVwGsym1e_SR-7JrXHa-a70MZLe9mKzzUxnJrizraj4TofrmEDEWsIXz1uFaESaF_lQU0ep0X_xpVjzkt=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1o9FiwBNB2rwyGNLs_rg-YoHqsKEladel/preview",
+            "buttons": [
+              {
+                "title": "PowerDirector威力導演下載安裝",
+                "url": "https://ccplus2561.github.io/610010313"
+              }
+            ]
+          },
+          {
+            "title": "Ex04 - PPT 3D動畫圖製作",
+            "id": "610010404",
+            "mode": "article",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNsRU8ndFdlpm7NrVHl7v51DKzC0OfrvsCE0WJWcS11n8cspMpUU1-016u0xzuBf_BAS7ZuK0mbjEQpxvXvCe7rh6CnNBd4DVjx_m4cyAQ5U3OfbGntWscX9HxvKgrw40rjEAAf7oh-da6JB7HTIXNN=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "本教學檔案",
+                "url": "https://mega.nz/folder/20xgzLCL#MoY3K_8ncvUOtCQefp8P2Q"
+              },
+              {
+                "title": "成果影片",
+                "url": "https://youtu.be/r5dfEC8r8ng"
+              }
+            ],
+            "blocks": [
+              {
+                "type": "video",
+                "content": "https://youtu.be/r5dfEC8r8ng"
+              },
+              {
+                "type": "pdf",
+                "content": "https://drive.google.com/file/d/14gzE-PLTwegkmnjlGbCvwv11VoDjemuw/preview"
+              }
+            ]
+          },
+          {
+            "title": "Ex05 - LocalSend 區域檔案傳輸",
+            "id": "610010405",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMI7_WTB7JF4LL86YTsH-jX8GTmpWe1Lmhu8vcc_cbsKwbM2sl20oP9v3jqj26YaffMADcMXlZDmweCdUXYMkUBRrxBLN8I0f6RxSPDlUE30tW5ScL3saaySwyFB-UDzHlQ8hd7E7SZnmapXY5PIeal=w1280-h720-s-no-gm?authuser=0",
+            "buttons": [
+              {
+                "title": "LocalSend官網",
+                "url": "https://localsend.org/zh-TW"
+              }
+            ],
+            "pdfUrl": "https://drive.google.com/file/d/1ldajm59kB-mgZ7eONFxWqTTbt8XYsvBr/preview"
+          },
+          {
+            "title": "Ex06 - Scrcpy 手機螢幕同步電腦",
+            "id": "610010406",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOda8jBA-0QawFy8_vdg94H07TPWReIBMxPudfO57YH2DFZm-IAiTuyGiolAa1sxl46oVwg3jYHd_zRRiQMw9N_hsCyh0d-O-OZKhvJPDhFbvgfiAGF8c-QqmXkSwFRGN6BdiVCSF3vj2l-huAhK_Fn=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1Uw3-lixkpn-pqDH8Q9K4Xi0Y1ANPoS11/preview"
+          },
+          {
+            "title": "Ex07 - Windows 機活包",
+            "id": "610010407",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczPKuGo-JThZjmRw4_L_M0WMYsHyP67KFqwJchcwfzYx-mZpOmF_YyJ0oqV4s0ikYd8cXpysgDx-d3GO2Ky9EYA-kqTQCwLCAoZNRcjZQhQ7FqNDPhGetCLuYWwpwEVMbPQNzgB1WvPIz6rBwADLjZFQ=w1619-h911-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1ku0htrUZN85F0rBk1sidq9EoWByN4LAb/preview"
+          }
+        ]
       }
     ]
   },
@@ -3747,8 +3946,100 @@ var courseData = [
   },
   {
     "title": "更多教學",
-    "id": "61012",
+    "id": "61021",
     "iconUrl": "https://lh3.googleusercontent.com/pw/AP1GczO6UrBP0MoWAby29oTPGq0AXoNUAnOSYGDggayMazC1ueDMGnUsJuyXKpdp0WPG6mXwzqwLahQFAmZpKHUula55hZZ3n7BL_WZk-FHaN8ca0ByJYHWMtX60m4r4g1jXgwB6A2jLwpAqqSykfxKXPy8a=w512-h514-s-no-gm?authuser=0",
-    "chapters": []
+    "chapters": [
+      {
+        "title": "Ch01 - iPASS一卡通",
+        "id": "6102101",
+        "type": "Ch",
+        "sections": [
+          {
+            "title": "Ex01 - 一卡通 餘額查詢",
+            "id": "610210101",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczP5UkREIj0sDUuw0ysbpAgsnjvai61IhHXEkaUL3QmNMRmrhVlj2jVr4KttxfMvhfR5AuDzdgkI_Wm-XvanrKURNPkp38dSQa1iUVKkNT9emaQXDhKhc3kc7sY4S0LPzmIyFWFYQvVFelFTM_KyVc4D=w1280-h720-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1vg6e_Rx-sRnjpNHOXMENSlHqN8pzCJpY/preview"
+          }
+        ]
+      },
+      {
+        "title": "Ch02 - YouBike微笑單車",
+        "id": "6102103",
+        "type": "Ch",
+        "sections": [
+          {
+            "title": "Ex01 - Ubike投保教學",
+            "id": "610210301",
+            "mode": "pdf",
+            "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNSCs2Qjy_4CoR59LdQDc4cMv-rtTrwEdBW3SgaORSgdIsQCgQS6KGMfVU7M9tEqUQ-Up5iXhCpp0tscRDRphyiKy5Wmc--XFmojKx1bWZUv0bxUEvW-KqG4l5iziUcVec5I8F6cZzlIq94fetsQaWD=w1619-h911-s-no-gm?authuser=0",
+            "pdfUrl": "https://drive.google.com/file/d/1upKmEosnf80eISwANSACJJl84GQb-0V8/preview",
+            "buttons": [
+              {
+                "title": "YouBike微笑單車",
+                "url": "https://www.youbike.com.tw/region/main/"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "P01 - SAMSUNG 三星教學",
+        "id": "6102102",
+        "type": "P",
+        "subchapters": [
+          {
+            "title": "Ch01 - Galaxy A5 (2017)",
+            "id": "610210201",
+            "type": "Ch",
+            "sections": [
+              {
+                "title": "Ex01 - Recovery 清除快取",
+                "id": "61021020101",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczMcEyE5i-sO8DYwzSxl8WsTvqkN26GeqpWgHRU27z6MrwPqjx_FaugaPErmUQTD5je5nI8jB69rh7gbXTFhvETJflpy7OTMElrKyPUwBL-4bVcMeYyLJxgwhHot12Abjb8tAb1pmmuno5MAZVbiKQQ2=w1619-h911-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1WFvP7UaheGecGLYaQ1Tj3E4AfkJqqyjF/preview"
+              },
+              {
+                "title": "Ex02 - Recovery恢復原廠",
+                "id": "61021020102",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczNTNEVWGFaQ-dycaYxXebYdCIlnqejlDmzrOKGzayLrFgvPYy-dooy_MPwe-U5xyvsYGjmYaU1SQgZLXprOJurRDuRLiXhJdvz4cXNixf0TvzRAuLyyFnXus-lVLyoqOb4XHcx9hghzuoWUZ1hfDNtz=w1619-h911-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1gB3WdcZUWBZbAd0z96zqSKwMWy81M3LE/preview"
+              },
+              {
+                "title": "Ex03 - 升級 Android 14 (LineageOS 系統)",
+                "id": "61021020103",
+                "mode": "pdf",
+                "coverUrl": "https://lh3.googleusercontent.com/pw/AP1GczOPx391SSiGIAakFNN0zw47mO_anhaOsip0yyDvniwYzfFCr0-gxeFqy-DSQ9sU4phsftfKWsUG6rx6d7jaA6CYzJagOWhq_IeyPWWsjj_xAvrTY23MUYXViiu2aeHvzhgwXv_lssZ6VgSKUqE4f2jd=w1619-h911-s-no-gm?authuser=0",
+                "pdfUrl": "https://drive.google.com/file/d/1Rl4symwYQcLIMYPdHoxjZTTN_yFQEaMN/preview",
+                "buttons": [
+                  {
+                    "title": "HARDRESET網頁",
+                    "url": "https://www.hardreset.info/"
+                  },
+                  {
+                    "title": "Samsung Drivers",
+                    "url": "https://www.hardreset.info/download/special-samsung-drivers/"
+                  },
+                  {
+                    "title": "Odin",
+                    "url": "https://www.hardreset.info/download/odin3-v3144/"
+                  },
+                  {
+                    "title": "adb",
+                    "url": "https://www.hardreset.info/download/mini-adb-fastboot-drivers/"
+                  },
+                  {
+                    "title": "LineageOS 系統 下載",
+                    "url": "https://mega.nz/folder/9iJAHaxR#1RpCeFqa2u_rg6UEEq4EBQ"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ];
