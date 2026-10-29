@@ -18,9 +18,15 @@
     var parts = path.split('/');
     var first = parts[0];
 
-    // 1. /部落 → 部落格大廳
-    if (first === '部落' && parts.length === 1) {
-      location.replace(BLOG);
+    // 1. 別名表：短網址 → 實際位置（要新增短網址，在這裡多加一行即可）
+    //    key 一律用小寫；比對時不分大小寫，所以 /Game、/GAME 也能用
+    var ALIASES = {
+      '部落': BLOG,          // /部落  → 部落格大廳
+      'game': '/MiniHub/',   // /game  → MiniHub 遊戲平台
+      'games': '/MiniHub/'   // /games → MiniHub 遊戲平台
+    };
+    if (parts.length === 1 && ALIASES.hasOwnProperty(first.toLowerCase())) {
+      location.replace(ALIASES[first.toLowerCase()]);
       return;
     }
 
