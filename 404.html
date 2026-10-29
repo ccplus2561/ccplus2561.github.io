@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>加加研究室 - 頁面轉向中</title>
+<link rel="icon" type="image/png" href="/ccplus2561_logo.png">
+<script>
+  // 中繼站路由：GitHub Pages 遇到不存在的路徑都會進這頁
+  (function () {
+    var BLOG = '/blog/';                       // 部落格所在 repo 名稱（若你取別的名字，改這裡）
+    var path = '';
+    try { path = decodeURIComponent(location.pathname); } catch (e) { path = location.pathname; }
+    path = path.replace(/^\/+|\/+$/g, '');
+    var first = path.split('/')[0];
+
+    // 1. 純數字 → 部落格文章 ID（舊的 YouTube 連結全部走這條，不用改）
+    if (/^\d+$/.test(first)) {
+      location.replace(BLOG + '?cid=' + encodeURIComponent(first));
+      return;
+    }
+    // 2. /部落 → 部落格大廳
+    if (first === '部落') {
+      location.replace(BLOG);
+      return;
+    }
+    // 3. 舊版 ?cid= 連結也相容
+    var m = location.search.match(/[?&]cid=(\d+)/);
+    if (m) {
+      location.replace(BLOG + '?cid=' + m[1]);
+      return;
+    }
+    // 4. 其他無效網址 → 中繼站大廳
+    location.replace('/');
+  })();
+</script>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    background:linear-gradient(135deg,#e7f1fc,#eef1fb 50%,#f3eafb);color:#2c3e50;text-align:center}
+  .box{padding:32px}
+  .spin{width:44px;height:44px;margin:0 auto 16px;border-radius:50%;border:4px solid rgba(0,123,199,.18);
+    border-top-color:#007bc7;animation:s .9s linear infinite}
+  @keyframes s{to{transform:rotate(360deg)}}
+  a{color:#007bc7}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="spin"></div>
+    <div>頁面轉向中，請稍候…</div>
+    <p style="font-size:.85rem;color:#888">若未自動跳轉，請<a href="/">回到首頁</a></p>
+  </div>
+</body>
+</html>
