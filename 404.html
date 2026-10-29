@@ -8,31 +8,47 @@
 <link rel="icon" type="image/png" href="/ccplus2561_logo.png">
 <script>
   // 中繼站路由：GitHub Pages 遇到不存在的路徑都會進這頁
+  // 規則：只有「存在的文章 ID」「/部落」會轉走，其餘一律回中繼站大廳
   (function () {
-    var BLOG = '/blog/';                       // 部落格所在 repo 名稱（若你取別的名字，改這裡）
+    var BLOG = '/blog/';                       // 部落格 repo 名稱（若取別的名字，改這裡）
+    var HOME = '/';
     var path = '';
     try { path = decodeURIComponent(location.pathname); } catch (e) { path = location.pathname; }
     path = path.replace(/^\/+|\/+$/g, '');
-    var first = path.split('/')[0];
+    var parts = path.split('/');
+    var first = parts[0];
 
-    // 1. 純數字 → 部落格文章 ID（舊的 YouTube 連結全部走這條，不用改）
-    if (/^\d+$/.test(first)) {
-      location.replace(BLOG + '?cid=' + encodeURIComponent(first));
-      return;
-    }
-    // 2. /部落 → 部落格大廳
-    if (first === '部落') {
+    // 1. /部落 → 部落格大廳
+    if (first === '部落' && parts.length === 1) {
       location.replace(BLOG);
       return;
     }
-    // 3. 舊版 ?cid= 連結也相容
-    var m = location.search.match(/[?&]cid=(\d+)/);
-    if (m) {
-      location.replace(BLOG + '?cid=' + m[1]);
+
+    // 2. 取出文章 ID：/609180302 或舊版 ?cid=609180302
+    var id = null;
+    if (/^\d+$/.test(first) && parts.length === 1) id = first;
+    else {
+      var m = location.search.match(/[?&]cid=(\d+)/);
+      if (m && path === '') id = m[1];
+    }
+
+    if (id) {
+      // 先確認這個 ID 真的存在於部落格資料，存在才轉址，否則回大廳
+      fetch(BLOG + 'Data.js', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+        .then(function (t) {
+          var found = new RegExp('"id"\\s*:\\s*"' + id + '"').test(t);
+          location.replace(found ? BLOG + '?cid=' + id : HOME);
+        })
+        .catch(function () {
+          // 讀不到資料時，保守起見仍交給部落格處理
+          location.replace(BLOG + '?cid=' + id);
+        });
       return;
     }
-    // 4. 其他無效網址 → 中繼站大廳
-    location.replace('/');
+
+    // 3. 其他一律回中繼站大廳
+    location.replace(HOME);
   })();
 </script>
 <style>
