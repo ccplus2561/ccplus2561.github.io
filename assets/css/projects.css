@@ -165,3 +165,46 @@ html[data-theme="dark"] .mh-status-item.is-live small { color: #8be6c3; }
   .sub-page .page-hero h1 { grid-column: 1 / -1; grid-row: 3; margin: 22px 0 8px; font-size: clamp(32px, 9vw, 40px); }
   .sub-page .page-hero .mh-hero-copy > p { grid-column: 1 / -1; grid-row: 4; font-size: 17px; }
 }
+
+/* ---- Mobile v2: floating back button, tuned play button, compact cards ---- */
+@media (max-width: 700px) {
+  /* 1. back-to-lobby floats at the bottom-left, kept small */
+  .sub-page .back-lobby-btn {
+    position: fixed; left: 14px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 90;
+    grid-column: auto; grid-row: auto; min-height: 40px; margin: 0; padding: 0 16px 0 5px; gap: 8px; font-size: 14.5px;
+    box-shadow: 0 8px 22px rgba(30,70,140,.28);
+  }
+  .sub-page .back-lobby-btn .back-arrow { width: 30px; height: 30px; font-size: 15px; }
+  .sub-page .back-lobby-btn:hover { transform: none; }
+  .sub-page .site-footer { padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
+
+  /* 2. play button sits beside the logo, vertically centred and full width of the column */
+  .sub-page .page-hero { padding-top: 26px; }
+  .sub-page .mh-hero-logo { grid-row: 1; }
+  .sub-page .mh-hero-actions { grid-column: 2; grid-row: 1; justify-self: stretch; align-self: center; }
+  .sub-page .mh-cta { width: 100%; justify-content: center; min-height: 54px; font-size: 17px; border-radius: 14px; }
+  .sub-page .page-hero h1 { grid-row: 2; margin: 20px 0 6px; }
+  .sub-page .page-hero .mh-hero-copy > p { grid-row: 3; }
+
+  /* 3. shorter version cards */
+  .sub-page .project-grid { gap: 12px; }
+  .sub-page .project-card {
+    display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; column-gap: 14px; row-gap: 0; align-items: center;
+    min-height: 0; padding: 16px 18px;
+  }
+  .sub-page .project-card-top { display: contents; }
+  .sub-page .project-icon { grid-area: 1 / 1 / 3 / 2; width: 52px; height: 52px; border-radius: 15px; align-self: center; }
+  .sub-page .project-icon svg { width: 25px; height: 25px; }
+  .sub-page .status-pill { grid-area: 1 / 3; align-self: start; padding: 5px 10px; font-size: 12.5px; }
+  .sub-page .project-card h3 { grid-area: 1 / 2; margin: 0; font-size: 21px; align-self: end; }
+  .sub-page .project-card p { grid-area: 2 / 2 / 3 / 4; margin: 3px 0 0; font-size: 15px; line-height: 1.5; }
+  .sub-page .project-card-bottom { grid-area: 3 / 1 / 4 / 4; margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--line); font-size: 15px; }
+  .sub-page .projects-section { padding-top: 16px; padding-bottom: 36px; }
+}
+@media (max-width: 700px) {
+  .sub-page .project-card { column-gap: 12px; padding: 16px; }
+  .sub-page .project-card h3 { font-size: 19px; white-space: nowrap; }
+  .sub-page .status-pill { padding: 4px 9px; font-size: 12px; }
+}
+/* keep the floating back button above the footer (main must not form its own stacking context) */
+.sub-page main { z-index: auto; }
