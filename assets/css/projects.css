@@ -151,3 +151,17 @@ html[data-theme="dark"] .mh-status-item.is-live small { color: #8be6c3; }
 /* labels removed: keep spacing */
 .sub-page .project-card h3 { margin-top: 26px; }
 .sub-page .projects-section { padding-bottom: 72px; }
+
+/* ---- Mobile hero: logo + back button + play button share one compact row ---- */
+@media (max-width: 700px) {
+  .sub-page .page-hero { display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: 18px; row-gap: 10px; align-items: center; padding-top: 20px; }
+  .sub-page .mh-hero, .sub-page .mh-hero-copy { display: contents; }
+  .sub-page .mh-hero-logo { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+  .sub-page .mh-hero-logo img { width: 96px; height: 96px; border-radius: 24px; }
+  .sub-page .back-lobby-btn { grid-column: 2; grid-row: 1; justify-self: start; min-height: 44px; margin: 0; padding: 0 20px 0 7px; gap: 10px; font-size: 16px; }
+  .sub-page .back-lobby-btn .back-arrow { width: 30px; height: 30px; font-size: 16px; }
+  .sub-page .mh-hero-actions { grid-column: 2; grid-row: 2; justify-self: start; margin: 0; }
+  .sub-page .mh-cta { min-height: 44px; padding: 0 22px; font-size: 16px; gap: 10px; border-radius: 12px; }
+  .sub-page .page-hero h1 { grid-column: 1 / -1; grid-row: 3; margin: 22px 0 8px; font-size: clamp(32px, 9vw, 40px); }
+  .sub-page .page-hero .mh-hero-copy > p { grid-column: 1 / -1; grid-row: 4; font-size: 17px; }
+}
