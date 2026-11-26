@@ -4,37 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101b32">
-  <meta name="description" content="加加研究室 CCPLUS2561 官方專案入口，整合 MiniHub 跨平台專案、應用程式更新與教學資源。">
+  <meta name="description" content="加加研究室專案大廳，快速進入專案平台、更新中心、快速導向與教學部落格。">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="加加研究室｜專案中心">
-  <meta property="og:description" content="作品、工具與更新，一站掌握。">
+  <meta property="og:title" content="專案大廳｜加加研究室">
+  <meta property="og:description" content="加加研究室專案大廳，快速進入專案平台、更新中心、快速導向與教學部落格。">
   <meta property="og:image" content="https://ccplus2561.github.io/assets/images/ccplus2561_logo.png">
-  <title>加加研究室｜專案中心</title>
+  <title>專案大廳｜加加研究室</title>
   <link rel="icon" type="image/png" href="/assets/images/ccplus2561_logo.png">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳至主要內容</a>
-
-  <header class="site-header">
+  <header class="site-header" id="top">
     <div class="nav-shell">
-      <a class="brand" href="/" aria-label="加加研究室首頁">
+      <a class="brand" href="/" aria-label="加加研究室大廳">
         <img src="/assets/images/ccplus2561_logo.png" alt="" width="44" height="44">
-        <span class="brand-copy">
-          <strong>加加研究室</strong>
-          <small>CCPLUS2561 · PROJECTS</small>
-        </span>
+        <span class="brand-copy"><strong>加加研究室</strong><small>CCPLUS2561 · PROJECTS</small></span>
       </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟導覽選單">
-        <span></span><span></span><span></span>
-      </button>
-
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟導覽選單"><span></span><span></span><span></span></button>
       <nav class="site-nav" id="site-nav" aria-label="主選單">
-        <a class="nav-link is-current" href="/">首頁</a>
-        <a class="nav-link" href="#projects">專案平台</a>
-        <a class="nav-link" href="#updates">更新紀錄</a>
+        <a class="nav-link is-current" href="/">大廳</a>
+        <a class="nav-link " href="/projects/">專案平台</a>
+        <a class="nav-link " href="/updates/">更新中心</a>
+        <a class="nav-link " href="/routes/">快速導向</a>
         <a class="nav-link" href="/blog/">教學部落格 <span aria-hidden="true">↗</span></a>
         <button class="theme-toggle" type="button" aria-label="切換深色模式" title="切換深色模式">
           <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
@@ -43,46 +36,24 @@
       </nav>
     </div>
   </header>
-
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero lobby-hero" aria-labelledby="hero-title">
       <div class="hero-grid-lines" aria-hidden="true"></div>
       <div class="hero-inner page-width">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> CCPLUS2561 <span class="eyebrow-divider">/</span> OFFICIAL PROJECT HUB</div>
-          <h1 id="hero-title">作品、工具與更新，<br><span>一站掌握。</span></h1>
-          <p class="hero-description">歡迎來到加加研究室。從 MiniHub 遊戲平台到跨平台應用程式，所有專案入口與版本資訊都在這裡整合。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="/MiniHub/">
-              開啟 MiniHub <span aria-hidden="true">↗</span>
-            </a>
-            <a class="button button-ghost" href="#projects">探索專案 <span aria-hidden="true">↓</span></a>
-          </div>
-          <div class="hero-footnote"><span class="status-pulse"></span> 專案入口持續整理與更新中</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> CCPLUS2561 <span class="eyebrow-divider">/</span> PROJECT LOBBY</div>
+          <h1 id="hero-title">加加研究室<br><span>專案大廳</span></h1>
+          <p class="hero-description">選擇入口，開始使用。</p>
+          <div class="hero-actions"><a class="button button-primary" href="#entrances">瀏覽服務入口 <span aria-hidden="true">↓</span></a></div>
         </div>
-
-        <div class="hero-art" aria-label="MiniHub 多平台專案示意圖">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
+        <div class="hero-art" aria-label="MiniHub 專案示意圖">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
           <div class="float-chip chip-top"><span class="chip-dot dot-blue"></span> PROJECT HUB</div>
           <div class="app-window">
-            <div class="window-topbar">
-              <div class="window-dots"><i></i><i></i><i></i></div>
-              <span>MiniHub</span>
-              <span class="window-menu">•••</span>
-            </div>
+            <div class="window-topbar"><div class="window-dots"><i></i><i></i><i></i></div><span>MiniHub</span><span class="window-menu">•••</span></div>
             <div class="window-content">
-              <div class="window-brand-row">
-                <div class="window-app-icon">M</div>
-                <div><b>MiniHub</b><small>YOUR GAME SPACE</small></div>
-                <span class="live-tag">WEB</span>
-              </div>
-              <div class="window-feature">
-                <div class="feature-orb orb-a"></div><div class="feature-orb orb-b"></div>
-                <span>PLAY · DISCOVER · ENJOY</span>
-                <strong>遊戲，就從這裡開始。</strong>
-                <div class="feature-bars"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
+              <div class="window-brand-row"><div class="window-app-icon">M</div><div><b>MiniHub</b><small>YOUR GAME SPACE</small></div><span class="live-tag">WEB</span></div>
+              <div class="window-feature"><div class="feature-orb orb-a"></div><div class="feature-orb orb-b"></div><span>PLAY · DISCOVER · ENJOY</span><strong>遊戲，就從這裡開始。</strong><div class="feature-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
               <div class="window-shortcuts"><span>網頁版</span><span>Windows</span><span>Android</span></div>
             </div>
           </div>
@@ -92,110 +63,24 @@
       </div>
       <div class="hero-bottom-rule" aria-hidden="true"></div>
     </section>
-
-    <section class="section projects-section page-width" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">01 / PROJECTS</div>
-          <h2 id="projects-title">專案平台</h2>
-          <p>依照使用裝置，選擇適合的版本與入口。</p>
-        </div>
-        <label class="project-search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
-          <input id="project-search" type="search" placeholder="搜尋專案或平台…" autocomplete="off">
-        </label>
-      </div>
-
-      <div class="project-grid" id="project-grid">
-        <a class="project-card project-card-featured" href="/MiniHub/" data-search="minihub 網頁 網頁版 web 遊戲 game browser">
-          <div class="project-card-top">
-            <div class="project-icon icon-web">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8h18M8 22h8m-4-3v3M7 6h.01M10 6h.01"/></svg>
-            </div>
-            <span class="status-pill status-live"><i></i> 可立即使用</span>
-          </div>
-          <div class="project-label">MINIHUB · WEB</div>
-          <h3>MiniHub 網頁版</h3>
-          <p>免安裝，使用瀏覽器即可進入遊戲平台。適合桌上型電腦、筆電與手機瀏覽器。</p>
-          <div class="project-card-bottom"><span>前往遊戲平台</span><b aria-hidden="true">↗</b></div>
+    <section class="lobby-section page-width" id="entrances" aria-labelledby="entrances-title">
+      <div class="lobby-heading"><div><div class="section-kicker">WELCOME</div><h2 id="entrances-title">你想前往哪裡？</h2></div></div>
+      <div class="lobby-grid">
+        <a class="lobby-card lobby-card-primary" href="/projects/">
+          <span class="lobby-icon">⌘</span><span class="lobby-tag">PROJECTS</span><h3>專案平台</h3><p>開啟 MiniHub，各裝置版本入口。</p><span class="lobby-link">進入平台 <b aria-hidden="true">↗</b></span>
         </a>
-
-        <div class="project-card" data-search="minihub windows pc desktop 電腦 桌面版 安裝包 更新包">
-          <div class="project-card-top">
-            <div class="project-icon icon-windows">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.2 10.4 4v7H3V5.2Zm8.7-1.4L21 2.4V11h-9.3V3.8ZM3 12.5h7.4v7L3 18.3v-5.8Zm8.7 0H21v8.6l-9.3-1.4v-7.2Z"/></svg>
-            </div>
-            <span class="status-pill status-planned">更新包準備中</span>
-          </div>
-          <div class="project-label">MINIHUB · WINDOWS</div>
-          <h3>MiniHub for Windows</h3>
-          <p>Windows 電腦專用版本。正式安裝包、版本資訊與更新紀錄將集中在此處。</p>
-          <div class="project-card-bottom is-muted"><span>尚未提供下載</span><b aria-hidden="true">—</b></div>
-        </div>
-
-        <div class="project-card" data-search="minihub android mobile phone apk 手機 平板 行動版 安裝包 更新包">
-          <div class="project-card-top">
-            <div class="project-icon icon-android">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8.2 5.3 5.5m11.7 2.7 1.7-2.7M6 9h12v7.3a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9Zm-2 1v6m16-6v6M9 4.8 8 3m7 1.8L16 3"/><path d="M9.2 12.2h.01m5.6 0h.01"/></svg>
-            </div>
-            <span class="status-pill status-planned">更新包準備中</span>
-          </div>
-          <div class="project-label">MINIHUB · ANDROID</div>
-          <h3>MiniHub for Android</h3>
-          <p>Android 手機與平板專用版本。APK 安裝檔、版本資訊與更新紀錄將集中在此處。</p>
-          <div class="project-card-bottom is-muted"><span>尚未提供下載</span><b aria-hidden="true">—</b></div>
-        </div>
+        <a class="lobby-card" href="/updates/">
+          <span class="lobby-icon">↻</span><span class="lobby-tag">RELEASES</span><h3>更新中心</h3><p>查看版本與更新內容。</p><span class="lobby-link">查看更新 <b aria-hidden="true">↗</b></span>
+        </a>
+        <a class="lobby-card" href="/routes/">
+          <span class="lobby-icon">⌁</span><span class="lobby-tag">QUICK LINKS</span><h3>快速導向</h3><p>常用網址與短網址入口。</p><span class="lobby-link">查看網址 <b aria-hidden="true">↗</b></span>
+        </a>
+        <a class="lobby-card" href="/blog/">
+          <span class="lobby-icon">✳</span><span class="lobby-tag">LEARN</span><h3>教學部落格</h3><p>Arduino、Python 與實作教學。</p><span class="lobby-link">前往文章 <b aria-hidden="true">↗</b></span>
+        </a>
       </div>
-      <p class="search-empty" id="search-empty" hidden>找不到符合條件的專案，請試試其他關鍵字。</p>
-    </section>
-
-    <section class="updates-section" id="updates" aria-labelledby="updates-title">
-      <div class="page-width updates-layout">
-        <div class="updates-intro">
-          <div class="section-kicker">02 / RELEASE CENTER</div>
-          <h2 id="updates-title">更新中心</h2>
-          <p>集中查看各平台版本、更新內容與安裝包。每次正式發布都能在這裡追蹤。</p>
-          <div class="updates-note"><span class="note-icon">↗</span><span>Windows 與 Android 更新包將依平台分開管理。</span></div>
-        </div>
-        <div class="release-panel">
-          <div class="release-panel-head">
-            <div><span class="panel-overline">RELEASE NOTES</span><h3>最新更新紀錄</h3></div>
-            <span class="release-count">0 RELEASES</span>
-          </div>
-          <div class="release-empty">
-            <div class="empty-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 14h6m-6 3h6"/></svg>
-            </div>
-            <strong>目前尚無公開更新紀錄</strong>
-            <p>正式版本發布後，版本號、更新日期、更新內容與下載入口會顯示於此。</p>
-          </div>
-          <div class="release-panel-foot"><span class="release-dot"></span> 更新資訊以正式發布內容為準</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="routing-section page-width" aria-labelledby="routing-title">
-      <div class="section-kicker">03 / QUICK ROUTES</div>
-      <div class="routing-heading">
-        <div><h2 id="routing-title">快速導向</h2><p>保留原有短網址與錯誤網址回首頁機制。</p></div>
-        <span class="routing-shield" aria-hidden="true">⌁</span>
-      </div>
-      <div class="route-list">
-        <div class="route-item"><code>/game</code><span>MiniHub 遊戲平台</span><b>→</b></div>
-        <div class="route-item"><code>/games</code><span>MiniHub 遊戲平台</span><b>→</b></div>
-        <div class="route-item"><code>/部落</code><span>教學部落格</span><b>→</b></div>
-        <div class="route-item"><code>/{文章 ID}</code><span>確認文章存在後前往指定文章</span><b>→</b></div>
-      </div>
-      <div class="routing-footnote"><span class="routing-check">✓</span> 其他無效或不存在的網址，會自動返回加加研究室首頁。</div>
-    </section>
-
-    <section class="blog-banner page-width" aria-label="教學部落格入口">
-      <div class="blog-banner-icon" aria-hidden="true">✳</div>
-      <div class="blog-banner-copy"><span>LEARN & CREATE</span><h2>從教學開始，把想法做出來。</h2><p>Arduino、Python、Android 與創客實作文章。</p></div>
-      <a href="/blog/" class="button button-light">前往教學部落格 <span aria-hidden="true">↗</span></a>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="page-width footer-inner">
       <a class="footer-brand" href="/"><img src="/assets/images/ccplus2561_logo.png" alt="" width="34" height="34"><span>加加研究室 <small>CCPLUS2561</small></span></a>
