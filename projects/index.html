@@ -8,15 +8,27 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="MiniHub 遊戲中心｜加加研究室">
   <meta property="og:description" content="MiniHub 遊戲中心：選擇網頁版或下載版本。">
-  <meta property="og:image" content="https://ccplus2561.github.io/assets/images/ccplus2561_logo.png">
+  <meta property="og:image" content="https://ccplus2561.github.io/assets/images/minihub_logo.png">
   <title>MiniHub 遊戲中心｜加加研究室</title>
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/ccplus2561_logo_512.png">
-  <link rel="apple-touch-icon" href="/assets/images/ccplus2561_logo_512.png">
+  <link rel="icon" href="/assets/images/minihub_favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/minihub_logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/minihub_logo.png">
   <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <link rel="stylesheet" href="/assets/css/projects.css">
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
 </head>
-<body>
+<body class="home-page sub-page">
+  <div class="home-bg" aria-hidden="true">
+    <span class="home-blob home-blob-a"></span>
+    <span class="home-blob home-blob-b"></span>
+    <span class="home-blob home-blob-c"></span>
+    <span class="home-grid"></span>
+    <span class="home-grid home-grid-hot"></span>
+    <span class="home-spot"></span>
+    <span class="home-dots"></span>
+  </div>
   <a class="skip-link" href="#main">跳至主要內容</a>
   <header class="site-header" id="top">
     <div class="nav-shell">
@@ -39,15 +51,21 @@
   </header>
   <main id="main" class="projects-page">
     <section class="page-hero page-width" aria-labelledby="page-title">
-      <a class="back-lobby" href="/">← 回到大廳</a>
-      <div class="section-kicker">MINIHUB</div>
-      <h1 id="page-title">MiniHub 遊戲中心</h1>
-      <p>選擇版本</p>
+      <a class="back-lobby back-lobby-btn" href="/"><span class="back-arrow" aria-hidden="true">←</span>回到大廳</a>
+      <div class="mh-hero">
+        <div class="mh-hero-logo"><img src="/assets/images/minihub_logo.png" alt="MiniHub Logo" width="124" height="124"></div>
+        <div class="mh-hero-copy">
+          <div class="section-kicker">MINIHUB</div>
+          <h1 id="page-title">MiniHub 遊戲中心</h1>
+          <p>選擇版本。網頁版免安裝、直接開啟；Windows 與 Android 版本準備中。</p>
+          <div class="mh-hero-actions"><a class="mh-cta" href="/MiniHub/">立即遊玩 <b aria-hidden="true">↗</b></a></div>
+        </div>
+      </div>
     </section>
     <section class="projects-section page-width content-section" aria-label="專案清單">
       <div class="project-grid" id="project-grid">
         <a class="project-card project-card-featured" href="/MiniHub/" data-search="minihub 網頁 網頁版 web 遊戲 game browser">
-          <div class="project-card-top"><div class="project-icon icon-web"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8h18M8 22h8m-4-3v3M7 6h.01M10 6h.01"/></svg></div><span class="status-pill status-live"><i></i> 可使用</span></div>
+          <div class="project-card-top"><div class="project-icon icon-web icon-logo"><img src="/assets/images/minihub_logo_192.png" alt="" width="56" height="56"></div><span class="status-pill status-live"><i></i> 可使用</span></div>
           <div class="project-label">MINIHUB · WEB</div><h3>網頁版</h3><p>免安裝，直接開啟。</p>
           <div class="project-card-bottom"><span>立即遊玩</span><b aria-hidden="true">↗</b></div>
         </a>
@@ -62,12 +80,18 @@
           <div class="project-card-bottom is-muted"><span>尚未開放</span><b aria-hidden="true">—</b></div>
         </div>
       </div>
+      <div class="mh-status" aria-label="版本狀態">
+        <div class="mh-status-title">版本狀態</div>
+        <div class="mh-status-item is-live"><i aria-hidden="true">✓</i><span><b>網頁版</b><small>已開放</small></span></div>
+        <div class="mh-status-item"><i aria-hidden="true">…</i><span><b>Windows 版本</b><small>準備中</small></span></div>
+        <div class="mh-status-item"><i aria-hidden="true">…</i><span><b>Android 版本</b><small>準備中</small></span></div>
+      </div>
     </section>
   </main>
   <footer class="site-footer">
     <div class="page-width footer-inner">
       <a class="footer-brand" href="/"><img src="/assets/images/ccplus2561_logo.png" alt="" width="34" height="34"><span>加加研究室 <small>CCPLUS2561</small></span></a>
-      <p>© <span id="current-year">2026</span> 加加研究室 · 程式創造++</p>
+      <p>加加研究室 · 程式創造++</p>
       <a class="back-top" href="#top">回到頂部 ↑</a>
     </div>
   </footer>

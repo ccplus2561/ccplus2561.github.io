@@ -31,7 +31,7 @@
   if (!finePointer || reduce) return;
 
   // Mouse light: page spotlight + hot grid
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.entrance-card'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.entrance-card, .project-card'));
   var pending = false;
   var px = 0, py = 0;
 
@@ -60,12 +60,11 @@
       var rect = card.getBoundingClientRect();
       var x = event.clientX - rect.left;
       var y = event.clientY - rect.top;
-      var rx = ((y / rect.height) - .5) * -9;
-      var ry = ((x / rect.width) - .5) * 11;
       card.style.setProperty('--cx', x + 'px');
       card.style.setProperty('--cy', y + 'px');
-      card.style.setProperty('--rx', rx.toFixed(2) + 'deg');
-      card.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+      if (card.tagName !== 'A') return;
+      card.style.setProperty('--rx', ((((y / rect.height) - .5) * -9)).toFixed(2) + 'deg');
+      card.style.setProperty('--ry', ((((x / rect.width) - .5) * 11)).toFixed(2) + 'deg');
     });
     card.addEventListener('pointerleave', function () {
       card.style.setProperty('--rx', '0deg');
