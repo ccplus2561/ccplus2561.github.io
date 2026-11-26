@@ -430,3 +430,66 @@ html[data-theme="dark"] .lobby-icon { color: #8abaff; background: #203b60; }
 @media (prefers-reduced-motion: reduce) {
   .lobby-card, .route-item-link { transition: none; }
 }
+
+
+/* Simplified main entrance */
+.brand img { border-radius: 50%; object-fit: contain; box-shadow: none; }
+.footer-brand img { width: 36px; height: 36px; border-radius: 50%; object-fit: contain; }
+.simple-lobby {
+  min-height: calc(100svh - 164px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 58px;
+  padding-bottom: 72px;
+}
+.simple-lobby-heading { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 42px; text-align: center; }
+.simple-lobby-heading img { width: 104px; height: 104px; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(22,48,86,.12)); }
+.simple-lobby-heading h1 { margin: 0; color: var(--ink); font-size: clamp(30px, 4vw, 42px); font-weight: 850; letter-spacing: -.04em; }
+.entrance-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.entrance-card {
+  position: relative; min-height: 188px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
+  gap: 20px; padding: 25px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink);
+  background: var(--surface); text-decoration: none; box-shadow: 0 8px 28px rgba(29,51,86,.045);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.entrance-card:hover { transform: translateY(-5px); border-color: #a9c8f5; box-shadow: var(--shadow); }
+.entrance-card-featured { border-color: #c6daf9; background: linear-gradient(145deg, var(--surface) 20%, color-mix(in srgb, #e9f2ff 72%, var(--surface))); }
+.entrance-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 17px; }
+.entrance-icon svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+.entrance-icon-game { color: #2f73dc; background: #eaf2ff; }
+.entrance-icon-blog { color: #218a78; background: #e8f6f1; }
+.entrance-icon-youtube { color: #dd4141; background: #fff0f0; }
+.entrance-icon-youtube svg rect { fill: currentColor; stroke: none; }
+.entrance-icon-youtube svg path { fill: #fff; stroke: #fff; stroke-width: 1; }
+.entrance-copy { display: grid; gap: 7px; padding-right: 28px; }
+.entrance-copy strong { font-size: 21px; line-height: 1.35; letter-spacing: -.025em; }
+.entrance-copy small { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.entrance-arrow { position: absolute; right: 25px; bottom: 22px; color: var(--blue); font-size: 23px; font-weight: 800; }
+html[data-theme="dark"] .entrance-card { background: var(--surface); }
+html[data-theme="dark"] .entrance-card-featured { background: linear-gradient(145deg, #17263d, #1a2f4c); }
+html[data-theme="dark"] .entrance-icon-game { color: #8abaff; background: #203b60; }
+html[data-theme="dark"] .entrance-icon-blog { color: #78d3bd; background: #1b3b39; }
+html[data-theme="dark"] .entrance-icon-youtube { color: #ff8b8b; background: #452b33; }
+.projects-page .page-hero { padding-bottom: 18px; }
+.projects-page .projects-section { padding-top: 20px; }
+.projects-page .project-card { min-height: 272px; }
+@media (max-width: 900px) {
+  .entrance-grid { gap: 13px; }
+  .entrance-card { padding: 21px; }
+  .entrance-copy strong { font-size: 19px; }
+}
+@media (max-width: 700px) {
+  .simple-lobby { min-height: auto; padding-top: 44px; padding-bottom: 50px; }
+  .simple-lobby-heading { gap: 10px; margin-bottom: 28px; }
+  .simple-lobby-heading img { width: 88px; height: 88px; }
+  .simple-lobby-heading h1 { font-size: 32px; }
+  .entrance-grid { grid-template-columns: 1fr; gap: 12px; }
+  .entrance-card { min-height: 132px; flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; padding: 20px; }
+  .entrance-icon { width: 54px; height: 54px; flex: 0 0 54px; }
+  .entrance-copy { flex: 1; }
+  .entrance-copy strong { font-size: 18px; }
+  .entrance-copy small { font-size: 13px; }
+  .entrance-arrow { position: static; margin-left: auto; align-self: center; }
+  .projects-page .project-card { min-height: 235px; }
+}
