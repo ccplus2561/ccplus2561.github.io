@@ -203,3 +203,14 @@ html[data-theme="dark"] .home-pill { background: linear-gradient(135deg, rgba(28
   .home-page .entrance-copy small { font-size: 15px; }
   .home-pill { font-size: 14.5px; }
 }
+
+/* ---- Mobile lobby cards: stacked layout ---- */
+@media (max-width: 700px) {
+  .home-page .entrance-grid { grid-template-columns: 1fr; gap: 14px; }
+  .home-page .entrance-card { flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 22px; min-height: 176px; padding: 22px; }
+  .home-page .entrance-top { width: 100%; }
+  .home-page .entrance-icon, .home-page .entrance-icon-logo { width: 58px; height: 58px; flex: 0 0 58px; }
+  .home-page .entrance-copy { flex: none; width: 100%; padding-right: 40px; }
+  .home-page .entrance-copy strong { font-size: 23px; white-space: nowrap; }
+  .home-page .entrance-arrow { position: absolute; right: 22px; bottom: 20px; margin: 0; align-self: auto; }
+}

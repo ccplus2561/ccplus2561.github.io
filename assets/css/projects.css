@@ -147,3 +147,7 @@ html[data-theme="dark"] .mh-status-item.is-live small { color: #8be6c3; }
   .sub-page .project-card p { font-size: 16px; }
   .sub-page .page-hero .mh-hero-copy > p { font-size: 17.5px; }
 }
+
+/* labels removed: keep spacing */
+.sub-page .project-card h3 { margin-top: 26px; }
+.sub-page .projects-section { padding-bottom: 72px; }
