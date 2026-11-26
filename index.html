@@ -14,9 +14,20 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/ccplus2561_logo_512.png">
   <link rel="apple-touch-icon" href="/assets/images/ccplus2561_logo_512.png">
   <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
 </head>
-<body>
+<body class="home-page">
+  <div class="home-bg" aria-hidden="true">
+    <span class="home-blob home-blob-a"></span>
+    <span class="home-blob home-blob-b"></span>
+    <span class="home-blob home-blob-c"></span>
+    <span class="home-grid"></span>
+    <span class="home-grid home-grid-hot"></span>
+    <span class="home-spot"></span>
+    <span class="home-dots"></span>
+  </div>
   <a class="skip-link" href="#main">跳至主要內容</a>
   <header class="site-header" id="top">
     <div class="nav-shell">
@@ -39,10 +50,7 @@
   </header>
   <main id="main">
     <section class="simple-lobby page-width" aria-labelledby="lobby-title">
-      <div class="simple-lobby-heading">
-        <img src="/assets/images/ccplus2561_logo.png" alt="加加研究室 Logo" width="112" height="112">
-        <h1 id="lobby-title">加加研究室</h1>
-      </div>
+      <h1 class="sr-only" id="lobby-title">加加研究室</h1>
       <div class="entrance-grid" aria-label="網站入口">
         <a class="entrance-card entrance-card-featured" href="/projects/">
           <span class="entrance-icon entrance-icon-game" aria-hidden="true">
@@ -71,7 +79,7 @@
   <footer class="site-footer">
     <div class="page-width footer-inner">
       <a class="footer-brand" href="/"><img src="/assets/images/ccplus2561_logo.png" alt="" width="34" height="34"><span>加加研究室 <small>CCPLUS2561</small></span></a>
-      <p>© <span id="current-year">2026</span> 加加研究室 · 程式創造++</p>
+      <p>加加研究室 · 程式創造++</p>
       <a class="back-top" href="#top">回到頂部 ↑</a>
     </div>
   </footer>
