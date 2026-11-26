@@ -73,3 +73,24 @@
 
   if (yearLabel) yearLabel.textContent = String(new Date().getFullYear());
 })();
+
+// Disable text selection / copying (form fields stay usable).
+(function () {
+  'use strict';
+  function isField(target) {
+    return !!(target && target.closest && target.closest('input, textarea'));
+  }
+  ['copy', 'cut', 'contextmenu', 'dragstart'].forEach(function (name) {
+    document.addEventListener(name, function (event) {
+      if (!isField(event.target)) event.preventDefault();
+    });
+  });
+  document.addEventListener('selectstart', function (event) {
+    if (!isField(event.target)) event.preventDefault();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (!(event.ctrlKey || event.metaKey) || isField(event.target)) return;
+    var key = String(event.key).toLowerCase();
+    if (key === 'c' || key === 'x' || key === 'a') event.preventDefault();
+  });
+})();

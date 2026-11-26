@@ -493,3 +493,13 @@ html[data-theme="dark"] .entrance-icon-youtube { color: #ff8b8b; background: #45
   .entrance-arrow { position: static; margin-left: auto; align-self: center; }
   .projects-page .project-card { min-height: 235px; }
 }
+
+/* Slim footer */
+.site-footer .footer-simple { min-height: 36px; padding: 0; justify-content: center; }
+.site-footer .footer-simple p { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* Text copying disabled (form fields stay usable) */
+html, body { -webkit-user-select: none; -moz-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea { -webkit-user-select: text; -moz-user-select: text; user-select: text; }
+img { -webkit-user-drag: none; user-drag: none; }
+.site-footer .footer-simple { flex-direction: row; align-items: center; justify-content: center; text-align: center; }

@@ -214,3 +214,7 @@ html[data-theme="dark"] .home-pill { background: linear-gradient(135deg, rgba(28
   .home-page .entrance-copy strong { font-size: 23px; white-space: nowrap; }
   .home-page .entrance-arrow { position: absolute; right: 22px; bottom: 20px; margin: 0; align-self: auto; }
 }
+
+/* ---- Slim footer (© only) ---- */
+.home-page .footer-simple { min-height: 36px; justify-content: center; }
+.home-page .footer-simple p { position: static; transform: none; font-size: 13px; color: var(--muted); }

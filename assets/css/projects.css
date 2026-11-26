@@ -208,3 +208,12 @@ html[data-theme="dark"] .mh-status-item.is-live small { color: #8be6c3; }
 }
 /* keep the floating back button above the footer (main must not form its own stacking context) */
 .sub-page main { z-index: auto; }
+
+/* ---- Windows / Android image icons ---- */
+.sub-page .icon-img { background: none; box-shadow: none; }
+.sub-page .icon-img img { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(20,50,110,.22)); }
+@media (max-width: 700px) {
+  .sub-page .site-footer { padding-bottom: 0; }
+  .sub-page main { padding-bottom: 28px; }
+}
+.sub-page .icon-android.icon-img img { transform: scale(1.2); }
