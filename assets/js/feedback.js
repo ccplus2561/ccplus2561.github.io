@@ -33,11 +33,6 @@
   }
   envInput.value = detectEnv();
 
-  function currentType() {
-    var checked = form.querySelector('input[name="type"]:checked');
-    return checked ? checked.value : '意見建議';
-  }
-
   function setStatus(message, kind) {
     statusEl.textContent = message || '';
     statusEl.className = 'fb-status' + (kind ? ' is-' + kind : '');
@@ -58,11 +53,10 @@
     field.addEventListener('input', function () { field.classList.remove('is-invalid'); setStatus(''); });
   });
 
-  function buildTitle() { return '[' + currentType() + '] ' + titleInput.value.trim(); }
+  function buildTitle() { return '[' + targetSelect.value + '] ' + titleInput.value.trim(); }
 
   function buildBody() {
     var lines = [
-      '**類型**：' + currentType(),
       '**相關項目**：' + targetSelect.value,
       '**裝置 / 瀏覽器**：' + (envInput.value.trim() || '未提供'),
       '**來源頁面**：' + location.origin + '/feedback/',
@@ -83,7 +77,7 @@
       fetch(FEEDBACK_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ subject: buildTitle(), message: buildBody(), type: currentType(), target: targetSelect.value })
+        body: JSON.stringify({ subject: buildTitle(), message: buildBody(), target: targetSelect.value })
       }).then(function (response) {
         if (!response.ok) throw new Error('bad status');
         form.reset();
