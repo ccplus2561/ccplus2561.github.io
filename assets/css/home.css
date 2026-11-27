@@ -218,3 +218,21 @@ html[data-theme="dark"] .home-pill { background: linear-gradient(135deg, rgba(28
 /* ---- Slim footer (© only) ---- */
 .home-page .footer-simple { min-height: 36px; justify-content: center; }
 .home-page .footer-simple p { position: static; transform: none; font-size: 13px; color: var(--muted); }
+
+/* ---- 5-card lobby: 3 on top, 2 wide below ---- */
+.home-page .entrance-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.home-page .entrance-card { grid-column: span 2; }
+.home-page .entrance-card:nth-child(n+4) { grid-column: span 3; }
+.home-page .entrance-card:nth-child(4) { animation-delay: .54s; }
+.home-page .entrance-card:nth-child(5) { animation-delay: .68s; }
+.home-page .entrance-card:nth-child(4) .entrance-icon { animation-delay: -4.2s; }
+.home-page .entrance-card:nth-child(5) .entrance-icon { animation-delay: -2.4s; }
+.home-page .entrance-card { min-height: clamp(150px, 22vh, 230px); padding: 22px 26px; }
+.entrance-icon-tools { color: #b8641a; background: #fff1e0; }
+.entrance-icon-feedback { color: #7a4fd6; background: #f0eaff; }
+html[data-theme="dark"] .entrance-icon-tools { color: #ffb877; background: #46331f; }
+html[data-theme="dark"] .entrance-icon-feedback { color: #c3a8ff; background: #382f57; }
+@media (max-width: 700px) {
+  .home-page .entrance-grid { grid-template-columns: 1fr; }
+  .home-page .entrance-card, .home-page .entrance-card:nth-child(n+4) { grid-column: auto; min-height: 176px; padding: 22px; }
+}

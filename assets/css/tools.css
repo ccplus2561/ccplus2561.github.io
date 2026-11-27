@@ -1,0 +1,76 @@
+/* Tools page (/tools/) and feedback page (/feedback/) — loaded after projects.css */
+
+/* Hero icon (replaces the MiniHub logo) */
+.tools-hero-icon img, .tools-hero-icon svg { position: relative; display: block; width: 124px; height: 124px; }
+.tools-hero-icon svg { padding: 32px; border-radius: 30px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; background: linear-gradient(135deg, #f3a14a, #d9741c); box-shadow: 0 18px 40px rgba(217,116,28,.35); animation: icon-float 4.5s ease-in-out infinite; }
+.tools-hero-icon::before { background: radial-gradient(circle, rgba(243,161,74,.4), transparent 68%) !important; }
+.tools-hero-feedback svg { background: linear-gradient(135deg, #9a72ec, #6a3fd0); box-shadow: 0 18px 40px rgba(106,63,208,.35); }
+.tools-hero-feedback::before { background: radial-gradient(circle, rgba(154,114,236,.4), transparent 68%) !important; }
+
+/* Tools: search + icon colours */
+.tools-search { max-width: 380px; margin-bottom: 22px; animation: home-fade .8s .2s ease backwards; }
+.tool-ic svg { width: 26px; height: 26px; }
+.tool-ic-bingo { color: #c2491f; background: #ffece3; }
+.tool-ic-ooxx { color: #2f73dc; background: #eaf2ff; }
+.tool-ic-tet { color: #7a4fd6; background: #f0eaff; }
+.tool-ic-agar { color: #1a8a6a; background: #e3f6ee; }
+.tool-ic-diff { color: #b8641a; background: #fff1e0; }
+.tool-ic-more { color: var(--muted); background: rgba(120,140,175,.16); }
+.sub-page .project-grid .project-card:nth-child(4) { animation-delay: .66s; }
+.sub-page .project-grid .project-card:nth-child(5) { animation-delay: .78s; }
+.sub-page .project-grid .project-card:nth-child(6) { animation-delay: .9s; }
+.sub-page .project-grid .project-card:nth-child(7) { animation-delay: 1.02s; }
+.tools-page .project-card { min-height: 230px; }
+.tools-page .project-card h3 { font-size: 24px; }
+.tools-page .project-card p { font-size: 16px; }
+html[data-theme="dark"] .tool-ic-bingo { color: #ff9f7d; background: #4a2c25; }
+html[data-theme="dark"] .tool-ic-ooxx { color: #8abaff; background: #203b60; }
+html[data-theme="dark"] .tool-ic-tet { color: #c3a8ff; background: #382f57; }
+html[data-theme="dark"] .tool-ic-agar { color: #73d8b1; background: #173c35; }
+html[data-theme="dark"] .tool-ic-diff { color: #ffb877; background: #46331f; }
+
+/* Feedback form */
+.fb-card {
+  max-width: 860px; display: grid; gap: 20px; padding: 30px; border-radius: 22px; border: 1px solid rgba(255,255,255,.9);
+  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(255,255,255,.84)); backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 10px 34px rgba(29,60,110,.09), inset 0 1px 0 rgba(255,255,255,.9); animation: card-in .9s .25s cubic-bezier(.2,.8,.2,1) backwards;
+}
+.fb-field { display: grid; gap: 8px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.fb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.fb-label, .fb-types legend { padding: 0; color: var(--muted); font-size: 14px; font-weight: 800; }
+.fb-field input[type="text"], .fb-field select, .fb-field textarea {
+  width: 100%; min-height: 50px; padding: 12px 15px; border: 1.5px solid var(--line); border-radius: 13px; color: var(--ink); background: var(--surface);
+  font: inherit; font-size: 16px; outline: 0; transition: border-color .2s ease, box-shadow .2s ease;
+}
+.fb-field textarea { min-height: 150px; resize: vertical; line-height: 1.65; }
+.fb-field input:focus, .fb-field select:focus, .fb-field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(52,125,244,.16); }
+.fb-field .is-invalid { border-color: #e04b4b; box-shadow: 0 0 0 4px rgba(224,75,75,.14); }
+.fb-types { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.fb-types legend { grid-column: 1 / -1; margin-bottom: 8px; }
+.fb-type { position: relative; cursor: pointer; }
+.fb-type input { position: absolute; opacity: 0; inset: 0; }
+.fb-type span { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 54px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 14px; color: var(--ink); background: var(--surface); font-size: 16px; font-weight: 800; transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }
+.fb-type b { font-size: 19px; }
+.fb-type:hover span { transform: translateY(-2px); border-color: rgba(90,150,240,.65); }
+.fb-type input:checked + span { color: #fff; border-color: transparent; background: linear-gradient(135deg, #3e87ff, #2769df); box-shadow: 0 8px 22px rgba(44,117,239,.35); }
+.fb-type input:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
+.fb-note { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+.fb-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.fb-submit { border: 0; cursor: pointer; font-family: inherit; }
+.fb-copy { min-height: 52px; padding: 0 22px; border: 1.5px solid var(--line); border-radius: 14px; color: var(--ink); background: var(--surface); font: inherit; font-size: 16px; font-weight: 800; cursor: pointer; transition: transform .2s ease, border-color .2s ease; }
+.fb-copy:hover { transform: translateY(-2px); border-color: rgba(90,150,240,.65); }
+.fb-status { flex: 1 1 220px; font-size: 15px; font-weight: 700; color: var(--muted); }
+.fb-status.is-ok { color: #0f6e4e; }
+.fb-status.is-error { color: #cc3b3b; }
+html[data-theme="dark"] .fb-card { background: linear-gradient(145deg, rgba(24,38,60,.94), rgba(18,30,48,.86)); border-color: rgba(120,160,220,.16); box-shadow: 0 10px 34px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.06); }
+html[data-theme="dark"] .fb-status.is-ok { color: #8be6c3; }
+html[data-theme="dark"] .fb-status.is-error { color: #ff8b8b; }
+
+@media (max-width: 700px) {
+  .tools-hero-icon svg { width: 92px; height: 92px; padding: 24px; border-radius: 24px; }
+  .tools-search { max-width: none; }
+  .fb-card { padding: 20px; gap: 18px; }
+  .fb-row { grid-template-columns: 1fr; gap: 18px; }
+  .fb-types { grid-template-columns: 1fr; }
+  .fb-actions .mh-cta, .fb-copy { width: 100%; justify-content: center; }
+}
