@@ -228,9 +228,9 @@ html[data-theme="dark"] .home-pill { background: linear-gradient(135deg, rgba(28
 .home-page .entrance-card:nth-child(4) .entrance-icon { animation-delay: -4.2s; }
 .home-page .entrance-card:nth-child(5) .entrance-icon { animation-delay: -2.4s; }
 .home-page .entrance-card { min-height: clamp(150px, 22vh, 230px); padding: 22px 26px; }
-.entrance-icon-tools { color: #b8641a; background: #fff1e0; }
+.entrance-icon-opensource { color: #b8641a; background: #fff1e0; }
 .entrance-icon-feedback { color: #7a4fd6; background: #f0eaff; }
-html[data-theme="dark"] .entrance-icon-tools { color: #ffb877; background: #46331f; }
+html[data-theme="dark"] .entrance-icon-opensource { color: #ffb877; background: #46331f; }
 html[data-theme="dark"] .entrance-icon-feedback { color: #c3a8ff; background: #382f57; }
 @media (max-width: 700px) {
   .home-page .entrance-grid { grid-template-columns: 1fr; }
