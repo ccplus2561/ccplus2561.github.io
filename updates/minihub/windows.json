@@ -1,8 +1,47 @@
 {
   "app": "MiniHub",
   "platform": "windows",
-  "ver": "v26.1128.1",
-  "release_date": "2026-11-28",
-  "download_url": "https://github.com/ccplus2561/MiniHub-Windows/releases/download/v26.1128.1/MiniHub.exe",
-  "note": "Windows 桌面版正式上線"
+  "latest_ver": "v26.1128.3",
+  "download_url": "https://github.com/ccplus2561/MiniHub-Windows/releases/download/v26.1128.3/MiniHub.exe",
+  "history": [
+    {
+      "ver": "v26.1128.3",
+      "notes": [
+        "修復部分電腦高 DPI 螢幕字體模糊問題",
+        "提升遊戲列表載入速度"
+      ]
+    },
+    {
+      "ver": "v26.1128.1",
+      "notes": [
+        "新增自動檢查更新通知功能",
+        "優化視窗縮放流暢度"
+      ]
+    },
+    {
+      "ver": "v26.1105.4",
+      "notes": [
+        "新增深色主題切換開關",
+        "修正特定情況下閃退的錯誤"
+      ]
+    },
+    {
+      "ver": "v26.1102.1",
+      "notes": [
+        "優化啟動連線穩定度"
+      ]
+    },
+    {
+      "ver": "v26.1101.2",
+      "notes": [
+        "修正首頁圖片顯示異常"
+      ]
+    },
+    {
+      "ver": "v26.1101.1",
+      "notes": [
+        "MiniHub Windows 正式版上線"
+      ]
+    }
+  ]
 }
