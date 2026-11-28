@@ -1,0 +1,9 @@
+{
+  "app": "MiniHub",
+  "platform": "android",
+  "ver": "v26.1125.1",
+  "release_date": "2026-11-25",
+  "download_url": "https://github.com/ccplus2561/MiniHub-Android/releases/download/v26.1125.1/MiniHub.apk",
+  "min_android": "10.0",
+  "note": "修復部分機型畫面比例問題"
+}
